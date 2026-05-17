@@ -668,6 +668,30 @@ fetch('data/team.json')
       container.appendChild(section);
     });
 
+    // Alumni section
+    const alumni = data.filter(m => m.alumni);
+    if (alumni.length) {
+      const alumniSection = document.createElement('div');
+      alumniSection.className = 'team-section reveal';
+      alumniSection.innerHTML = '<h2 class="team-section-heading">Alumni</h2>';
+      const alumniList = document.createElement('div');
+      alumniList.className = 'collab-list';
+      alumni.sort((a,b) => a.name.localeCompare(b.name)).forEach(m => {
+        const color = INST_COLORS[m.institution] || '#444';
+        const whereNow = m.where_now ? ` &middot; ${m.where_now}` : '';
+        alumniList.innerHTML += `
+          <div class="collab-item" style="opacity:0.7;">
+            <div>
+              <div class="collab-name">${m.name}</div>
+              <div class="collab-title">${m.role} · ${m.title}${whereNow}</div>
+            </div>
+            ${m.website ? `<a href="${m.website}" target="_blank" class="collab-badge" style="background:${color};text-decoration:none;">${m.institution}</a>` : `<span class="collab-badge" style="background:${color}">${m.institution}</span>`}
+          </div>`;
+      });
+      alumniSection.appendChild(alumniList);
+      container.appendChild(alumniSection);
+    }
+
     // Re-observe reveals
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   });
