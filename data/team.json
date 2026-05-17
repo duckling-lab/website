@@ -723,30 +723,5 @@
     "where_now": null,
     "object_position": "center top",
     "object_zoom": 1
-  },
-  {
-    "id": "testtttttttt",
-    "name": "testtttttttt",
-    "role": "",
-    "title": "",
-    "institution": "UMaryland",
-    "bu_member": false,
-    "tier": "phd",
-    "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/testtttttttt_adult.jpg",
-    "photo_kid": null,
-    "bio": null,
-    "interests": null,
-    "website": null,
-    "email": null,
-    "scholar": null,
-    "osf": null,
-    "cv": null,
-    "dissertation": null,
-    "dept": null,
-    "status": "alumni",
-    "alumni": true,
-    "where_now": "test",
-    "object_position": "center top",
-    "object_zoom": 1
   }
 ]
