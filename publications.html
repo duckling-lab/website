@@ -7,18 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* ── Hero ── */
 .pub-hero {
-  background: var(--sage-light);
-  padding: 4rem 2rem 2.5rem;
-  text-align: center;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 2rem 2rem;
+  text-align: left;
 }
-.pub-hero h1 {
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--ink); margin-bottom: 0.5rem;
-}
-.pub-hero p { color: var(--muted); font-size: 0.95rem; max-width: 560px; margin: 0 auto 1.5rem; }
+.pub-hero-inner { max-width: 1040px; margin: 0 auto; }
 
 /* ── Controls ── */
 .pub-controls {
@@ -194,10 +189,13 @@
   <a href="interest-form/index.html" class="mobile-cta">Get Involved</a>
 </div>
 
-<section class="pub-hero">
-  <h1>Publications</h1>
-  <p>Research from the Duckling Lab on language development, sentence processing, and prediction.</p>
-</section>
+<div class="pub-hero">
+  <div class="pub-hero-inner">
+    <p class="section-eyebrow">Duckling Lab</p>
+    <h1 class="section-title">Our <em>Publications</em></h1>
+    <p class="section-sub">Research on language development, sentence processing, and prediction.</p>
+  </div>
+</div>
 
 <div class="pub-controls">
   <div class="pub-controls-inner">
