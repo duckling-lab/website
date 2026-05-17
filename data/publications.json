@@ -5,8 +5,16 @@
     "status": "in revision",
     "year": 2026,
     "month": null,
-    "authors": ["Yacovone, A.", "Carter, J.", "Kocab, A.", "Davidson, K.", "Snedeker, J."],
-    "trainees": ["Carter, J."],
+    "authors": [
+      "Yacovone, A.",
+      "Carter, J.",
+      "Kocab, A.",
+      "Davidson, K.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Carter, J."
+    ],
     "title": "Linguistic modality (hand)shapes your expectations: An EEG study of form-based predictions during naturalistic comprehension of stories in American Sign Language",
     "journal": null,
     "volume": null,
@@ -18,7 +26,7 @@
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/yacovone_carter_2024_wip.pdf",
     "video": null,
     "poster_file": null
   },
@@ -28,8 +36,14 @@
     "status": "in preparation",
     "year": 2026,
     "month": null,
-    "authors": ["Yacovone, A.", "Waite, B.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Yacovone, A.",
+      "Waite, B.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Prediction is a piece of ceke: An EEG study of form-based prediction in young children during storytelling contexts",
     "journal": null,
     "volume": null,
@@ -41,7 +55,7 @@
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/yacovone_waite_underreview.pdf",
     "video": null,
     "poster_file": null
   },
@@ -51,13 +65,19 @@
     "status": "published",
     "year": 2025,
     "month": null,
-    "authors": ["Waite, B.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Waite, B.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Case Clozed: Young Children Can Explicitly Predict Upcoming Words in a Naturalistic, Story-based Cloze Task",
     "journal": "Journal of Child Language",
     "volume": null,
     "issue": null,
-    "pages": "1–25",
+    "pages": "1\u201325",
     "conference": null,
     "location": null,
     "virtual": false,
@@ -74,20 +94,27 @@
     "status": "published",
     "year": 2024,
     "month": null,
-    "authors": ["Yacovone, A.", "Waite, B.", "Levari, T.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Yacovone, A.",
+      "Waite, B.",
+      "Levari, T.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Let them eat ceke: An electrophysiological study of form-based prediction in rich naturalistic contexts",
     "journal": "Journal of Experimental Psychology: General",
     "volume": "154",
     "issue": "3",
-    "pages": "711–738",
+    "pages": "711\u2013738",
     "conference": null,
     "location": null,
     "virtual": false,
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/yacovone_waite_2024.pdf",
     "video": null,
     "poster_file": null
   },
@@ -97,20 +124,27 @@
     "status": "published",
     "year": 2024,
     "month": null,
-    "authors": ["Slim, M. S.", "Kandel, M.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Kandel, M."],
+    "authors": [
+      "Slim, M. S.",
+      "Kandel, M.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Kandel, M."
+    ],
     "title": "Webcams as windows to the mind? A direct comparison between in-lab and web-based eye-tracking methods",
     "journal": "Open Mind",
     "volume": "8",
     "issue": null,
-    "pages": "1369–1424",
+    "pages": "1369\u20131424",
     "conference": null,
     "location": null,
     "virtual": false,
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/slim_kandel_2024.pdf",
     "video": null,
     "poster_file": null
   },
@@ -120,7 +154,12 @@
     "status": "published",
     "year": 2023,
     "month": null,
-    "authors": ["Brothers, T.", "Morgan, E.", "Yacovone, A.", "Kuperberg, G. R."],
+    "authors": [
+      "Brothers, T.",
+      "Morgan, E.",
+      "Yacovone, A.",
+      "Kuperberg, G. R."
+    ],
     "trainees": [],
     "title": "Multiple predictions during language comprehension: Friends, foes, or indifferent companions?",
     "journal": "Cognition",
@@ -133,7 +172,7 @@
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/brothers_2023.pdf",
     "video": null,
     "poster_file": null
   },
@@ -143,7 +182,12 @@
     "status": "published",
     "year": 2021,
     "month": null,
-    "authors": ["Yacovone, A.", "Shafto, C. L.", "Worek, A.", "Snedeker, J."],
+    "authors": [
+      "Yacovone, A.",
+      "Shafto, C. L.",
+      "Worek, A.",
+      "Snedeker, J."
+    ],
     "trainees": [],
     "title": "Word vs. World Knowledge: A developmental shift from bottom-up lexical cues to top-down plausibility",
     "journal": "Cognitive Psychology",
@@ -156,7 +200,7 @@
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/yacovone_shafto_2021.pdf",
     "video": null,
     "poster_file": null
   },
@@ -166,8 +210,14 @@
     "status": "published",
     "year": 2021,
     "month": null,
-    "authors": ["Yacovone, A.", "Moya, E.", "Snedeker, J."],
-    "trainees": ["Moya, E."],
+    "authors": [
+      "Yacovone, A.",
+      "Moya, E.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Moya, E."
+    ],
     "title": "Unexpected words or unexpected languages? Two ERP effects of code-switching in naturalistic discourse",
     "journal": "Cognition",
     "volume": "215",
@@ -179,7 +229,7 @@
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/yacovone_moya_2021.pdf",
     "video": null,
     "poster_file": null
   },
@@ -189,20 +239,24 @@
     "status": "published",
     "year": 2020,
     "month": null,
-    "authors": ["Yacovone, A.", "Rigby, I.", "Omaki, A."],
+    "authors": [
+      "Yacovone, A.",
+      "Rigby, I.",
+      "Omaki, A."
+    ],
     "trainees": [],
     "title": "Children's comprehension and repair of garden-path wh-questions",
     "journal": "Language Acquisition",
     "volume": "27",
     "issue": "4",
-    "pages": "363–396",
+    "pages": "363\u2013396",
     "conference": null,
     "location": null,
     "virtual": false,
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/yacovone_rigby_2020.pdf",
     "video": null,
     "poster_file": null
   },
@@ -212,20 +266,25 @@
     "status": "published",
     "year": 2020,
     "month": null,
-    "authors": ["Rysling, A.", "Bishop, J.", "Clifton Jr., C.", "Yacovone, A."],
+    "authors": [
+      "Rysling, A.",
+      "Bishop, J.",
+      "Clifton Jr., C.",
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Preceding syllables are necessary for the accent advantage effect",
     "journal": "The Journal of the Acoustical Society of America",
     "volume": "148",
     "issue": "3",
-    "pages": "EL285–EL288",
+    "pages": "EL285\u2013EL288",
     "conference": null,
     "location": null,
     "virtual": false,
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/rysling_2020.pdf",
     "video": null,
     "poster_file": null
   },
@@ -235,20 +294,25 @@
     "status": "published",
     "year": 2019,
     "month": null,
-    "authors": ["Omaki, A.", "Ovans, Z.", "Yacovone, A.", "Dillon, B."],
+    "authors": [
+      "Omaki, A.",
+      "Ovans, Z.",
+      "Yacovone, A.",
+      "Dillon, B."
+    ],
     "trainees": [],
     "title": "Rebels without a clause: Processing reflexives in fronted wh-predicates",
     "journal": "Journal of Memory and Language",
     "volume": "107",
     "issue": null,
-    "pages": "80–94",
+    "pages": "80\u201394",
     "conference": null,
     "location": null,
     "virtual": false,
     "preprint_url": null,
     "doi": null,
     "osf": null,
-    "pdf": null,
+    "pdf": "https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/omaki_2019.pdf",
     "video": null,
     "poster_file": null
   },
@@ -258,13 +322,15 @@
     "status": "published",
     "year": 2025,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "The Garden Path to Literacy: How Syntax Guides Children's Comprehension, and Why We Should Teach Young Readers About It",
     "journal": "Perspectives on Language and Literacy",
     "volume": "51",
     "issue": "1",
-    "pages": "34–37",
+    "pages": "34\u201337",
     "conference": null,
     "location": null,
     "virtual": false,
@@ -281,7 +347,9 @@
     "status": "published",
     "year": 2026,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Departmental Colloquium",
     "journal": null,
@@ -305,7 +373,9 @@
     "status": "published",
     "year": 2025,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Invited Seminar",
     "journal": null,
@@ -329,7 +399,10 @@
     "status": "published",
     "year": 2025,
     "month": "October",
-    "authors": ["Yacovone, A.", "Van Dyke, J."],
+    "authors": [
+      "Yacovone, A.",
+      "Van Dyke, J."
+    ],
     "trainees": [],
     "title": "Science of Language Comprehension: Evidence about how the brain comprehends language",
     "journal": null,
@@ -353,8 +426,15 @@
     "status": "published",
     "year": 2025,
     "month": "November",
-    "authors": ["Waite, B.", "Levari, T.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Waite, B.",
+      "Levari, T.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "The development of prediction during naturalistic listening: ERP evidence for improved top-down processing with age and language ability",
     "journal": null,
     "volume": null,
@@ -377,7 +457,9 @@
     "status": "published",
     "year": 2024,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Departmental Colloquium",
     "journal": null,
@@ -401,7 +483,9 @@
     "status": "published",
     "year": 2024,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Departmental Colloquium",
     "journal": null,
@@ -425,7 +509,9 @@
     "status": "published",
     "year": 2023,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Invited Talk",
     "journal": null,
@@ -449,7 +535,9 @@
     "status": "published",
     "year": 2022,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Invited Talk",
     "journal": null,
@@ -473,7 +561,9 @@
     "status": "published",
     "year": 2022,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Invited Talk",
     "journal": null,
@@ -497,8 +587,16 @@
     "status": "published",
     "year": 2022,
     "month": "September",
-    "authors": ["Slim, M.", "Kandel, M.", "Yacovone, A.", "Presgrave, M.", "Snedeker, J."],
-    "trainees": ["Kandel, M."],
+    "authors": [
+      "Slim, M.",
+      "Kandel, M.",
+      "Yacovone, A.",
+      "Presgrave, M.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Kandel, M."
+    ],
     "title": "Comparing web-based and in-lab eye-tracking tools for language experiments",
     "journal": null,
     "volume": null,
@@ -521,8 +619,15 @@
     "status": "published",
     "year": 2022,
     "month": "March",
-    "authors": ["Yacovone, A.", "Waite, B.", "Levari, T.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Yacovone, A.",
+      "Waite, B.",
+      "Levari, T.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Let them eat ceke: An EEG study of form-based prediction in rich naturalistic contexts",
     "journal": null,
     "volume": null,
@@ -545,8 +650,15 @@
     "status": "published",
     "year": 2022,
     "month": "March",
-    "authors": ["Kandel, M.", "Yacovone, A.", "Slim, M.", "Snedeker, J."],
-    "trainees": ["Kandel, M."],
+    "authors": [
+      "Kandel, M.",
+      "Yacovone, A.",
+      "Slim, M.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Kandel, M."
+    ],
     "title": "Webcams as windows to the mind: Comparing web-based eye-tracking methods",
     "journal": null,
     "volume": null,
@@ -569,8 +681,14 @@
     "status": "published",
     "year": 2022,
     "month": "March",
-    "authors": ["Poliak, M.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Poliak, M."],
+    "authors": [
+      "Poliak, M.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Poliak, M."
+    ],
     "title": "Between you and me: Use ERP decoding when between-participants variation is high",
     "journal": null,
     "volume": null,
@@ -593,8 +711,16 @@
     "status": "published",
     "year": 2021,
     "month": "March",
-    "authors": ["Yacovone, A.", "Poliak, M.", "Koya, H.", "Snedeker, J."],
-    "trainees": ["Poliak, M.", "Koya, H."],
+    "authors": [
+      "Yacovone, A.",
+      "Poliak, M.",
+      "Koya, H.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Poliak, M.",
+      "Koya, H."
+    ],
     "title": "ERP decoding shows bilinguals represent the language of a code-switch after lexical processing",
     "journal": null,
     "volume": null,
@@ -617,8 +743,14 @@
     "status": "published",
     "year": 2021,
     "month": "March",
-    "authors": ["Yacovone, A.", "Piwowarczyk, P.", "Snedeker, J."],
-    "trainees": ["Piwowarczyk, P."],
+    "authors": [
+      "Yacovone, A.",
+      "Piwowarczyk, P.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Piwowarczyk, P."
+    ],
     "title": "It takes two the tango: Predictability and detectability affect processing of phrase structure errors",
     "journal": null,
     "volume": null,
@@ -641,7 +773,9 @@
     "status": "published",
     "year": 2021,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Invited Talk",
     "journal": null,
@@ -665,7 +799,9 @@
     "status": "published",
     "year": 2020,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Invited Talk",
     "journal": null,
@@ -689,7 +825,9 @@
     "status": "published",
     "year": 2020,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Invited Talk",
     "journal": null,
@@ -713,7 +851,9 @@
     "status": "published",
     "year": 2018,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Invited Talk",
     "journal": null,
@@ -737,7 +877,9 @@
     "status": "published",
     "year": 2017,
     "month": null,
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Invited Talk",
     "journal": null,
@@ -761,8 +903,16 @@
     "status": "published",
     "year": 2025,
     "month": "November",
-    "authors": ["Levari, T.", "Waite, B.", "Shine, H.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Levari, T.",
+      "Waite, B.",
+      "Shine, H.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Lexical prediction in children with and without autism during naturalistic listening",
     "journal": null,
     "volume": null,
@@ -785,8 +935,16 @@
     "status": "published",
     "year": 2025,
     "month": "September",
-    "authors": ["Yacovone, A.", "Nour Eddine, S.", "Hansen, T.", "Kuperberg, G."],
-    "trainees": ["Nour Eddine, S.", "Hansen, T."],
+    "authors": [
+      "Yacovone, A.",
+      "Nour Eddine, S.",
+      "Hansen, T.",
+      "Kuperberg, G."
+    ],
+    "trainees": [
+      "Nour Eddine, S.",
+      "Hansen, T."
+    ],
     "title": "Late Frontal Positivities during self-paced reading are sensitive to lexical predictability, not misprediction: Evidence from EEG and Predictive Coding simulations",
     "journal": null,
     "volume": null,
@@ -809,8 +967,16 @@
     "status": "published",
     "year": 2025,
     "month": "September",
-    "authors": ["Hansen, T.", "Yacovone, A.", "Nour Eddine, S.", "Kuperberg, G."],
-    "trainees": ["Hansen, T.", "Nour Eddine, S."],
+    "authors": [
+      "Hansen, T.",
+      "Yacovone, A.",
+      "Nour Eddine, S.",
+      "Kuperberg, G."
+    ],
+    "trainees": [
+      "Hansen, T.",
+      "Nour Eddine, S."
+    ],
     "title": "Bottom-up and top-down propagation of residual information across the left fronto-temporal cortex during sentence comprehension: Converging evidence from M/EEG and predictive coding simulations",
     "journal": null,
     "volume": null,
@@ -833,8 +999,15 @@
     "status": "published",
     "year": 2025,
     "month": "September",
-    "authors": ["Waite, B.", "Yacovone, A.", "Levari, T.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Waite, B.",
+      "Yacovone, A.",
+      "Levari, T.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "The development of lexical access and linguistic prediction: Adapting story-based EEG tasks to understand comprehension in preschoolers",
     "journal": null,
     "volume": null,
@@ -857,8 +1030,16 @@
     "status": "published",
     "year": 2025,
     "month": "March",
-    "authors": ["Hansen, T.", "Yacovone, A.", "Fung, I.", "Kuperberg, G."],
-    "trainees": ["Hansen, T.", "Fung, I."],
+    "authors": [
+      "Hansen, T.",
+      "Yacovone, A.",
+      "Fung, I.",
+      "Kuperberg, G."
+    ],
+    "trainees": [
+      "Hansen, T.",
+      "Fung, I."
+    ],
     "title": "Changing the narrative: ERP markers of building and updating situation models during deep naturalistic comprehension",
     "journal": null,
     "volume": null,
@@ -881,8 +1062,14 @@
     "status": "published",
     "year": 2025,
     "month": "March",
-    "authors": ["Huang, Y.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Huang, Y."],
+    "authors": [
+      "Huang, Y.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Huang, Y."
+    ],
     "title": "Switching meanings and forms: An ERP study on multilingual language processing in Mandarin-English bilinguals",
     "journal": null,
     "volume": null,
@@ -905,8 +1092,15 @@
     "status": "published",
     "year": 2025,
     "month": "March",
-    "authors": ["Waite, B.", "Levari, T.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Waite, B.",
+      "Levari, T.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Lexical access during naturalistic listening in middle childhood and early adolescence",
     "journal": null,
     "volume": null,
@@ -929,8 +1123,15 @@
     "status": "published",
     "year": 2024,
     "month": "November",
-    "authors": ["Waite, B.", "Levari, T.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Waite, B.",
+      "Levari, T.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Lexical access in naturalistic listening during middle childhood and early adolescence",
     "journal": null,
     "volume": null,
@@ -953,8 +1154,15 @@
     "status": "published",
     "year": 2024,
     "month": "May",
-    "authors": ["Hansen, T.", "Yacovone, A.", "Wang, L.", "Kuperberg, G."],
-    "trainees": ["Hansen, T."],
+    "authors": [
+      "Hansen, T.",
+      "Yacovone, A.",
+      "Wang, L.",
+      "Kuperberg, G."
+    ],
+    "trainees": [
+      "Hansen, T."
+    ],
     "title": "Homographs revisited: ERP insights into the dynamic interplay between top-down predictive and bottom-up reactive processes",
     "journal": null,
     "volume": null,
@@ -977,8 +1185,14 @@
     "status": "published",
     "year": 2024,
     "month": "May",
-    "authors": ["Yacovone, A.", "Waite, B.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Yacovone, A.",
+      "Waite, B.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Form-based prediction is a piece of ceke: Young children predict the form of upcoming words during natural storytelling contexts",
     "journal": null,
     "volume": null,
@@ -1001,8 +1215,14 @@
     "status": "published",
     "year": 2023,
     "month": "November",
-    "authors": ["Waite, B.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Waite, B.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Children make robust lexical predictions in a naturalistic context",
     "journal": null,
     "volume": null,
@@ -1025,8 +1245,14 @@
     "status": "published",
     "year": 2023,
     "month": "March",
-    "authors": ["Waite, B.", "Yacovone, A.", "Snedeker, J."],
-    "trainees": ["Waite, B."],
+    "authors": [
+      "Waite, B.",
+      "Yacovone, A.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Waite, B."
+    ],
     "title": "Children make robust lexical predictions in a naturalistic context",
     "journal": null,
     "volume": null,
@@ -1049,8 +1275,14 @@
     "status": "published",
     "year": 2019,
     "month": "March",
-    "authors": ["Yacovone, A.", "Moya, E.", "Snedeker, J."],
-    "trainees": ["Moya, E."],
+    "authors": [
+      "Yacovone, A.",
+      "Moya, E.",
+      "Snedeker, J."
+    ],
+    "trainees": [
+      "Moya, E."
+    ],
     "title": "Investigating the costs of intra-sentential code-switching for lexical processes",
     "journal": null,
     "volume": null,
@@ -1073,7 +1305,10 @@
     "status": "published",
     "year": 2018,
     "month": "May",
-    "authors": ["Yacovone, A.", "Gobel, A."],
+    "authors": [
+      "Yacovone, A.",
+      "Gobel, A."
+    ],
     "trainees": [],
     "title": "Question others, not yourself! Do QUDs affect naturalness within and across speakers?",
     "journal": null,
@@ -1097,7 +1332,12 @@
     "status": "published",
     "year": 2018,
     "month": "March",
-    "authors": ["Yacovone, A.", "Shafto, C.", "Worek, A.", "Snedeker, J."],
+    "authors": [
+      "Yacovone, A.",
+      "Shafto, C.",
+      "Worek, A.",
+      "Snedeker, J."
+    ],
     "trainees": [],
     "title": "Developmental shifts from bottom-up lexical biases to top-down plausibility in syntactic parsing",
     "journal": null,
@@ -1121,7 +1361,10 @@
     "status": "published",
     "year": 2018,
     "month": "January",
-    "authors": ["Yacovone, A.", "Omaki, A."],
+    "authors": [
+      "Yacovone, A.",
+      "Omaki, A."
+    ],
     "trainees": [],
     "title": "Children's comprehension and repair of garden-path wh-questions in English",
     "journal": null,
@@ -1145,7 +1388,11 @@
     "status": "published",
     "year": 2017,
     "month": "March",
-    "authors": ["Yacovone, A.", "Dillon, B.", "Frazier, L."],
+    "authors": [
+      "Yacovone, A.",
+      "Dillon, B.",
+      "Frazier, L."
+    ],
     "trainees": [],
     "title": "High predictability temporarily down-weights errors in subject-verb agreement",
     "journal": null,
@@ -1169,7 +1416,12 @@
     "status": "published",
     "year": 2017,
     "month": "March",
-    "authors": ["Rysling, A.", "Clifton Jr., C.", "Bishop, J.", "Yacovone, A."],
+    "authors": [
+      "Rysling, A.",
+      "Clifton Jr., C.",
+      "Bishop, J.",
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Listeners rely on local context, not global prosody, to anticipate pitch accents",
     "journal": null,
@@ -1193,7 +1445,14 @@
     "status": "published",
     "year": 2016,
     "month": "November",
-    "authors": ["Rysling, A.", "Kingston, J.", "Staub, A.", "Cohen, A.", "Starns, J.", "Yacovone, A."],
+    "authors": [
+      "Rysling, A.",
+      "Kingston, J.",
+      "Staub, A.",
+      "Cohen, A.",
+      "Starns, J.",
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Lexical knowledge is available, but not always used, very early",
     "journal": null,
@@ -1217,7 +1476,11 @@
     "status": "published",
     "year": 2016,
     "month": "September",
-    "authors": ["Clifton Jr., C.", "Frazier, L.", "Yacovone, A."],
+    "authors": [
+      "Clifton Jr., C.",
+      "Frazier, L.",
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Likelihood of Epistemic State Affects Sentence Naturalness",
     "journal": null,
@@ -1241,7 +1504,12 @@
     "status": "published",
     "year": 2016,
     "month": "September",
-    "authors": ["Andrews, C.", "Yacovone, A.", "Sloggett, S.", "Dillon, B."],
+    "authors": [
+      "Andrews, C.",
+      "Yacovone, A.",
+      "Sloggett, S.",
+      "Dillon, B."
+    ],
     "trainees": [],
     "title": "Reflexives: We don't see the attraction",
     "journal": null,
@@ -1265,7 +1533,9 @@
     "status": "published",
     "year": 2016,
     "month": "May",
-    "authors": ["Yacovone, A."],
+    "authors": [
+      "Yacovone, A."
+    ],
     "trainees": [],
     "title": "Investigating the role of predictability during syntactic resolution",
     "journal": null,
