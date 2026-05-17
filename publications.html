@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications — Duckling Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── Publications page ─────────────────────────────────────────────────────── */
+.pub-hero {
+  background: var(--sage-light);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.pub-hero h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.pub-hero p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+/* Controls */
+.pub-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pub-search {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.65rem 1.1rem;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  font-size: 0.9rem;
+  font-family: "DM Sans", sans-serif;
+  outline: none;
+  background: var(--white);
+}
+.pub-search:focus { border-color: var(--red); }
+.filter-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.filter-pill {
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all 0.15s;
+  font-family: "DM Sans", sans-serif;
+}
+.filter-pill:hover { border-color: var(--sage-dark); color: var(--ink); }
+.filter-pill.active { background: var(--ink); color: white; border-color: var(--ink); }
+
+/* Main layout */
+.pub-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+/* Section */
+.pub-section {
+  margin-bottom: 3.5rem;
+}
+.pub-section-heading {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.4rem;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.pub-section-heading .count {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--sage-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+}
+
+/* Year group */
+.year-group { margin-bottom: 1.5rem; }
+.year-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.year-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Citation */
+.citation {
+  padding: 0.9rem 0 0.9rem 1rem;
+  border-left: 3px solid transparent;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--ink);
+  transition: border-color 0.15s;
+  margin-bottom: 0.1rem;
+}
+.citation:hover { border-left-color: var(--sage-mid); }
+.citation.hidden { display: none; }
+.citation .authors { color: var(--ink); }
+.citation .title {
+  font-style: italic;
+  color: var(--ink);
+}
+.citation .venue { color: var(--muted); }
+.citation .virtual-tag {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-right: 0.25rem;
+}
+.citation .status-tag {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.citation .trainee { }
+.pub-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+.pub-link {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  color: var(--ink);
+  text-decoration: none;
+  transition: all 0.15s;
+  letter-spacing: 0.03em;
+}
+.pub-link:hover { background: var(--red); color: white; border-color: var(--red); }
+.pub-link.doi { border-color: #3A7D9E; color: #3A7D9E; }
+.pub-link.doi:hover { background: #3A7D9E; color: white; }
+.pub-link.osf { border-color: #4A6E46; color: #4A6E46; }
+.pub-link.osf:hover { background: #4A6E46; color: white; }
+.pub-link.pdf { border-color: #C07840; color: #C07840; }
+.pub-link.pdf:hover { background: #C07840; color: white; }
+.pub-link.video { border-color: #7A6B9A; color: #7A6B9A; }
+.pub-link.video:hover { background: #7A6B9A; color: white; }
+
+/* Invited badge */
+.invited-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  vertical-align: middle;
+  margin-left: 0.3rem;
+  letter-spacing: 0.04em;
+}
+
+/* Trainee note */
+.trainee-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Empty state */
+.pub-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 3rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .pub-hero { padding: 3rem 1.25rem 2rem; }
+  .pub-main { padding: 2rem 1.25rem 4rem; }
+  .citation { padding-left: 0.75rem; font-size: 0.85rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--ink);">
+    <img src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/boston_univ_rgb.gif" alt="Boston University" style="height:38px;width:auto;flex-shrink:0;">
+    <span style="width:1px;height:28px;background:var(--border);display:inline-block;"></span>
+    <span style="display:flex;flex-direction:column;line-height:1.3;">
+      <span style="font-size:0.7rem;color:var(--muted);font-weight:400;">Department of Linguistics</span>
+      <span style="font-size:0.88rem;font-weight:600;color:var(--ink);">Duckling Lab</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="studies.html">Studies</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="interest-form/index.html" class="nav-cta">Get Involved</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="research.html">Research</a>
+  <a href="studies.html">Studies</a>
+  <a href="team.html">Team</a>
+  <a href="publications.html" class="active">Publications</a>
+  <a href="news.html">News</a>
+  <a href="interest-form/index.html" class="mobile-cta">Get Involved</a>
+</div>
+
+<!-- Hero -->
+<section class="pub-hero">
+  <h1>Publications</h1>
+  <p>Research from the Duckling Lab on language development, sentence processing, and prediction.</p>
+  <div class="pub-controls">
+    <input type="text" class="pub-search" id="pubSearch" placeholder="Search by title, author, or keyword..." oninput="filterPubs()">
+  </div>
+  <div class="filter-pills" style="margin-top:1rem;">
+    <button class="filter-pill active" data-filter="all" onclick="setFilter('all',this)">All</button>
+    <button class="filter-pill" data-filter="In Progress" onclick="setFilter('In Progress',this)">In Progress</button>
+    <button class="filter-pill" data-filter="Publication" onclick="setFilter('Publication',this)">Publications</button>
+    <button class="filter-pill" data-filter="Invited Piece" onclick="setFilter('Invited Piece',this)">Invited Pieces</button>
+    <button class="filter-pill" data-filter="Talk" onclick="setFilter('Talk',this)">Talks</button>
+    <button class="filter-pill" data-filter="Poster" onclick="setFilter('Poster',this)">Posters</button>
+  </div>
+</section>
+
+<!-- Back to top -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:white;border:none;border-radius:50%;width:40px;height:40px;font-size:1.1rem;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:50;" aria-label="Back to top">↑</button>
+
+<main class="pub-main" id="pubMain"></main>
+
+<script src="js/main.js"></script>
+<script>document.addEventListener("DOMContentLoaded", () => loadNav("publications"));</script>
+<script>
+const PUB_PATH = 'https://raw.githubusercontent.com/duckling-lab/website/main/data/publications.json';
+const SECTION_ORDER = ['In Progress', 'Publication', 'Invited Piece', 'Talk', 'Poster'];
+const SECTION_LABELS = {
+  'In Progress': 'In Progress',
+  'Publication': 'Publications',
+  'Invited Piece': 'Invited Pieces',
+  'Talk': 'Talks',
+  'Poster': 'Posters',
+};
+
+let allPubs = [];
+let activeFilter = 'all';
+let searchQuery = '';
+
+fetch(PUB_PATH)
+  .then(r => r.json())
+  .then(data => {
+    allPubs = data;
+    renderPubs();
+  });
+
+function setFilter(f, el) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  renderPubs();
+}
+
+function filterPubs() {
+  searchQuery = document.getElementById('pubSearch').value.toLowerCase();
+  renderPubs();
+}
+
+function matchesSearch(p) {
+  if (!searchQuery) return true;
+  const haystack = [
+    p.title,
+    (p.authors || []).join(' '),
+    p.journal,
+    p.conference,
+    String(p.year)
+  ].filter(Boolean).join(' ').toLowerCase();
+  return haystack.includes(searchQuery);
+}
+
+function formatAuthors(authors, trainees) {
+  if (!authors || !authors.length) return '';
+  return authors.map(a => {
+    const isTrainee = trainees && trainees.includes(a);
+    const name = isTrainee ? `<span class="trainee">${a}</span>` : a;
+    return name;
+  }).join(', ');
+}
+
+function renderCitation(p) {
+  const authors = formatAuthors(p.authors, p.trainees);
+  const virtual = p.virtual ? '<span class="virtual-tag">~</span>' : '';
+  const invited = p.invited ? '<span class="invited-badge">Invited</span>' : '';
+  let cite = '';
+
+  if (p.type === 'In Progress') {
+    const statusStr = p.status === 'preprint' ? 'preprint' : p.status;
+    cite = `${virtual}${authors} (${p.status === 'preprint' ? p.year : p.status}). <span class="title">${p.title}</span>.${p.preprint_url ? '' : ''}`;
+  } else if (p.type === 'Publication' || p.type === 'Invited Piece') {
+    let venue = '';
+    if (p.journal) {
+      venue = `<span class="venue"> ${p.journal}`;
+      if (p.volume) venue += `, ${p.volume}`;
+      if (p.issue) venue += `(${p.issue})`;
+      if (p.pages) venue += `, ${p.pages}`;
+      venue += '.</span>';
+    }
+    cite = `${authors} (${p.year}). <span class="title">${p.title}.</span>${venue}`;
+  } else if (p.type === 'Talk') {
+    const mo = p.month ? `${p.month} ` : '';
+    const loc = p.location ? `, ${p.location}` : '';
+    cite = `${virtual}${authors} (${mo}${p.year}). <span class="title">${p.title}.</span>${invited} <span class="venue">Talk at ${p.conference}${loc}.</span>`;
+  } else if (p.type === 'Poster') {
+    const mo = p.month ? `${p.month} ` : '';
+    const loc = p.location ? `, ${p.location}` : '';
+    cite = `${virtual}${authors} (${mo}${p.year}). <span class="title">${p.title}.</span> <span class="venue">Poster at ${p.conference}${loc}.</span>`;
+  }
+
+  // Links
+  const links = [];
+  if (p.doi) links.push(`<a href="${p.doi}" target="_blank" class="pub-link doi">DOI</a>`);
+  if (p.osf) links.push(`<a href="${p.osf}" target="_blank" class="pub-link osf">OSF</a>`);
+  if (p.pdf) links.push(`<a href="${p.pdf}" target="_blank" class="pub-link pdf">PDF</a>`);
+  if (p.preprint_url) links.push(`<a href="${p.preprint_url}" target="_blank" class="pub-link">Preprint</a>`);
+  if (p.video) links.push(`<a href="${p.video}" target="_blank" class="pub-link video">Video</a>`);
+  if (p.poster_file) links.push(`<a href="${p.poster_file}" target="_blank" class="pub-link pdf">Poster</a>`);
+  const linksHtml = links.length ? `<div class="pub-links">${links.join('')}</div>` : '';
+
+  return `<div class="citation" data-id="${p.id}">${cite}${linksHtml}</div>`;
+}
+
+function renderPubs() {
+  const main = document.getElementById('pubMain');
+  const filtered = allPubs.filter(p => {
+    if (activeFilter !== 'all' && p.type !== activeFilter) return false;
+    return matchesSearch(p);
+  });
+
+  if (!filtered.length) {
+    main.innerHTML = '<div class="pub-empty">No results found.</div>';
+    return;
+  }
+
+  const sections = activeFilter === 'all' ? SECTION_ORDER : [activeFilter];
+  let html = '';
+
+  sections.forEach(type => {
+    const items = filtered.filter(p => p.type === type);
+    if (!items.length) return;
+
+    // Group by year
+    const byYear = {};
+    items.forEach(p => {
+      const y = p.year || 'n.d.';
+      if (!byYear[y]) byYear[y] = [];
+      byYear[y].push(p);
+    });
+    const years = Object.keys(byYear).sort((a,b) => b - a);
+
+    html += `<section class="pub-section reveal">
+      <h2 class="pub-section-heading">${SECTION_LABELS[type]} <span class="count">${items.length}</span></h2>`;
+
+    years.forEach(year => {
+      html += `<div class="year-group"><div class="year-label">${year}</div>`;
+      byYear[year].forEach(p => { html += renderCitation(p); });
+      html += '</div>';
+    });
+
+    html += '</section>';
+  });
+
+  // Trainee note
+  const hasTrainees = filtered.some(p => p.trainees && p.trainees.length);
+  if (hasTrainees) {
+    html += '<div class="trainee-note">Underlined authors were trainees in the Duckling Lab at the time of publication or presentation.</div>';
+  }
+
+  main.innerHTML = html;
+  document.querySelectorAll('.reveal').forEach(el => {
+    el.style.opacity = '1';
+  });
+}
+</script>
+</body>
+</html>
