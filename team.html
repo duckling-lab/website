@@ -620,7 +620,7 @@ fetch('data/team.json')
         members.forEach(m => {
           const adult_src = m.photo_adult || DEFAULT;
           const kid_src = m.photo_kid;
-          const badge = !m.bu_member ? `<span class="ext-badge" style="background:${INST_COLORS[m.institution]||'#444'}">${m.institution}</span>` : '';
+          const badge = `<span class="ext-badge" style="background:${INST_COLORS[m.institution]||'#444'}">${m.institution}</span>`;
           const memberJSON = JSON.stringify(m).replace(/"/g,'&quot;');
           const pos = m.object_position || 'center top';
           const zoom = m.object_zoom || 1.0;
