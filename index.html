@@ -761,11 +761,11 @@ const BRAIN_MAP = {
   'Hiring':       'https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_survey.png',
 };
 const BRAIN_SIZE = {
-  'Participate':  '80%',
-  'Publication':  '72%',
-  'Conference':   '85%',
-  'Lab News':     '78%',
-  'Hiring':       '82%',
+  'Participate':  '65%',
+  'Publication':  '60%',
+  'Conference':   '70%',
+  'Lab News':     '65%',
+  'Hiring':       '65%',
 };
 const CAT_CLASS = {
   'Participate':'', 'Publication':'publication',
@@ -782,7 +782,7 @@ fetch('data/news.json')
       const dateStr = d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
       const thumb = item.photo
         ? `background-image:url('${item.photo}');background-size:cover;background-position:center;`
-        : `background-image:url('${BRAIN_MAP[item.category]||BRAIN_MAP["Lab News"]}');background-size:${BRAIN_SIZE[item.category]||'78%'};background-repeat:no-repeat;background-position:center bottom;background-color:var(--sage-light);`;
+        : `background-image:url('${BRAIN_MAP[item.category]||BRAIN_MAP["Lab News"]}');background-size:${BRAIN_SIZE[item.category]||'65%'};background-repeat:no-repeat;background-position:center center;background-color:var(--sage-light);`;
       const linkHtml = item.link
         ? `<a href="${item.link}" target="_blank" style="font-size:0.78rem;font-weight:600;color:var(--red);text-decoration:none;">${item.link_label||'Learn more'} &rarr;</a>`
         : '';
