@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team — Duckling Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── Team page ── */
+.team-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 2rem 2rem;
+}
+.team-header-inner { max-width: 1040px; margin: 0 auto; }
+
+/* ── PI Card ── */
+.pi-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  max-width: 1040px;
+  margin: 2rem auto;
+}
+.pi-photo-wrap {
+  position: relative;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.pi-photo-wrap img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+  border-radius: 50%;
+}
+.pi-photo-wrap .photo-kid { opacity: 0; }
+.pi-photo-wrap:hover .photo-adult { opacity: 0; }
+.pi-photo-wrap:hover .photo-kid { opacity: 1; }
+.pi-name {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.6rem; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.25rem;
+}
+.pi-title {
+  font-size: 0.88rem; color: var(--muted);
+  margin-bottom: 1.25rem; line-height: 1.5;
+}
+.pi-bio {
+  font-size: 0.92rem; color: #444;
+  line-height: 1.85; margin-bottom: 1.5rem;
+}
+.pi-links {
+  display: flex; gap: 0.6rem; flex-wrap: wrap;
+}
+.pi-link {
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--red); text-decoration: none;
+  border: 1.5px solid var(--red-light);
+  padding: 0.35rem 0.8rem; border-radius: 99px;
+  transition: background 0.15s, color 0.15s;
+  background: var(--white);
+}
+.pi-link:hover { background: var(--red); color: white; }
+
+/* ── Section headings ── */
+.team-section {
+  max-width: 1040px; margin: 0 auto;
+  padding: 2rem 2rem 0;
+}
+.team-section-heading {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.3rem; font-weight: 400;
+  color: var(--ink);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.team-subheading {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1rem;
+  padding-left: 0.25rem;
+  border-left: 3px solid var(--sage);
+  padding-left: 0.6rem;
+}
+
+/* ── Member grid ── */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Member card ── */
+.member-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.11);
+}
+.member-photo-wrap {
+  position: relative;
+  width: 100%; padding-top: 100%;
+  overflow: hidden; background: var(--sage-light);
+}
+.member-photo-wrap img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity 0.35s ease;
+}
+.member-photo-wrap .photo-kid { opacity: 0; }
+.member-card:hover .photo-adult { opacity: 0; }
+.member-card:hover .photo-kid { opacity: 1; }
+.member-photo-wrap .photo-default {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain; padding: 1rem;
+}
+.ext-badge {
+  position: absolute; top: 8px; right: 8px;
+  background: var(--ink); color: white;
+  font-size: 0.62rem; font-weight: 700;
+  padding: 0.2rem 0.5rem; border-radius: 99px;
+  letter-spacing: 0.05em;
+}
+.member-body { padding: 0.85rem 0.9rem 1rem; }
+.member-name {
+  font-size: 0.88rem; font-weight: 600;
+  color: var(--ink); margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+.member-role {
+  font-size: 0.75rem; color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 500;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: auto; }
+.modal {
+  background: var(--white);
+  border-radius: 20px;
+  max-width: 520px; width: 100%;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.18);
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+.modal-overlay.open .modal { transform: none; }
+.modal-photo-wrap {
+  position: relative;
+  width: 100%; height: 240px;
+  background: var(--sage-light);
+  overflow: hidden;
+}
+.modal-photo-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity 0.35s ease;
+}
+.modal-photo-wrap .photo-kid { opacity: 0; position: absolute; inset: 0; }
+.modal-photo-wrap:hover .photo-adult { opacity: 0; }
+.modal-photo-wrap:hover .photo-kid { opacity: 1; }
+.modal-photo-wrap .photo-default {
+  width: 100%; height: 100%;
+  object-fit: contain; padding: 2rem;
+}
+.modal-body { padding: 1.5rem 1.75rem 2rem; }
+.modal-name {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.3rem; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.2rem;
+}
+.modal-role {
+  font-size: 0.82rem; color: var(--muted);
+  margin-bottom: 1rem;
+}
+.modal-interests {
+  font-size: 0.88rem; color: #444;
+  line-height: 1.75; margin-bottom: 1rem;
+}
+.modal-links {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+.modal-link {
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--red); text-decoration: none;
+  border: 1.5px solid var(--red-light);
+  padding: 0.3rem 0.75rem; border-radius: 99px;
+  transition: background 0.15s, color 0.15s;
+}
+.modal-link:hover { background: var(--red); color: white; }
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: rgba(255,255,255,0.9);
+  border: none; border-radius: 50%;
+  width: 32px; height: 32px;
+  font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink); transition: background 0.15s;
+}
+.modal-close:hover { background: white; }
+.modal-photo-wrap { position: relative; }
+
+/* ── Join banner ── */
+.join-banner {
+  background: var(--sage-mid);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  max-width: 1040px;
+  margin: 2.5rem auto 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.join-banner h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.2rem; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.3rem;
+}
+.join-banner p { font-size: 0.88rem; color: var(--ink); opacity: 0.7; }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .pi-card { grid-template-columns: 1fr; text-align: center; }
+  .pi-photo-wrap { margin: 0 auto; }
+  .pi-links { justify-content: center; }
+  .member-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .join-banner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--ink);">
+    <img src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/boston_univ_rgb.gif" alt="Boston University" style="height:38px;width:auto;flex-shrink:0;">
+    <span style="width:1px;height:28px;background:var(--border);display:inline-block;"></span>
+    <span style="display:flex;flex-direction:column;line-height:1.3;">
+      <span style="font-size:0.7rem;color:var(--muted);font-weight:400;">Department of Linguistics</span>
+      <span style="font-size:0.88rem;font-weight:600;color:var(--ink);">Duckling Lab</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">Research</a></li>
+    <li><a href="#">Studies</a></li>
+    <li><a href="team.html" class="active">Team</a></li>
+    <li><a href="#">Publications</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="interest-form/index.html" class="nav-cta">Get Involved</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="#">Research</a>
+  <a href="#">Studies</a>
+  <a href="team.html" class="active">Team</a>
+  <a href="#">Publications</a>
+  <a href="news.html">News</a>
+  <a href="interest-form/index.html" class="mobile-cta">Get Involved</a>
+</div>
+
+<!-- Header -->
+<div class="team-header">
+  <div class="team-header-inner">
+    <p class="section-eyebrow">Duckling Lab</p>
+    <h1 class="section-title">Our <em>Team</em></h1>
+    <p class="section-sub">The people behind the research.</p>
+  </div>
+</div>
+
+<!-- PI Card -->
+<div style="padding: 0 2rem; background: var(--sage-light);">
+  <div class="pi-card reveal" id="pi-card"></div>
+</div>
+
+<!-- Team grid -->
+<div style="background: var(--sage-light); padding-bottom: 1rem;" id="team-container"></div>
+
+<!-- Join banner -->
+<div style="padding: 0 2rem; background: var(--sage-light);">
+  <div class="join-banner reveal">
+    <div>
+      <h3>We&rsquo;re growing &mdash; interested in joining the Duckling Lab?</h3>
+      <p>We welcome motivated undergraduate and graduate RAs. Reach out and say hello.</p>
+    </div>
+    <a href="interest-form/index.html" class="btn-ink">Get in Touch</a>
+  </div>
+</div>
+
+<a href="#" class="back-to-top" id="backToTop">&#8679;</a>
+
+<footer>
+  <div class="footer-left">
+    <span class="footer-lab-name">Duckling Lab</span>
+    <span class="footer-divider">&middot;</span>
+    <span>&copy; 2025</span>
+    <span class="footer-divider">&middot;</span>
+    <span>Dept. of Linguistics, Boston University</span>
+  </div>
+  <div class="footer-right">
+    <a href="https://www.anthonyyacovone.com" target="_blank">PI: Anthony Yacovone, PhD</a>
+    <span class="footer-divider">&middot;</span>
+    <a href="mailto:duckling@bu.edu">duckling@bu.edu</a>
+    <span class="footer-divider">&middot;</span>
+    <a href="tel:6173585464">(617) 358-5464</a>
+    <span class="footer-divider">&middot;</span>
+    <a href="https://www.bu.edu/linguistics/" target="_blank">BU Linguistics</a>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-photo-wrap" id="modalPhoto"></div>
+    <button class="modal-close" id="modalClose">&#10005;</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+const DEFAULT = 'https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/DucklingLab_Logo_AnimalsOnly.png';
+const INST_COLORS = { BU: '#CC0000', JHU: '#002D72', Tufts: '#3E8EDE', Harvard: '#A51C30' };
+
+const TIER_ORDER = ['pi','lab_manager','postdoc','phd','ma','ra'];
+const TIER_LABELS = {
+  pi: null,
+  lab_manager: 'Lab Manager',
+  postdoc: 'Postdoctoral Researchers',
+  phd: 'PhD Students',
+  ma: 'Graduate Students (MA)',
+  ra: 'Research Assistants'
+};
+
+function photoEl(adult, kid, cls='') {
+  const adult_src = adult || DEFAULT;
+  const kid_src = kid || (adult ? null : DEFAULT);
+  let html = `<img class="photo-adult${cls}" src="${adult_src}" alt="" onerror="this.src='${DEFAULT}'">`;
+  if (kid_src && kid_src !== adult_src) {
+    html += `<img class="photo-kid${cls}" src="${kid_src}" alt="" onerror="this.src='${DEFAULT}'">`;
+  }
+  return html;
+}
+
+function openModal(member) {
+  const overlay = document.getElementById('modalOverlay');
+  const photo = document.getElementById('modalPhoto');
+  const body = document.getElementById('modalBody');
+
+  const adult_src = member.photo_adult || DEFAULT;
+  const kid_src = member.photo_kid;
+
+  photo.innerHTML = `<img class="photo-adult" src="${adult_src}" alt="" onerror="this.src='${DEFAULT}'">` +
+    (kid_src ? `<img class="photo-kid" src="${kid_src}" alt="" onerror="this.src='${DEFAULT}'">` : '');
+
+  let links = '';
+  if (member.website) links += `<a href="${member.website}" target="_blank" class="modal-link">Website</a>`;
+  if (member.email)   links += `<a href="mailto:${member.email}" class="modal-link">Email</a>`;
+  if (member.scholar) links += `<a href="${member.scholar}" target="_blank" class="modal-link">Google Scholar</a>`;
+  if (member.osf)     links += `<a href="${member.osf}" target="_blank" class="modal-link">OSF</a>`;
+  if (member.cv)      links += `<a href="${member.cv}" target="_blank" class="modal-link">CV</a>`;
+  if (member.dissertation) links += `<a href="${member.dissertation}" target="_blank" class="modal-link">Dissertation</a>`;
+  if (member.dept)    links += `<a href="${member.dept}" target="_blank" class="modal-link">Dept. Profile</a>`;
+
+  const inst = member.institution !== 'BU' ? ` &middot; ${member.institution}` : '';
+  body.innerHTML = `
+    <div class="modal-name">${member.name}</div>
+    <div class="modal-role">${member.role} &middot; ${member.title}${inst}</div>
+    ${member.bio ? `<p class="modal-interests">${member.bio}</p>` : ''}
+    ${member.interests && !member.bio ? `<p class="modal-interests"><strong>Interests:</strong> ${member.interests}</p>` : ''}
+    ${links ? `<div class="modal-links">${links}</div>` : ''}
+  `;
+
+  overlay.classList.add('open');
+}
+
+document.getElementById('modalClose').addEventListener('click', () => {
+  document.getElementById('modalOverlay').classList.remove('open');
+});
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('modalOverlay').classList.remove('open');
+});
+
+fetch('data/team.json')
+  .then(r => r.json())
+  .then(data => {
+    // PI card
+    const pi = data.find(m => m.tier === 'pi');
+    if (pi) {
+      document.getElementById('pi-card').innerHTML = `
+        <div class="pi-photo-wrap" onclick="openModal(${JSON.stringify(pi).replace(/"/g,'&quot;')})">
+          <img class="photo-adult" src="${pi.photo_adult || DEFAULT}" alt="${pi.name}" onerror="this.src='${DEFAULT}'">
+          <img class="photo-kid" src="${pi.photo_kid || DEFAULT}" alt="${pi.name} as a child" onerror="this.src='${DEFAULT}'">
+        </div>
+        <div>
+          <div class="pi-name">${pi.name}</div>
+          <div class="pi-title">${pi.role} &middot; ${pi.title}</div>
+          <p class="pi-bio">${pi.bio}</p>
+          <div class="pi-links">
+            ${pi.website ? `<a href="${pi.website}" target="_blank" class="pi-link">Website</a>` : ''}
+            ${pi.dept ? `<a href="${pi.dept}" target="_blank" class="pi-link">Dept. Profile</a>` : ''}
+            ${pi.scholar ? `<a href="${pi.scholar}" target="_blank" class="pi-link">Google Scholar</a>` : ''}
+            ${pi.cv ? `<a href="${pi.cv}" target="_blank" class="pi-link">CV</a>` : ''}
+            ${pi.dissertation ? `<a href="${pi.dissertation}" target="_blank" class="pi-link">Dissertation</a>` : ''}
+            ${pi.osf ? `<a href="${pi.osf}" target="_blank" class="pi-link">OSF</a>` : ''}
+            ${pi.email ? `<a href="mailto:${pi.email}" class="pi-link">Email</a>` : ''}
+          </div>
+        </div>`;
+    }
+
+    // Group members by tier then BU vs affiliated
+    const nonPI = data.filter(m => m.tier !== 'pi' && !m.alumni);
+    const tiers = [...new Set(TIER_ORDER.filter(t => nonPI.some(m => m.tier === t)))];
+
+    const container = document.getElementById('team-container');
+
+    tiers.forEach(tier => {
+      const members = nonPI.filter(m => m.tier === tier);
+      const bu = members.filter(m => m.bu_member).sort((a,b) => a.name.localeCompare(b.name));
+      const ext = members.filter(m => !m.bu_member).sort((a,b) => a.name.localeCompare(b.name));
+
+      const section = document.createElement('div');
+      section.className = 'team-section reveal';
+      section.innerHTML = `<h2 class="team-section-heading">${TIER_LABELS[tier]}</h2>`;
+
+      function renderGroup(members, label) {
+        if (!members.length) return '';
+        let html = label ? `<p class="team-subheading">${label}</p>` : '';
+        html += '<div class="member-grid">';
+        members.forEach(m => {
+          const adult_src = m.photo_adult || DEFAULT;
+          const kid_src = m.photo_kid;
+          const badge = !m.bu_member ? `<span class="ext-badge" style="background:${INST_COLORS[m.institution]||'#444'}">${m.institution}</span>` : '';
+          const memberJSON = JSON.stringify(m).replace(/"/g,'&quot;');
+          html += `
+            <div class="member-card" onclick="openModal(${memberJSON})">
+              <div class="member-photo-wrap">
+                <img class="photo-adult" src="${adult_src}" alt="${m.name}" onerror="this.src='${DEFAULT}'">
+                ${kid_src ? `<img class="photo-kid" src="${kid_src}" alt="${m.name}" onerror="this.src='${DEFAULT}'">` : ''}
+                ${badge}
+              </div>
+              <div class="member-body">
+                <div class="member-name">${m.name}</div>
+                <div class="member-role">${m.role}<br>${m.title}</div>
+              </div>
+            </div>`;
+        });
+        html += '</div>';
+        return html;
+      }
+
+      const showLabels = bu.length > 0 && ext.length > 0;
+      section.innerHTML += renderGroup(bu, showLabels ? 'Boston University' : null);
+      section.innerHTML += renderGroup(ext, showLabels ? 'Affiliated Researchers' : null);
+      container.appendChild(section);
+    });
+
+    // Re-observe reveals
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  });
+</script>
+</body>
+</html>
