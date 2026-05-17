@@ -3,7 +3,7 @@
     "title": "Now Recruiting: Language & Reading Study",
     "date": "2025-05-01",
     "category": "New Study",
-    "description": "We are looking for children ages 5–10 for our new reading comprehension study. Sessions are 45 minutes and can be done in person or online.",
+    "description": "We are looking for children ages 5â10 for our new reading comprehension study. Sessions are 45 minutes and can be done in person or online.",
     "photo": null,
     "link": null,
     "link_label": null
@@ -18,15 +18,6 @@
     "link_label": "Conference Program"
   },
   {
-    "title": "New Paper on Sentence Processing",
-    "date": "2024-04-15",
-    "category": "Publication",
-    "description": "Our latest findings on how bilingual children process complex sentences have been accepted for publication in Language Acquisition.",
-    "photo": null,
-    "link": "https://doi.org/10.1000/example",
-    "link_label": "Read paper"
-  },
-  {
     "title": "Welcome to Our New Research Assistants",
     "date": "2024-09-01",
     "category": "Lab News",
@@ -34,6 +25,15 @@
     "photo": null,
     "link": null,
     "link_label": null
+  },
+  {
+    "title": "New Paper on Sentence Processing",
+    "date": "2024-04-15",
+    "category": "Publication",
+    "description": "Our latest findings on how bilingual children process complex sentences have been accepted for publication in Language Acquisition.",
+    "photo": null,
+    "link": "https://doi.org/10.1000/example",
+    "link_label": "Read paper"
   },
   {
     "title": "RA Positions Open for Spring 2024",
