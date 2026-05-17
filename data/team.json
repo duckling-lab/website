@@ -723,5 +723,30 @@
     "object_position": "center top",
     "object_zoom": 1,
     "_idx": 28
+  },
+  {
+    "id": "testing",
+    "name": "Testing",
+    "role": "Test",
+    "title": "",
+    "institution": "BU",
+    "bu_member": true,
+    "tier": "ra",
+    "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/testing_adult.jpg",
+    "photo_kid": null,
+    "bio": null,
+    "interests": null,
+    "website": null,
+    "email": null,
+    "scholar": null,
+    "osf": null,
+    "cv": null,
+    "dissertation": null,
+    "dept": null,
+    "status": "current",
+    "alumni": false,
+    "where_now": null,
+    "object_position": "center top",
+    "object_zoom": 1
   }
 ]
