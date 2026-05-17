@@ -175,21 +175,24 @@
 }
 .modal-overlay.open .modal { transform: none; }
 .modal-photo-wrap {
-  position: relative;
-  width: 100%; height: 240px;
+  display: flex;
+  width: 100%;
   background: var(--sage-light);
   overflow: hidden;
 }
-.modal-photo-wrap img {
-  width: 100%; height: 100%;
+.modal-photo-wrap .modal-photo-single {
+  flex: 1;
+  height: 220px;
   object-fit: cover;
-  transition: opacity 0.35s ease;
+  object-position: top;
 }
-.modal-photo-wrap .photo-kid { opacity: 0; position: absolute; inset: 0; }
-.modal-photo-wrap:hover .photo-adult { opacity: 0; }
-.modal-photo-wrap:hover .photo-kid { opacity: 1; }
+.modal-photo-wrap .modal-photo-divider {
+  width: 2px;
+  background: var(--border);
+  flex-shrink: 0;
+}
 .modal-photo-wrap .photo-default {
-  width: 100%; height: 100%;
+  width: 100%; height: 220px;
   object-fit: contain; padding: 2rem;
 }
 .modal-body { padding: 1.5rem 1.75rem 2rem; }
@@ -256,6 +259,48 @@
   .pi-links { justify-content: center; }
   .member-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
   .join-banner { flex-direction: column; text-align: center; }
+}
+
+/* ── Collaborators ── */
+.collab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.collab-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.collab-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.09);
+}
+.collab-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.collab-title {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.collab-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 99px;
+  color: white;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 </style>
 </head>
@@ -352,16 +397,17 @@
 <script src="js/main.js"></script>
 <script>
 const DEFAULT = 'https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/DucklingLab_Logo_AnimalsOnly.png';
-const INST_COLORS = { BU: '#CC0000', JHU: '#002D72', Tufts: '#3E8EDE', Harvard: '#A51C30' };
+const INST_COLORS = { BU: '#CC0000', JHU: '#002D72', Tufts: '#3E8EDE', Harvard: '#A51C30', UPenn: '#011F5B', UMaryland: '#E03A3E', UToronto: '#002A5C', 'UT-Austin': '#BF5700', UMass: '#881c1c' };
 
-const TIER_ORDER = ['pi','lab_manager','postdoc','phd','ma','ra'];
+const TIER_ORDER = ['pi','lab_manager','postdoc','phd','ma','ra','collaborator'];
 const TIER_LABELS = {
   pi: null,
   lab_manager: 'Lab Manager',
   postdoc: 'Postdoctoral Researchers',
   phd: 'PhD Students',
   ma: 'Graduate Students (MA)',
-  ra: 'Research Assistants'
+  ra: 'Research Assistants',
+  collaborator: 'Collaborators'
 };
 
 function photoEl(adult, kid, cls='') {
@@ -382,8 +428,14 @@ function openModal(member) {
   const adult_src = member.photo_adult || DEFAULT;
   const kid_src = member.photo_kid;
 
-  photo.innerHTML = `<img class="photo-adult" src="${adult_src}" alt="" onerror="this.src='${DEFAULT}'">` +
-    (kid_src ? `<img class="photo-kid" src="${kid_src}" alt="" onerror="this.src='${DEFAULT}'">` : '');
+  if (kid_src) {
+    photo.innerHTML = `
+      <img class="modal-photo-single" src="${adult_src}" alt="Today" onerror="this.src='${DEFAULT}'">
+      <div class="modal-photo-divider"></div>
+      <img class="modal-photo-single" src="${kid_src}" alt="Childhood" onerror="this.src='${DEFAULT}'">`;
+  } else {
+    photo.innerHTML = `<img class="modal-photo-single" src="${adult_src}" alt="" style="width:100%;" onerror="this.src='${DEFAULT}'">`;
+  }
 
   let links = '';
   if (member.website) links += `<a href="${member.website}" target="_blank" class="modal-link">Website</a>`;
@@ -467,11 +519,14 @@ fetch('data/team.json')
           const kid_src = m.photo_kid;
           const badge = !m.bu_member ? `<span class="ext-badge" style="background:${INST_COLORS[m.institution]||'#444'}">${m.institution}</span>` : '';
           const memberJSON = JSON.stringify(m).replace(/"/g,'&quot;');
+          const pos = m.object_position || 'center top';
+          const zoom = m.object_zoom || 1.0;
+          const imgStyle = `object-position:${pos};transform:scale(${zoom});transform-origin:${pos};`;
           html += `
             <div class="member-card" onclick="openModal(${memberJSON})">
               <div class="member-photo-wrap">
-                <img class="photo-adult" src="${adult_src}" alt="${m.name}" onerror="this.src='${DEFAULT}'">
-                ${kid_src ? `<img class="photo-kid" src="${kid_src}" alt="${m.name}" onerror="this.src='${DEFAULT}'">` : ''}
+                <img class="photo-adult" src="${adult_src}" alt="${m.name}" style="${imgStyle}" onerror="this.src='${DEFAULT}'">
+                ${kid_src ? `<img class="photo-kid" src="${kid_src}" alt="${m.name}" style="${imgStyle}" onerror="this.src='${DEFAULT}'">` : ''}
                 ${badge}
               </div>
               <div class="member-body">
@@ -484,9 +539,28 @@ fetch('data/team.json')
         return html;
       }
 
-      const showLabels = bu.length > 0 && ext.length > 0;
-      section.innerHTML += renderGroup(bu, showLabels ? 'Boston University' : null);
-      section.innerHTML += renderGroup(ext, showLabels ? 'Affiliated Researchers' : null);
+      if (tier === 'collaborator') {
+        // Render as compact list
+        const all = [...bu, ...ext].sort((a,b) => a.name.localeCompare(b.name));
+        let listHtml = '<div class="collab-list">';
+        all.forEach(m => {
+          const color = INST_COLORS[m.institution] || '#444';
+          listHtml += `
+            <a href="${m.website || '#'}" target="_blank" class="collab-item">
+              <div>
+                <div class="collab-name">${m.name}</div>
+                <div class="collab-title">${m.title}</div>
+              </div>
+              <span class="collab-badge" style="background:${color}">${m.institution}</span>
+            </a>`;
+        });
+        listHtml += '</div>';
+        section.innerHTML += listHtml;
+      } else {
+        const showLabels = bu.length > 0 && ext.length > 0;
+        section.innerHTML += renderGroup(bu, showLabels ? 'Boston University' : null);
+        section.innerHTML += renderGroup(ext, showLabels ? 'Affiliated Researchers' : null);
+      }
       container.appendChild(section);
     });
 

@@ -19,7 +19,9 @@
     "dept": "https://www.bu.edu/linguistics/profile/anthony-yacovone/",
     "interests": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "hamssa_ahmad",
@@ -41,7 +43,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "hill_romi",
@@ -63,7 +67,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "ray_jupitara",
@@ -85,7 +91,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "jiang_xinhan",
@@ -107,7 +115,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "carter_jess",
@@ -129,7 +139,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "vallampati_apoorva",
@@ -151,7 +163,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "hansen_tom",
@@ -173,7 +187,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "waite_briony",
@@ -195,7 +211,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "huang_yuhui",
@@ -217,7 +235,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "guttmann_chloe",
@@ -239,7 +259,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "ross_baylee",
@@ -261,7 +283,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "lin_imeng",
@@ -283,7 +307,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "mcilroyevans_dioan",
@@ -305,7 +331,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "darby_noah",
@@ -327,7 +355,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "wang_yujing",
@@ -349,7 +379,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "rolnick_sayge",
@@ -371,7 +403,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "nunes_rafaella",
@@ -393,7 +427,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "miyai_christopher",
@@ -415,7 +451,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "akinyanmi_oluwatofe",
@@ -437,7 +475,9 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   },
   {
     "id": "lin_monique",
@@ -459,6 +499,200 @@
     "dissertation": null,
     "dept": null,
     "status": "current",
-    "alumni": false
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
+  },
+  {
+    "id": "kandel_margaret",
+    "name": "Margaret Kandel",
+    "role": "Postdoctoral Fellow",
+    "title": "MindCORE Postdoctoral Fellow",
+    "institution": "UPenn",
+    "bu_member": false,
+    "tier": "postdoc",
+    "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/kandel_margaret_adult.png",
+    "photo_kid": null,
+    "bio": null,
+    "interests": null,
+    "website": "https://margaretkandel.wixsite.com/langsci/about",
+    "email": null,
+    "scholar": null,
+    "osf": null,
+    "cv": null,
+    "dissertation": null,
+    "dept": null,
+    "status": "current",
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
+  },
+  {
+    "id": "noureddine_samer",
+    "name": "Samer Nour Eddine, MD, PhD",
+    "role": "Postdoctoral Researcher",
+    "title": "Language Science Center",
+    "institution": "UMaryland",
+    "bu_member": false,
+    "tier": "postdoc",
+    "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/noureddine_samer_adult.png",
+    "photo_kid": null,
+    "bio": null,
+    "interests": "Cognitive and neural mechanisms of language comprehension; computational modeling, behavioral experiments, and neuroimaging; semantic processing and real-time prediction.",
+    "website": "https://www.samernoureddine.com/",
+    "email": null,
+    "scholar": null,
+    "osf": null,
+    "cv": null,
+    "dissertation": null,
+    "dept": null,
+    "status": "current",
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
+  },
+  {
+    "id": "snedeker_jesse",
+    "name": "Jesse Snedeker",
+    "role": "Collaborator",
+    "title": "Professor of Psychology",
+    "institution": "Harvard",
+    "bu_member": false,
+    "tier": "collaborator",
+    "photo_adult": null,
+    "photo_kid": null,
+    "bio": null,
+    "interests": null,
+    "website": "https://psychology.fas.harvard.edu/people/jesse-snedeker",
+    "email": null,
+    "scholar": null,
+    "osf": null,
+    "cv": null,
+    "dissertation": null,
+    "dept": null,
+    "status": "current",
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
+  },
+  {
+    "id": "kuperberg_gina",
+    "name": "Gina Kuperberg",
+    "role": "Collaborator",
+    "title": "Professor of Psychology",
+    "institution": "Tufts",
+    "bu_member": false,
+    "tier": "collaborator",
+    "photo_adult": null,
+    "photo_kid": null,
+    "bio": null,
+    "interests": null,
+    "website": "https://as.tufts.edu/psychology/people/faculty/gina-kuperberg",
+    "email": null,
+    "scholar": null,
+    "osf": null,
+    "cv": null,
+    "dissertation": null,
+    "dept": null,
+    "status": "current",
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
+  },
+  {
+    "id": "atkinson_emily",
+    "name": "Emily Atkinson",
+    "role": "Collaborator",
+    "title": "Assistant Professor, Dept. of Language Studies",
+    "institution": "UToronto",
+    "bu_member": false,
+    "tier": "collaborator",
+    "photo_adult": null,
+    "photo_kid": null,
+    "bio": null,
+    "interests": null,
+    "website": "https://emilyeatkinson.net/",
+    "email": null,
+    "scholar": null,
+    "osf": null,
+    "cv": null,
+    "dissertation": null,
+    "dept": null,
+    "status": "current",
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
+  },
+  {
+    "id": "kim_najoung",
+    "name": "Najoung Kim",
+    "role": "Collaborator",
+    "title": "Assistant Professor, Linguistics & CS",
+    "institution": "BU",
+    "bu_member": true,
+    "tier": "collaborator",
+    "photo_adult": null,
+    "photo_kid": null,
+    "bio": null,
+    "interests": null,
+    "website": "https://najoung.kim/",
+    "email": null,
+    "scholar": null,
+    "osf": null,
+    "cv": null,
+    "dissertation": null,
+    "dept": null,
+    "status": "current",
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
+  },
+  {
+    "id": "misra_kanishka",
+    "name": "Kanishka Misra",
+    "role": "Collaborator",
+    "title": "Assistant Professor of Linguistics & Harrington Fellow",
+    "institution": "UT-Austin",
+    "bu_member": false,
+    "tier": "collaborator",
+    "photo_adult": null,
+    "photo_kid": null,
+    "bio": null,
+    "interests": null,
+    "website": "https://kanishka.website/",
+    "email": null,
+    "scholar": null,
+    "osf": null,
+    "cv": null,
+    "dissertation": null,
+    "dept": null,
+    "status": "current",
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
+  },
+  {
+    "id": "dillon_brian",
+    "name": "Brian Dillon",
+    "role": "Collaborator",
+    "title": "Professor of Linguistics",
+    "institution": "UMass",
+    "bu_member": false,
+    "tier": "collaborator",
+    "photo_adult": null,
+    "photo_kid": null,
+    "bio": null,
+    "interests": null,
+    "website": "https://people.umass.edu/bwdillon/",
+    "email": null,
+    "scholar": null,
+    "osf": null,
+    "cv": null,
+    "dissertation": null,
+    "dept": null,
+    "status": "current",
+    "alumni": false,
+    "object_position": "center top",
+    "object_zoom": 1.0
   }
 ]
