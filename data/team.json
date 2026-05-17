@@ -1,6 +1,6 @@
 [
   {
-    "id": "yacovone_anthony",
+    "id": "phd_yacovone_anthony",
     "name": "Anthony Yacovone, PhD",
     "role": "Principal Investigator",
     "title": "Assistant Professor, Department of Linguistics",
@@ -9,7 +9,8 @@
     "tier": "pi",
     "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/yacovone_anthony_adult.png",
     "photo_kid": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/yacovone_anthony_kid.jpg",
-    "bio": "I am an Assistant Professor in the Department of Linguistics at Boston University. I received my PhD from Harvard University in 2023, working with Jesse Snedeker, and completed a postdoctoral fellowship at Tufts University. I use psycholinguistic methods \u2014 including neuroimaging, eye-tracking, and computational modeling \u2014 to better understand how language develops, functions, and adapts in complex, real-world environments. In the Duckling Lab, we ask how children learn the language(s) around them: how and when do we acquire linguistic forms and their meanings? We also study what makes language easier or harder to understand and produce across various populations and ages.",
+    "bio": "I am an Assistant Professor in the Department of Linguistics at Boston University. I received my PhD from Harvard University in 2023 and completed a postdoctoral fellowship at Tufts University. I use psycholinguistic methods — including neuroimaging, eye-tracking, and computational modeling — to better understand how language develops, functions, and adapts in complex, real-world environments. In the Duckling Lab, we ask how children learn the language(s) around them: how and when do we acquire linguistic forms and their meanings? We also study what makes language easier or harder to understand and produce across various populations and ages.",
+    "interests": null,
     "website": "https://www.anthonyyacovone.com",
     "email": "yacovone@bu.edu",
     "scholar": "https://scholar.google.com/citations?hl=en&user=PjXGjVoAAAAJ",
@@ -17,11 +18,11 @@
     "cv": "https://drive.google.com/file/d/1fjNKOZcdY1qEVWTz-o1004FkB8vQLVs6/view",
     "dissertation": "https://drive.google.com/file/d/1BXeualvIwPK0iOsnkJ1N-LPDlyO-ttcM/view",
     "dept": "https://www.bu.edu/linguistics/profile/anthony-yacovone/",
-    "interests": null,
     "status": "current",
     "alumni": false,
+    "where_now": null,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1
   },
   {
     "id": "hamssa_ahmad",
@@ -45,7 +46,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 1
   },
   {
     "id": "hill_romi",
@@ -69,7 +71,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 2
   },
   {
     "id": "ray_jupitara",
@@ -93,7 +96,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 3
   },
   {
     "id": "jiang_xinhan",
@@ -117,7 +121,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 4
   },
   {
     "id": "carter_jess",
@@ -130,7 +135,7 @@
     "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/carter_jess_adult.jpg",
     "photo_kid": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/carter_jess_kid.jpg",
     "bio": null,
-    "interests": "Environmental factors shaping language learning, perception, and processing; signed languages \u2014 ASL, LSN, and homesign systems.",
+    "interests": "Environmental factors shaping language learning, perception, and processing; signed languages — ASL, LSN, and homesign systems.",
     "website": null,
     "email": null,
     "scholar": null,
@@ -141,7 +146,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 5
   },
   {
     "id": "vallampati_apoorva",
@@ -165,7 +171,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 6
   },
   {
     "id": "hansen_tom",
@@ -189,7 +196,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 7
   },
   {
     "id": "waite_briony",
@@ -213,7 +221,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 8
   },
   {
     "id": "huang_yuhui",
@@ -237,7 +246,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 9
   },
   {
     "id": "guttmann_chloe",
@@ -261,7 +271,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 10
   },
   {
     "id": "ross_baylee",
@@ -285,7 +296,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 11
   },
   {
     "id": "lin_imeng",
@@ -309,7 +321,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 12
   },
   {
     "id": "mcilroyevans_dioan",
@@ -333,7 +346,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 13
   },
   {
     "id": "darby_noah",
@@ -357,7 +371,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 14
   },
   {
     "id": "wang_yujing",
@@ -381,7 +396,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 15
   },
   {
     "id": "rolnick_sayge",
@@ -405,7 +421,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 16
   },
   {
     "id": "nunes_rafaella",
@@ -429,7 +446,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 17
   },
   {
     "id": "miyai_christopher",
@@ -453,7 +471,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 18
   },
   {
     "id": "akinyanmi_oluwatofe",
@@ -477,7 +496,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 19
   },
   {
     "id": "lin_monique",
@@ -501,7 +521,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 20
   },
   {
     "id": "kandel_margaret",
@@ -525,7 +546,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 21
   },
   {
     "id": "noureddine_samer",
@@ -549,7 +571,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 22
   },
   {
     "id": "snedeker_jesse",
@@ -573,7 +596,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 23
   },
   {
     "id": "kuperberg_gina",
@@ -597,7 +621,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 24
   },
   {
     "id": "atkinson_emily",
@@ -621,7 +646,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 25
   },
   {
     "id": "kim_najoung",
@@ -645,7 +671,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 26
   },
   {
     "id": "misra_kanishka",
@@ -669,7 +696,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 27
   },
   {
     "id": "dillon_brian",
@@ -693,6 +721,7 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1.0
+    "object_zoom": 1,
+    "_idx": 28
   }
 ]
