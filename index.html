@@ -257,7 +257,7 @@ nav {
 }
 .news-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
 .news-thumb {
-  height: 160px;
+  height: 140px;
   background-size: cover; background-position: center;
 }
 .news-body { padding: 1.25rem 1.3rem 1.5rem; }
@@ -560,7 +560,7 @@ footer a:hover { color: white; }
     <li><a href="#">Studies</a></li>
     <li><a href="#">Team</a></li>
     <li><a href="#">Publications</a></li>
-    <li><a href="#">News</a></li>
+    <li><a href="news.html">News</a></li>
     <li><a href="#" class="nav-cta">Get Involved</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
@@ -571,7 +571,7 @@ footer a:hover { color: white; }
   <a href="#">Studies</a>
   <a href="#">Team</a>
   <a href="#">Publications</a>
-  <a href="#">News</a>
+  <a href="news.html">News</a>
   <a href="#" class="mobile-cta">Get Involved</a>
 </div>
 
@@ -781,7 +781,7 @@ fetch('data/news.json')
       const dateStr = d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
       const thumb = item.photo
         ? `background-image:url('${item.photo}');background-size:cover;background-position:center;`
-        : `background-image:url('${BRAIN_MAP[item.category]||BRAIN_MAP["Lab News"]}');background-size:55%;background-repeat:no-repeat;background-position:center;background-color:var(--sage-light);`;
+        : `background-image:url('${BRAIN_MAP[item.category]||BRAIN_MAP["Lab News"]}');background-size:70%;background-repeat:no-repeat;background-position:center;background-color:var(--sage-light);`;
       const linkHtml = item.link
         ? `<a href="${item.link}" target="_blank" style="font-size:0.78rem;font-weight:600;color:var(--red);text-decoration:none;">${item.link_label||'Learn more'} &rarr;</a>`
         : '';
