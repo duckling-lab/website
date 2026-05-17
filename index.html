@@ -257,7 +257,7 @@ nav {
 }
 .news-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
 .news-thumb {
-  height: 140px;
+  height: 160px;
   background-size: cover; background-position: center;
 }
 .news-body { padding: 1.25rem 1.3rem 1.5rem; }
@@ -754,15 +754,15 @@ function initCarousel() {
 
 // Load news from JSON
 const BRAIN_MAP = {
-  'New Study':    'https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_binoculars.png',
+  'Participate':  'https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_binoculars.png',
   'Publication':  'https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_reading.png',
   'Conference':   'https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_presentation.png',
   'Lab News':     'https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_lightbulb.png',
-  'Recruiting':   'https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_survey.png',
+  'Hiring':       'https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_survey.png',
 };
 const CAT_CLASS = {
-  'New Study':'', 'Publication':'publication',
-  'Conference':'conference','Lab News':'lab-news','Recruiting':'recruiting'
+  'Participate':'', 'Publication':'publication',
+  'Conference':'conference','Lab News':'lab-news','Hiring':'recruiting'
 };
 
 fetch('data/news.json')
