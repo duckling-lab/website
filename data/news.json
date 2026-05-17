@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Now Recruiting: Language & Reading Study",
+    "date": "2025-05-01",
+    "category": "New Study",
+    "description": "We are looking for children ages 5–10 for our new reading comprehension study. Sessions are 45 minutes and can be done in person or online.",
+    "photo": null,
+    "link": null,
+    "link_label": null
+  },
+  {
+    "title": "Duckling Lab at BUCLD 2024",
+    "date": "2024-11-08",
+    "category": "Conference",
+    "description": "Members of the lab presented new findings on bilingual sentence processing at the Boston University Conference on Language Development.",
+    "photo": null,
+    "link": null,
+    "link_label": "Conference Program"
+  },
+  {
+    "title": "New Paper on Sentence Processing",
+    "date": "2024-04-15",
+    "category": "Publication",
+    "description": "Our latest findings on how bilingual children process complex sentences have been accepted for publication in Language Acquisition.",
+    "photo": null,
+    "link": "https://doi.org/10.1000/example",
+    "link_label": "Read paper"
+  },
+  {
+    "title": "Welcome to Our New Research Assistants",
+    "date": "2024-09-01",
+    "category": "Lab News",
+    "description": "We are thrilled to welcome three new undergraduate research assistants to the Duckling Lab this semester.",
+    "photo": null,
+    "link": null,
+    "link_label": null
+  },
+  {
+    "title": "RA Positions Open for Spring 2024",
+    "date": "2023-11-15",
+    "category": "Recruiting",
+    "description": "We are looking for enthusiastic undergraduate RAs to join the lab in the spring semester. No prior experience required.",
+    "photo": null,
+    "link": null,
+    "link_label": "Apply"
+  },
+  {
+    "title": "Lab Founded at Boston University",
+    "date": "2023-09-01",
+    "category": "Lab News",
+    "description": "The Duckling Lab officially opens at Boston University's Department of Linguistics under the direction of Dr. Anthony Yacovone.",
+    "photo": null,
+    "link": null,
+    "link_label": null
+  }
+]
