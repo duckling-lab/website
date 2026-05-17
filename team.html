@@ -585,7 +585,7 @@ fetch('data/team.json')
           <button class="pi-bio-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('expanded')">
             About <span class="pi-bio-toggle-arrow">&#8964;</span>
           </button>
-          <p class="pi-bio">${pi.bio}</p>
+          <p class="pi-bio" id="pi-bio-el"></p>
           <div class="pi-links">
             ${pi.website ? `<a href="${pi.website}" target="_blank" class="pi-link">Website</a>` : ''}
             ${pi.dept ? `<a href="${pi.dept}" target="_blank" class="pi-link">Dept. Profile</a>` : ''}
@@ -596,6 +596,7 @@ fetch('data/team.json')
             ${pi.email ? `<a href="mailto:${pi.email}" class="pi-link">Email</a>` : ''}
           </div>
         </div>`;
+      document.getElementById('pi-bio-el').textContent = pi.bio || '';
     }
 
     // Group members by tier then BU vs affiliated
