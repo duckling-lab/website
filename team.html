@@ -179,12 +179,13 @@
   width: 100%;
   background: var(--sage-light);
   overflow: hidden;
+  height: 240px;
 }
 .modal-photo-wrap .modal-photo-single {
   flex: 1;
-  height: 220px;
+  height: 240px;
   object-fit: cover;
-  object-position: top;
+  object-position: center top;
 }
 .modal-photo-wrap .modal-photo-divider {
   width: 2px;
@@ -434,7 +435,7 @@ function openModal(member) {
       <div class="modal-photo-divider"></div>
       <img class="modal-photo-single" src="${kid_src}" alt="Childhood" onerror="this.src='${DEFAULT}'">`;
   } else {
-    photo.innerHTML = `<img class="modal-photo-single" src="${adult_src}" alt="" style="width:100%;" onerror="this.src='${DEFAULT}'">`;
+    photo.innerHTML = `<img class="modal-photo-single" src="${adult_src}" alt="" style="width:100%;object-fit:cover;object-position:center top;height:240px;" onerror="this.src='${DEFAULT}'">`;
   }
 
   let links = '';
