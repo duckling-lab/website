@@ -304,6 +304,54 @@
   flex-shrink: 0;
   margin-left: auto;
 }
+
+@media (max-width: 768px) {
+  /* Modal - stack photos vertically, show only adult on sage bg */
+  .modal-photo-wrap {
+    flex-direction: column;
+    height: 200px;
+  }
+  .modal-photo-wrap .modal-photo-single {
+    width: 100%; height: 200px;
+    object-fit: contain;
+    background: var(--sage-light);
+  }
+  .modal-photo-divider { display: none; }
+  .modal-photo-wrap .modal-photo-kid-mobile { display: none; }
+
+  /* PI bio dropdown */
+  .pi-bio {
+    display: none;
+  }
+  .pi-bio.expanded {
+    display: block;
+  }
+  .pi-bio-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--red);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: "DM Sans", sans-serif;
+  }
+  .pi-bio-toggle-arrow {
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .pi-bio-toggle.open .pi-bio-toggle-arrow {
+    transform: rotate(180deg);
+  }
+}
+@media (min-width: 769px) {
+  .pi-bio-toggle { display: none; }
+  .pi-bio { display: block !important; }
+}
 </style>
 </head>
 <body>
@@ -448,14 +496,16 @@ function openModal(member) {
     photo.innerHTML = '';
     photo.appendChild(img1);
     photo.appendChild(divider);
+    img2.classList.add('modal-photo-kid-mobile');
     photo.appendChild(img2);
   } else {
     const img = document.createElement('img');
     img.className = 'modal-photo-single';
     img.src = adult_src;
     img.alt = '';
-    img.style.cssText = 'width:100%;object-fit:cover;object-position:center top;height:240px;';
+    img.style.cssText = 'width:100%;height:240px;object-fit:contain;object-position:center;background:var(--sage-light);';
     img.onerror = () => img.src = DEFAULT;
+    photo.style.background = 'var(--sage-light)';
     photo.innerHTML = '';
     photo.appendChild(img);
   }
@@ -506,6 +556,9 @@ fetch('data/team.json')
         <div>
           <div class="pi-name">${pi.name}</div>
           <div class="pi-title">${pi.role} &middot; ${pi.title}</div>
+          <button class="pi-bio-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('expanded')">
+            About <span class="pi-bio-toggle-arrow">&#8964;</span>
+          </button>
           <p class="pi-bio">${pi.bio}</p>
           <div class="pi-links">
             ${pi.website ? `<a href="${pi.website}" target="_blank" class="pi-link">Website</a>` : ''}
