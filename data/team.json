@@ -768,9 +768,9 @@
     "cv": null,
     "dissertation": null,
     "dept": null,
-    "status": "current",
-    "alumni": false,
-    "where_now": null,
+    "status": "alumni",
+    "alumni": true,
+    "where_now": "test",
     "object_position": "center top",
     "object_zoom": 1
   }
