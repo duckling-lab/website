@@ -545,7 +545,35 @@ footer a:hover { color: white; }
 <body>
 
 <!-- Nav -->
-<div id="nav-placeholder"></div>
+<nav>
+  <a class="nav-logo" href="index.html" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--ink);">
+    <img src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/boston_univ_rgb.gif" alt="Boston University" style="height:38px;width:auto;flex-shrink:0;">
+    <span style="width:1px;height:28px;background:var(--border);display:inline-block;"></span>
+    <span style="display:flex;flex-direction:column;line-height:1.3;">
+      <span style="font-size:0.7rem;color:var(--muted);font-weight:400;">Department of Linguistics</span>
+      <span style="font-size:0.88rem;font-weight:600;color:var(--ink);">Duckling Lab</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="studies.html">Studies</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="interest-form/index.html" class="nav-cta">Get Involved</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="active">Home</a>
+  <a href="research.html">Research</a>
+  <a href="studies.html">Studies</a>
+  <a href="team.html">Team</a>
+  <a href="publications.html">Publications</a>
+  <a href="news.html">News</a>
+  <a href="interest-form/index.html" class="mobile-cta">Get Involved</a>
+</div>
 
 <!-- Hero -->
 <section class="hero">
@@ -823,7 +851,10 @@ addSwipe(carouselEl,
   () => prevBtn.click()
 );
 </script>
-<script src="js/main.js"></script>
-<script>document.addEventListener("DOMContentLoaded", () => loadNav("home"));</script>
+<script src="js/main.js">  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+</script>
 </body>
 </html>
