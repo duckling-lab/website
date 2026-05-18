@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Involved — Duckling Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+/* ── Page layout ── */
+.form-page-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Hero card ── */
+.hero-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  padding: 2.25rem 2rem 2rem;
+  text-align: center;
+}
+.logo-wrap { max-width: 420px; margin: 0 auto 1rem; }
+.logo-wrap img { width: 100%; height: auto; display: block; }
+.hero-box {
+  background: var(--sage-light);
+  border: 1.5px solid var(--sage-mid);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.75;
+  margin-top: 0.75rem;
+  text-align: left;
+}
+.hero-box a { color: var(--ink); text-decoration: none; font-weight: 600; }
+.hero-box a:hover { text-decoration: underline; }
+.hero-box-cta { margin-top: 0.6rem; font-weight: 600; color: var(--sage-dark); }
+
+/* ── Form card ── */
+.form-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  padding: 2rem 2rem 2.25rem;
+}
+.section-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-bottom: 1px solid #EADADA;
+  padding-bottom: 0.5rem;
+  margin: 1.75rem 0 1.2rem;
+}
+.section-label:first-child { margin-top: 0; }
+
+.field { margin-bottom: 1rem; }
+.field-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.field-label .opt { font-weight: 400; color: var(--muted); font-size: 0.77rem; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.9rem;
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  -webkit-appearance: none;
+}
+input:focus, textarea:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(204,0,0,0.1);
+}
+textarea { resize: vertical; min-height: 88px; }
+
+/* ── Choice items ── */
+.choices { display: flex; flex-direction: column; gap: 0.45rem; }
+.choices.row { flex-direction: row; flex-wrap: wrap; }
+.choice-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.9rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--ink);
+  background: var(--white);
+  transition: border-color 0.12s, background 0.12s;
+  user-select: none;
+}
+.choice-item:hover { border-color: var(--red); background: var(--sage-light); }
+.choice-item.selected {
+  border-color: var(--red);
+  background: var(--sage-light);
+  color: var(--red-dark);
+  font-weight: 500;
+}
+.choice-item input { accent-color: var(--red); width: 15px; height: 15px; flex-shrink: 0; }
+.choices.row .choice-item { flex: 1 1 auto; }
+
+/* ── Conditional sections ── */
+.conditional { display: none; }
+.conditional.visible { display: block; }
+.lang-reveal { display: none; margin-top: 0.65rem; }
+.lang-reveal.visible { display: block; }
+.lang-reveal .field-label { font-size: 0.82rem; font-weight: 500; display: block; margin-bottom: 0.35rem; }
+
+/* ── Submit ── */
+.submit-wrap { margin-top: 1.75rem; }
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--red);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 2px 8px rgba(204,0,0,0.2);
+}
+.btn-submit:hover { background: var(--red-dark); }
+.btn-submit:active { transform: scale(0.99); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Success ── */
+.success { display: none; text-align: center; padding: 1.5rem 0.5rem; }
+.success.visible { display: block; }
+.success .duck { font-size: 3rem; margin-bottom: 0.75rem; }
+.success h2 { font-family: "DM Serif Display", serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem; }
+.success p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+.success a { color: var(--red); text-decoration: none; }
+
+/* ── Footer ── */
+.form-footer {
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.form-footer a { color: var(--red); text-decoration: none; }
+
+@media (max-width: 480px) {
+  .form-page-wrap { padding: 2rem 1rem 4rem; }
+  .hero-card, .form-card { padding: 1.5rem 1.1rem; border-radius: 16px; }
+  .field-row { grid-template-columns: 1fr; }
+  .choices.row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--ink);">
+    <img src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/boston_univ_rgb.gif" alt="Boston University" style="height:38px;width:auto;flex-shrink:0;">
+    <span style="width:1px;height:28px;background:var(--border);display:inline-block;"></span>
+    <span style="display:flex;flex-direction:column;line-height:1.3;">
+      <span style="font-size:0.7rem;color:var(--muted);font-weight:400;">Department of Linguistics</span>
+      <span style="font-size:0.88rem;font-weight:600;color:var(--ink);">Duckling Lab</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/">Home</a></li>
+    <li><a href="/research.html">Research</a></li>
+    <li><a href="/studies.html">Studies</a></li>
+    <li><a href="/team.html">Team</a></li>
+    <li><a href="/publications.html">Publications</a></li>
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/interest-form/" class="nav-cta active">Get Involved</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="/research.html">Research</a>
+  <a href="/studies.html">Studies</a>
+  <a href="/team.html">Team</a>
+  <a href="/publications.html">Publications</a>
+  <a href="/news.html">News</a>
+  <a href="/interest-form/" class="mobile-cta active">Get Involved</a>
+</div>
+
+<div class="form-page-wrap">
+
+  <!-- Hero -->
+  <div class="hero-card">
+    <div class="logo-wrap">
+      <img src="/media/logos/DucklingLab_Logo_NoText_Wide.png" alt="Duckling Lab">
+    </div>
+    <div class="hero-box">
+      <p>We are a research lab at <a href="https://www.bu.edu/linguistics/" target="_blank">Boston University's Department of Linguistics</a> studying how adults and children learn language. Our PI is <a href="https://www.anthonyyacovone.com" target="_blank">Dr. Anthony Yacovone</a>.</p>
+      <p class="hero-box-cta">We'd love to hear from you!</p>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="form-card">
+    <form id="interest-form" action="https://formspree.io/f/mzdwprzr" method="POST">
+
+      <p class="section-label">Your information</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Full name">
+        </div>
+        <div class="field">
+          <label class="field-label" for="email">Email address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="phone">Phone number <span class="opt">(optional)</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="(617) 555-0000">
+      </div>
+
+      <p class="section-label">About you</p>
+
+      <div class="field">
+        <label class="field-label">I am a&hellip;</label>
+        <div class="choices">
+          <label class="choice-item">
+            <input type="radio" name="participant_type" value="Parent or caregiver" required>
+            Parent or caregiver interested in signing up my child
+          </label>
+          <label class="choice-item">
+            <input type="radio" name="participant_type" value="Adult participant">
+            Adult interested in participating myself
+          </label>
+          <label class="choice-item">
+            <input type="radio" name="participant_type" value="Other / more information">
+            Other / just want more information
+          </label>
+        </div>
+      </div>
+
+      <!-- PARENT ONLY -->
+      <div class="conditional" id="section-parent">
+        <p class="section-label">About your child</p>
+
+        <div class="field">
+          <label class="field-label">My child's age range</label>
+          <div class="choices row">
+            <label class="choice-item"><input type="radio" name="child_age" value="3-4 yrs"> 3&ndash;4 yrs</label>
+            <label class="choice-item"><input type="radio" name="child_age" value="5-6 yrs"> 5&ndash;6 yrs</label>
+            <label class="choice-item"><input type="radio" name="child_age" value="7-8 yrs"> 7&ndash;8 yrs</label>
+            <label class="choice-item"><input type="radio" name="child_age" value="9-10 yrs"> 9&ndash;10 yrs</label>
+            <label class="choice-item"><input type="radio" name="child_age" value="11-12 yrs"> 11&ndash;12 yrs</label>
+            <label class="choice-item"><input type="radio" name="child_age" value="13-14 yrs"> 13&ndash;14 yrs</label>
+            <label class="choice-item"><input type="radio" name="child_age" value="15-17 yrs"> 15&ndash;17 yrs</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Language(s) at home</label>
+          <div class="choices row">
+            <label class="choice-item">
+              <input type="radio" name="child_language" value="Monolingual (English only)">
+              Monolingual (English only)
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="child_language" value="Multilingual">
+              Multilingual
+            </label>
+          </div>
+          <div class="lang-reveal" id="child-lang-reveal">
+            <label class="field-label" for="child_lang_detail">What languages does your child know?</label>
+            <input type="text" id="child_lang_detail" name="child_languages" placeholder="e.g. English, Spanish, Mandarin">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Availability <span class="opt">(select all that apply)</span></label>
+          <div class="choices row">
+            <label class="choice-item"><input type="checkbox" name="availability" value="Weekday mornings"> Weekday mornings</label>
+            <label class="choice-item"><input type="checkbox" name="availability" value="Weekday afternoons"> Weekday afternoons</label>
+            <label class="choice-item"><input type="checkbox" name="availability" value="Weekday evenings"> Weekday evenings</label>
+            <label class="choice-item"><input type="checkbox" name="availability" value="Weekends"> Weekends</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADULT ONLY -->
+      <div class="conditional" id="section-adult">
+        <p class="section-label">A bit more about you</p>
+
+        <div class="field">
+          <label class="field-label">Are you affiliated with BU? <span class="opt">(optional)</span></label>
+          <div class="choices row">
+            <label class="choice-item"><input type="radio" name="bu_student" value="Yes"> Yes</label>
+            <label class="choice-item"><input type="radio" name="bu_student" value="No"> No</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Language(s)</label>
+          <div class="choices row">
+            <label class="choice-item">
+              <input type="radio" name="adult_language" value="Monolingual (English only)">
+              Monolingual (English only)
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="adult_language" value="Multilingual">
+              Multilingual
+            </label>
+          </div>
+          <div class="lang-reveal" id="adult-lang-reveal">
+            <label class="field-label" for="adult_lang_detail">Please list the languages that you know.</label>
+            <input type="text" id="adult_lang_detail" name="adult_languages" placeholder="e.g. English, French, Arabic">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Availability <span class="opt">(select all that apply)</span></label>
+          <div class="choices row">
+            <label class="choice-item"><input type="checkbox" name="availability" value="Weekday mornings"> Weekday mornings</label>
+            <label class="choice-item"><input type="checkbox" name="availability" value="Weekday afternoons"> Weekday afternoons</label>
+            <label class="choice-item"><input type="checkbox" name="availability" value="Weekday evenings"> Weekday evenings</label>
+            <label class="choice-item"><input type="checkbox" name="availability" value="Weekends"> Weekends</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDY SELECTION — loaded dynamically -->
+      <p class="section-label">Studies of interest</p>
+      <div class="field">
+        <label class="field-label">Which studies are you interested in? <span class="opt">(select all that apply)</span></label>
+        <div class="choices" id="studyChoices">
+          <p style="font-size:0.82rem;color:var(--muted);">Loading available studies&hellip;</p>
+        </div>
+        <p style="font-size:0.75rem;color:var(--muted);margin-top:0.5rem;">
+          Not sure? <a href="/studies.html" style="color:var(--sage-dark);font-weight:600;">Learn more about our studies &rarr;</a>
+        </p>
+      </div>
+
+      <!-- EVERYONE -->
+      <p class="section-label">More details</p>
+
+      <div class="field">
+        <label class="field-label">How did you hear about us? <span class="opt">(optional)</span></label>
+        <div class="choices row">
+          <label class="choice-item"><input type="radio" name="referral" value="Flyer or poster"> Flyer or poster</label>
+          <label class="choice-item"><input type="radio" name="referral" value="Friend or family"> Friend or family</label>
+          <label class="choice-item"><input type="radio" name="referral" value="Daycare or school"> Daycare or school</label>
+          <label class="choice-item"><input type="radio" name="referral" value="Social media"> Social media</label>
+          <label class="choice-item"><input type="radio" name="referral" value="BU website or event"> BU website or event</label>
+          <label class="choice-item"><input type="radio" name="referral" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="notes">Anything else? <span class="opt">(optional)</span></label>
+        <textarea id="notes" name="notes" placeholder="Questions, scheduling needs, additional children, etc."></textarea>
+      </div>
+
+      <input type="hidden" name="_subject" value="New Duckling Lab Interest Form Submission">
+
+      <div class="submit-wrap">
+        <button type="submit" class="btn-submit" id="submit-btn">Submit interest form</button>
+      </div>
+
+    </form>
+
+    <div class="success" id="success-msg">
+      <div class="duck">🦆</div>
+      <h2>Thank you!</h2>
+      <p>We received your form and will be in touch soon.<br>
+         Questions? <a href="mailto:duckling@bu.edu">duckling@bu.edu</a></p>
+    </div>
+  </div>
+
+  <p class="form-footer">
+    Questions? <a href="mailto:duckling@bu.edu">duckling@bu.edu</a> &middot; (617) 358-5464<br>
+    Duckling Lab &middot; Dept. of Linguistics &middot; Boston University
+  </p>
+
+</div>
+
+<script src="/js/main.js"></script>
+<script>document.addEventListener("DOMContentLoaded", () => loadNav("interest-form"));</script>
+<script>
+// ── Load studies from same-origin JSON ─────────────────────────────────────
+// Relative path works because this file lives at ducklinglab.org/interest-form/index.html
+const STUDIES_URL = '/data/studies.json';
+const urlParams   = new URLSearchParams(window.location.search);
+const preselect   = urlParams.get('study');
+
+fetch(STUDIES_URL)
+  .then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  })
+  .then(studies => {
+    const enrolling = studies.filter(s => s.visible && s.status === 'enrolling');
+    const pending   = studies.filter(s => s.visible && s.status !== 'enrolling' && s.status !== 'closed');
+    const container = document.getElementById('studyChoices');
+    container.innerHTML = '';
+
+    if (!enrolling.length && !pending.length) {
+      container.innerHTML = '<p style="font-size:0.82rem;color:var(--muted);">No studies currently open. Check back soon!</p>';
+      return;
+    }
+
+    // Enrolling — checkboxes
+    enrolling.forEach(s => {
+      const isPreselected = preselect === s.id;
+      const label = document.createElement('label');
+      label.className = 'choice-item' + (isPreselected ? ' selected' : '');
+
+      const cb = document.createElement('input');
+      cb.type    = 'checkbox';
+      cb.name    = 'studies';
+      cb.value   = s.title;
+      cb.checked = isPreselected;
+      cb.addEventListener('change', () => label.classList.toggle('selected', cb.checked));
+
+      const meta = [];
+      if (s.age_range) meta.push(s.age_range);
+      if (s.location)  meta.push(s.location);
+
+      const text = document.createTextNode(' ' + s.title + (meta.length ? ' — ' + meta.join(', ') : ''));
+
+      const link = document.createElement('a');
+      link.href      = '/studies.html?study=' + s.id;
+      link.textContent = 'Learn more';
+      link.style.cssText = 'font-size:0.72rem;color:var(--sage-dark);margin-left:0.5rem;font-weight:600;white-space:nowrap;';
+
+      label.appendChild(cb);
+      label.appendChild(text);
+      label.appendChild(link);
+      container.appendChild(label);
+    });
+
+    // Pending — shown but disabled
+    const statusLabels = {
+      'awaiting_approval': 'Awaiting Approval',
+      'coming_soon':       'Coming Soon',
+      'paused':            'Paused'
+    };
+    pending.forEach(s => {
+      const label = document.createElement('label');
+      label.className = 'choice-item';
+      label.style.cssText = 'opacity:0.5;cursor:default;pointer-events:none;';
+      const badge = statusLabels[s.status] || s.status;
+      label.innerHTML = '<span style="font-size:0.72rem;background:#F3F4F6;padding:0.15rem 0.5rem;border-radius:99px;margin-right:0.4rem;">' + badge + '</span>' + s.title;
+      container.appendChild(label);
+    });
+  })
+  .catch(() => {
+    document.getElementById('studyChoices').innerHTML =
+      '<p style="font-size:0.82rem;color:var(--muted);">Could not load studies. Please email us at <a href="mailto:duckling@bu.edu">duckling@bu.edu</a>.</p>';
+  });
+
+// ── UI interactions ────────────────────────────────────────────────────────
+document.querySelectorAll(".choice-item input").forEach(input => {
+  input.addEventListener("change", () => {
+    if (input.type === "radio") {
+      document.querySelectorAll(`input[name="${input.name}"]`).forEach(r => {
+        r.closest(".choice-item").classList.remove("selected");
+      });
+    }
+    if (input.checked) input.closest(".choice-item").classList.add("selected");
+    if (input.type === "checkbox" && !input.checked) {
+      input.closest(".choice-item").classList.remove("selected");
+    }
+  });
+});
+
+document.querySelectorAll("input[name='participant_type']").forEach(r => {
+  r.addEventListener("change", () => {
+    document.getElementById("section-parent").classList.toggle("visible", r.value === "Parent or caregiver");
+    document.getElementById("section-adult").classList.toggle("visible",  r.value === "Adult participant");
+  });
+});
+
+document.querySelectorAll("input[name='child_language']").forEach(r => {
+  r.addEventListener("change", () => {
+    document.getElementById("child-lang-reveal").classList.toggle("visible", r.value === "Multilingual" && r.checked);
+  });
+});
+
+document.querySelectorAll("input[name='adult_language']").forEach(r => {
+  r.addEventListener("change", () => {
+    document.getElementById("adult-lang-reveal").classList.toggle("visible", r.value === "Multilingual" && r.checked);
+  });
+});
+
+// ── Form submission ────────────────────────────────────────────────────────
+const form = document.getElementById("interest-form");
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const btn = document.getElementById("submit-btn");
+  btn.textContent = "Sending\u2026";
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method:  "POST",
+      body:    new FormData(form),
+      headers: { Accept: "application/json" }
+    });
+    if (res.ok) {
+      form.style.display = "none";
+      document.getElementById("success-msg").classList.add("visible");
+    } else {
+      btn.textContent = "Something went wrong \u2014 please try again.";
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = "Network error \u2014 please try again.";
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
