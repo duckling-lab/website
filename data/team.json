@@ -1,6 +1,6 @@
 [
   {
-    "id": "yacovone_anthony",
+    "id": "phd_yacovone_anthony",
     "name": "Anthony Yacovone, PhD",
     "role": "Principal Investigator",
     "title": "Assistant Professor, Department of Linguistics",
@@ -9,7 +9,8 @@
     "tier": "pi",
     "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/yacovone_anthony_adult.png",
     "photo_kid": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/yacovone_anthony_kid.jpg",
-    "bio": "I am an Assistant Professor in the Department of Linguistics at Boston University. I received my PhD from Harvard University in 2023, working with Jesse Snedeker, and completed a postdoctoral fellowship at Tufts University. I use psycholinguistic methods â including neuroimaging, eye-tracking, and computational modeling â to better understand how language develops, functions, and adapts in complex, real-world environments. In the Duckling Lab, we ask how children learn the language(s) around them: how and when do we acquire linguistic forms and their meanings? We also study what makes language easier or harder to understand and produce across various populations and ages.",
+    "bio": "I am an Assistant Professor in the Department of Linguistics at Boston University. I received my PhD from Harvard University in 2023 and completed a postdoctoral fellowship at Tufts University. I use psycholinguistic methods including neuroimaging, eye-tracking, and computational modeling to better understand how language develops, functions, and adapts in complex, real-world environments. In the Duckling Lab, we ask how children learn the language(s) around them: how and when do we acquire linguistic forms and their meanings? We also study what makes language easier or harder to understand and produce across various populations and ages.",
+    "interests": null,
     "website": "https://www.anthonyyacovone.com",
     "email": "yacovone@bu.edu",
     "scholar": "https://scholar.google.com/citations?hl=en&user=PjXGjVoAAAAJ",
@@ -17,9 +18,9 @@
     "cv": "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/yacovone_cv_march26.pdf",
     "dissertation": "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/duckling-lab/website/main/media/publications/yacovone_dissertation_2023.pdf",
     "dept": "https://www.bu.edu/linguistics/profile/anthony-yacovone/",
-    "interests": null,
     "status": "current",
     "alumni": false,
+    "where_now": null,
     "object_position": "center top",
     "object_zoom": 1
   },
@@ -130,7 +131,7 @@
     "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/carter_jess_adult.jpg",
     "photo_kid": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/carter_jess_kid.jpg",
     "bio": null,
-    "interests": "Environmental factors shaping language learning, perception, and processing; signed languages â ASL, LSN, and homesign systems.",
+    "interests": "Environmental factors shaping language learning, perception, and processing; signed languages ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ASL, LSN, and homesign systems.",
     "website": null,
     "email": null,
     "scholar": null,
@@ -677,7 +678,7 @@
     "name": "Brian Dillon",
     "role": "Collaborator",
     "title": "Professor of Linguistics",
-    "institution": "UMass",
+    "institution": "UMass Amherst",
     "bu_member": false,
     "tier": "collaborator",
     "photo_adult": null,
@@ -693,6 +694,7 @@
     "dept": null,
     "status": "current",
     "alumni": false,
+    "where_now": null,
     "object_position": "center top",
     "object_zoom": 1
   }
