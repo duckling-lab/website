@@ -176,25 +176,7 @@
 const STUDIES_PATH = 'https://raw.githubusercontent.com/duckling-lab/website/main/data/studies.json';
 
 const TYPE_ORDER = ['EEG', 'Eye-Tracking While Reading', 'Visual World', 'Language Task'];
-
-const TYPE_INFO = {
-  'EEG': {
-    label: 'EEG Studies',
-    blurb: 'We place a comfortable cap with small sensors on your head to record your brain's electrical activity while you listen to stories, read sentences, or watch short cartoons. No needles, no discomfort — just your brain doing its thing!'
-  },
-  'Eye-Tracking While Reading': {
-    label: 'Eye-Tracking While Reading',
-    blurb: 'A small camera gently follows where your eyes move as you read sentences on a screen. Nothing touches you — we're just curious about how your eyes travel across text as you make sense of language.'
-  },
-  'Visual World': {
-    label: 'Visual World Studies',
-    blurb: 'Participants look at colorful pictures on a screen while listening to sentences. A camera tracks where their eyes go — no touching, no discomfort. This helps us understand how children (and adults!) connect words to meaning in real time.'
-  },
-  'Language Task': {
-    label: 'Language Tasks',
-    blurb: 'Simple and fun activities — answering questions, playing word games, or working with a researcher on a computer task. There are no right or wrong answers; we're just curious how language works in your mind.'
-  }
-};
+const TYPES_PATH = 'https://raw.githubusercontent.com/duckling-lab/website/main/data/study_types.json';
 
 const STATUS_INFO = {
   'enrolling':        { label: 'Enrolling Now',     cls: 'status-enrolling' },
@@ -208,16 +190,20 @@ const STATUS_INFO = {
 const urlParams = new URLSearchParams(window.location.search);
 const highlightStudy = urlParams.get('study');
 
-fetch(STUDIES_PATH)
-  .then(r => r.json())
-  .then(data => {
+Promise.all([
+    fetch(STUDIES_PATH).then(r => r.json()),
+    fetch(TYPES_PATH).then(r => r.json())
+  ]).then(([data, typeData]) => {
+    // Build TYPE_INFO from JSON
+    const TYPE_INFO = {};
+    typeData.forEach(t => { TYPE_INFO[t.id] = { label: t.label, blurb: t.blurb }; });
+
     const visible = data.filter(s => s.visible);
     const main = document.getElementById('studiesMain');
     let html = '';
 
     // Group by type
     const types = TYPE_ORDER.filter(t => visible.some(s => s.type === t));
-    // Also catch any types not in TYPE_ORDER
     visible.forEach(s => { if (!TYPE_ORDER.includes(s.type)) types.push(s.type); });
 
     types.forEach(type => {
