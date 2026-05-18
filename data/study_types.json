@@ -1,0 +1,22 @@
+[
+  {
+    "id": "EEG",
+    "label": "EEG Studies",
+    "blurb": "We place a comfortable cap with small sensors on your head to record your brain's electrical activity while you listen to stories, read sentences, or watch short cartoons. No needles, no discomfort \u2014 just your brain doing its thing!"
+  },
+  {
+    "id": "Eye-Tracking While Reading",
+    "label": "Eye-Tracking While Reading",
+    "blurb": "A small camera gently follows where your eyes move as you read sentences on a screen. Nothing touches you \u2014 we are just curious about how your eyes travel across text as you make sense of language."
+  },
+  {
+    "id": "Visual World",
+    "label": "Visual World Studies",
+    "blurb": "Participants look at colorful pictures on a screen while listening to sentences. A camera tracks where their eyes go \u2014 no touching, no discomfort. This helps us understand how children and adults connect words to meaning in real time."
+  },
+  {
+    "id": "Language Task",
+    "label": "Language Tasks",
+    "blurb": "Simple and fun activities \u2014 answering questions, playing word games, or working with a researcher on a computer task. There are no right or wrong answers; we are just curious how language works in your mind."
+  }
+]
