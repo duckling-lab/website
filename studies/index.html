@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studies — Duckling Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+/* ── Header ── */
+.studies-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 2rem 2rem;
+}
+.studies-header-inner { max-width: 1040px; margin: 0 auto; }
+
+/* ── Main ── */
+.studies-main { max-width: 1040px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+/* ── Section ── */
+.study-section { margin-bottom: 4rem; }
+.study-section-header { margin-bottom: 0.75rem; }
+.study-section-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.5rem; color: var(--ink);
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 0.3rem;
+}
+.study-section-blurb {
+  font-size: 0.88rem; color: var(--muted);
+  max-width: 600px; line-height: 1.6;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border);
+}
+
+/* ── Study cards ── */
+.study-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: 260px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.study-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.11); }
+
+.study-card-photo {
+  background: var(--sage-light);
+  background-size: cover;
+  background-position: center;
+  min-height: 240px;
+}
+
+.study-card-body {
+  padding: 1.75rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Meta badges — status + location only ── */
+.study-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.status-badge {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.25rem 0.7rem;
+  border-radius: 99px;
+}
+.status-enrolling   { background: #D1FAE5; color: #065F46; }
+.status-awaiting    { background: #FEF3C7; color: #92400E; }
+.status-coming-soon { background: #EEF3ED; color: var(--sage-dark); }
+.status-paused      { background: #F3F4F6; color: var(--muted); }
+.status-closed      { background: #FEE2E2; color: var(--red-dark); }
+
+.location-badge {
+  font-size: 0.68rem; font-weight: 600;
+  padding: 0.25rem 0.7rem; border-radius: 99px;
+  background: #EFF6FF; color: #1D4ED8;
+}
+
+/* ── Card content ── */
+.study-card-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.35rem; color: var(--ink);
+  margin-bottom: 0.2rem; line-height: 1.3;
+}
+.study-card-subtitle {
+  font-size: 0.85rem; color: var(--muted);
+  margin-bottom: 0.85rem; font-style: italic;
+}
+.study-card-desc {
+  font-size: 0.875rem; color: var(--ink);
+  line-height: 1.7; margin-bottom: 1rem; flex: 1;
+}
+
+/* ── Details row ── */
+.study-card-details {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+.study-card-details span { display: flex; align-items: center; gap: 0.3rem; }
+
+/* ── Actions — button only, comp note below ── */
+.study-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.btn-signup {
+  background: var(--red); color: white;
+  padding: 0.55rem 1.5rem; border-radius: 99px;
+  font-size: 0.875rem; font-weight: 600;
+  text-decoration: none; transition: background 0.15s;
+  font-family: "DM Sans", sans-serif;
+  white-space: nowrap;
+  display: inline-block;
+}
+.btn-signup:hover { background: var(--red-dark); }
+.btn-signup.disabled {
+  background: #D1D5DB; color: #6B7280;
+  cursor: default; pointer-events: none;
+}
+.study-compensation {
+  font-size: 0.75rem; color: var(--muted); line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .study-card { grid-template-columns: 1fr; }
+  .study-card-photo { min-height: 200px; }
+  .studies-header { padding: 2.5rem 1.25rem 1.5rem; }
+  .studies-main { padding: 2rem 1.25rem 4rem; }
+  .study-card-body { padding: 1.25rem 1.25rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--ink);">
+    <img src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/boston_univ_rgb.gif" alt="Boston University" style="height:38px;width:auto;flex-shrink:0;">
+    <span style="width:1px;height:28px;background:var(--border);display:inline-block;"></span>
+    <span style="display:flex;flex-direction:column;line-height:1.3;">
+      <span style="font-size:0.7rem;color:var(--muted);font-weight:400;">Department of Linguistics</span>
+      <span style="font-size:0.88rem;font-weight:600;color:var(--ink);">Duckling Lab</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/">Home</a></li>
+    <li><a href="/research">Research</a></li>
+    <li><a href="/studies" class="active">Studies</a></li>
+    <li><a href="/team">Team</a></li>
+    <li><a href="/publications">Publications</a></li>
+    <li><a href="/news">News</a></li>
+    <li><a href="/interest-form" class="nav-cta">Get Involved</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="/research">Research</a>
+  <a href="/studies" class="active">Studies</a>
+  <a href="/team">Team</a>
+  <a href="/publications">Publications</a>
+  <a href="/news">News</a>
+  <a href="/interest-form" class="mobile-cta">Get Involved</a>
+</div>
+
+<div class="studies-header">
+  <div class="studies-header-inner">
+    <p class="section-eyebrow">Duckling Lab</p>
+    <h1 class="section-title">Our <em>Studies</em></h1>
+    <p class="section-sub">We run studies with adults and children to understand how language develops and works. All studies are safe, fun, and voluntary — participants can stop at any time.</p>
+  </div>
+</div>
+
+<main class="studies-main" id="studiesMain"></main>
+
+<script src="/js/main.js"></script>
+<script>document.addEventListener("DOMContentLoaded", () => loadNav("studies"));</script>
+<script>
+const STUDIES_PATH = 'https://raw.githubusercontent.com/duckling-lab/website/main/data/studies.json';
+const TYPES_PATH   = 'https://raw.githubusercontent.com/duckling-lab/website/main/data/study_types.json';
+
+const TYPE_ORDER = ['EEG', 'Eye-Tracking While Reading', 'Visual World', 'Language Task'];
+
+const STATUS_INFO = {
+  'enrolling':         { label: 'Enrolling Now',     cls: 'status-enrolling' },
+  'awaiting_approval': { label: 'Awaiting Approval', cls: 'status-awaiting' },
+  'coming_soon':       { label: 'Coming Soon',       cls: 'status-coming-soon' },
+  'paused':            { label: 'Paused',             cls: 'status-paused' },
+  'closed':            { label: 'Closed',             cls: 'status-closed' },
+};
+
+const urlParams    = new URLSearchParams(window.location.search);
+const highlightId  = urlParams.get('study');
+
+Promise.all([
+  fetch(STUDIES_PATH).then(r => r.json()),
+  fetch(TYPES_PATH).then(r => r.json())
+]).then(([data, typeData]) => {
+
+  const TYPE_INFO = {};
+  typeData.forEach(t => { TYPE_INFO[t.id] = { label: t.label, blurb: t.blurb }; });
+
+  const visible = data.filter(s => s.visible);
+  const main    = document.getElementById('studiesMain');
+  let html      = '';
+
+  // Ordered types, then any extras
+  const types = TYPE_ORDER.filter(t => visible.some(s => s.type === t));
+  visible.forEach(s => { if (!TYPE_ORDER.includes(s.type) && !types.includes(s.type)) types.push(s.type); });
+
+  types.forEach(type => {
+    const studies = visible.filter(s => s.type === type);
+    if (!studies.length) return;
+    const info = TYPE_INFO[type] || { label: type, blurb: '' };
+
+    html += `<section class="study-section reveal">
+      <div class="study-section-header">
+        <h2 class="study-section-title">${info.label}</h2>
+        ${info.blurb ? `<p class="study-section-blurb">${info.blurb}</p>` : ''}
+      </div>`;
+
+    studies.forEach(s => {
+      const status    = STATUS_INFO[s.status] || { label: s.status, cls: 'status-paused' };
+      const canSignUp = s.status === 'enrolling';
+      const photoStyle = s.photo ? `background-image:url('${s.photo}')` : '';
+      const highlight  = highlightId === s.id ? 'style="outline:3px solid var(--red);outline-offset:-3px;"' : '';
+
+      // Compensation: show both if different, else just one
+      const compParts = [];
+      if (s.compensation_adults) compParts.push(s.compensation_adults);
+      if (s.compensation_kids && s.compensation_kids !== s.compensation_adults) compParts.push(s.compensation_kids);
+      const comp = compParts.join(' · ');
+
+      html += `
+        <div class="study-card" ${highlight}>
+          <div class="study-card-photo" style="${photoStyle}"></div>
+          <div class="study-card-body">
+
+            <div class="study-card-meta">
+              <span class="status-badge ${status.cls}">${status.label}</span>
+              <span class="location-badge">${s.location}</span>
+            </div>
+
+            <div class="study-card-title">${s.title}</div>
+            ${s.subtitle ? `<div class="study-card-subtitle">${s.subtitle}</div>` : ''}
+            <div class="study-card-desc">${s.description}</div>
+
+            <div class="study-card-details">
+              <span>⏱ ${s.duration}</span>
+              <span>👥 ${s.age_range}</span>
+              ${comp ? `<span>💰 ${comp}</span>` : ''}
+            </div>
+
+            <div class="study-card-actions">
+              ${canSignUp
+                ? `<a href="${s.signup_url}" class="btn-signup" target="_blank">Sign Up →</a>`
+                : `<span class="btn-signup disabled">${status.label}</span>`}
+            </div>
+
+          </div>
+        </div>`;
+    });
+
+    html += '</section>';
+  });
+
+  main.innerHTML = html;
+  document.querySelectorAll('.reveal').forEach(el => el.style.opacity = '1');
+
+  if (highlightId) {
+    const el = document.querySelector('[style*="outline"]');
+    if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
+  }
+});
+</script>
+</body>
+</html>

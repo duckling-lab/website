@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications — Duckling Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.pub-hero {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 2rem 2rem;
+  text-align: left;
+}
+.pub-hero-inner { max-width: 1040px; margin: 0 auto; }
+
+/* ── Controls ── */
+.pub-controls {
+  position: sticky; top: 60px; z-index: 90;
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
+}
+.pub-controls-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+}
+.pub-search {
+  flex: 1; min-width: 200px;
+  padding: 0.55rem 1rem; border-radius: 99px;
+  border: 1.5px solid var(--border);
+  font-size: 0.88rem; font-family: "DM Sans", sans-serif; outline: none;
+}
+.pub-search:focus { border-color: var(--red); }
+.filter-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.filter-pill {
+  padding: 0.35rem 0.9rem; border-radius: 99px;
+  border: 1.5px solid var(--border); background: var(--white);
+  font-size: 0.78rem; font-weight: 600; cursor: pointer; color: var(--muted);
+  transition: all 0.15s; font-family: "DM Sans", sans-serif;
+}
+.filter-pill:hover { border-color: var(--sage-dark); color: var(--ink); }
+.filter-pill.active { background: var(--ink); color: white; border-color: var(--ink); }
+
+/* ── Main ── */
+.pub-main { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+
+/* ── Section ── */
+.pub-section { margin-bottom: 3rem; }
+.pub-section-heading {
+  font-family: "DM Serif Display", serif; font-size: 1.4rem;
+  color: var(--ink); padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--border);
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
+}
+.pub-section-heading .count {
+  font-family: "DM Sans", sans-serif; font-size: 0.72rem; font-weight: 600;
+  color: var(--muted); background: var(--sage-light);
+  padding: 0.2rem 0.6rem; border-radius: 99px;
+}
+
+/* ── Year label ── */
+.year-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 0.75rem; margin-top: 1.25rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.year-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── Cards ── */
+.pub-card-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.pub-card {
+  background: var(--white); border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  display: flex; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pub-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+.pub-card.hidden { display: none; }
+
+/* Left accent bar per type */
+.pub-card-bar { width: 5px; flex-shrink: 0; }
+.bar-in-progress { background: var(--muted); }
+.bar-publication { background: var(--red); }
+.bar-invited { background: #3A7D9E; }
+.bar-talk { background: #7A6B9A; }
+.bar-poster { background: #C07840; }
+
+.pub-card-body { padding: 1rem 1.25rem; flex: 1; }
+.pub-card-meta {
+  display: flex; align-items: center; gap: 0.5rem;
+  flex-wrap: wrap; margin-bottom: 0.4rem;
+}
+.pub-type-badge {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.2rem 0.6rem;
+  border-radius: 99px; background: var(--sage-light); color: var(--sage-dark);
+}
+.pub-type-badge.invited-badge { background: #EAF3FA; color: #3A7D9E; }
+.pub-year { font-size: 0.75rem; color: var(--muted); }
+.pub-virtual { font-size: 0.75rem; color: var(--muted); font-style: italic; }
+
+.pub-card-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1rem; color: var(--ink);
+  line-height: 1.4; margin-bottom: 0.35rem;
+}
+.pub-card-authors {
+  font-size: 0.82rem; color: var(--muted);
+  line-height: 1.5; margin-bottom: 0.35rem;
+}
+.pub-card-authors .trainee { font-style: normal; }
+.pub-card-venue {
+  font-size: 0.82rem; color: var(--muted);
+  font-style: italic; margin-bottom: 0.5rem;
+}
+.pub-card-status {
+  font-size: 0.78rem; color: var(--muted);
+  font-style: italic; margin-bottom: 0.4rem;
+}
+
+/* Link badges */
+.pub-links { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.pub-link {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
+  padding: 0.22rem 0.65rem; border-radius: 99px;
+  border: 1.5px solid; text-decoration: none;
+  transition: all 0.15s;
+}
+.pub-link.doi { border-color: #3A7D9E; color: #3A7D9E; }
+.pub-link.doi:hover { background: #3A7D9E; color: white; }
+.pub-link.osf { border-color: #4A6E46; color: #4A6E46; }
+.pub-link.osf:hover { background: #4A6E46; color: white; }
+.pub-link.pdf { border-color: #C07840; color: #C07840; }
+.pub-link.pdf:hover { background: #C07840; color: white; }
+.pub-link.video { border-color: #7A6B9A; color: #7A6B9A; }
+.pub-link.video:hover { background: #7A6B9A; color: white; }
+.pub-link.preprint { border-color: var(--muted); color: var(--muted); }
+.pub-link.preprint:hover { background: var(--muted); color: white; }
+.pub-link.poster { border-color: #C07840; color: #C07840; }
+.pub-link.poster:hover { background: #C07840; color: white; }
+
+/* Trainee note */
+.trainee-note {
+  text-align: center; font-size: 0.8rem; color: var(--muted);
+  margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+}
+
+.pub-empty { text-align: center; color: var(--muted); padding: 3rem; }
+
+@media (max-width: 768px) {
+  .pub-hero { padding: 3rem 1.25rem 2rem; }
+  .pub-main { padding: 1.5rem 1rem 4rem; }
+  .pub-controls { padding: 0.75rem 1rem; }
+  .pub-controls-inner { flex-direction: column; align-items: stretch; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--ink);">
+    <img src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/boston_univ_rgb.gif" alt="Boston University" style="height:38px;width:auto;flex-shrink:0;">
+    <span style="width:1px;height:28px;background:var(--border);display:inline-block;"></span>
+    <span style="display:flex;flex-direction:column;line-height:1.3;">
+      <span style="font-size:0.7rem;color:var(--muted);font-weight:400;">Department of Linguistics</span>
+      <span style="font-size:0.88rem;font-weight:600;color:var(--ink);">Duckling Lab</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/research">Research</a></li>
+    <li><a href="/studies">Studies</a></li>
+    <li><a href="/team">Team</a></li>
+    <li><a href="/publications" class="active">Publications</a></li>
+    <li><a href="/news">News</a></li>
+    <li><a href="/interest-form" class="nav-cta">Get Involved</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" >Home</a>
+  <a href="/research">Research</a>
+  <a href="/studies">Studies</a>
+  <a href="/team">Team</a>
+  <a href="/publications" class="active">Publications</a>
+  <a href="/news">News</a>
+  <a href="/interest-form" class="mobile-cta">Get Involved</a>
+</div>
+
+<div class="pub-hero">
+  <div class="pub-hero-inner">
+    <p class="section-eyebrow">Duckling Lab</p>
+    <h1 class="section-title">Our <em>Publications</em></h1>
+    <p class="section-sub">Research on language development, sentence processing, and prediction.</p>
+  </div>
+</div>
+
+<div class="pub-controls">
+  <div class="pub-controls-inner">
+    <input type="text" class="pub-search" id="pubSearch" placeholder="Search by title, author, keyword..." oninput="renderPubs()">
+    <div class="filter-pills">
+      <button class="filter-pill active" onclick="setFilter('all',this)">All</button>
+      <button class="filter-pill" onclick="setFilter('In Progress',this)">In Progress</button>
+      <button class="filter-pill" onclick="setFilter('Publication',this)">Publications</button>
+      <button class="filter-pill" onclick="setFilter('Invited Piece',this)">Invited Pieces</button>
+      <button class="filter-pill" onclick="setFilter('Talk',this)">Talks</button>
+      <button class="filter-pill" onclick="setFilter('Poster',this)">Posters</button>
+    </div>
+  </div>
+</div>
+
+<main class="pub-main" id="pubMain"></main>
+
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  style="position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:white;border:none;border-radius:50%;width:40px;height:40px;font-size:1.1rem;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:50;">↑</button>
+
+<script src="/js/main.js"></script>
+<script>document.addEventListener("DOMContentLoaded", () => loadNav("publications"));</script>
+<script>
+const PUB_PATH = 'https://raw.githubusercontent.com/duckling-lab/website/main/data/publications.json';
+const SECTION_ORDER = ['In Progress','Publication','Invited Piece','Talk','Poster'];
+const SECTION_LABELS = {
+  'In Progress': 'In Progress',
+  'Publication': 'Publications',
+  'Invited Piece': 'Invited Pieces',
+  'Talk': 'Talks',
+  'Poster': 'Posters'
+};
+const BAR_CLASS = {
+  'In Progress': 'bar-in-progress',
+  'Publication': 'bar-publication',
+  'Invited Piece': 'bar-invited',
+  'Talk': 'bar-talk',
+  'Poster': 'bar-poster'
+};
+const TYPE_LABEL = {
+  'In Progress': 'In Progress',
+  'Publication': 'Publication',
+  'Invited Piece': 'Invited Piece',
+  'Talk': 'Talk',
+  'Poster': 'Poster'
+};
+
+let allPubs = [];
+let activeFilter = 'all';
+
+fetch(PUB_PATH)
+  .then(r => r.json())
+  .then(data => { allPubs = data; renderPubs(); });
+
+function setFilter(f, el) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  renderPubs();
+}
+
+function renderPubs() {
+  const q = document.getElementById('pubSearch').value.toLowerCase();
+  const main = document.getElementById('pubMain');
+
+  const filtered = allPubs.filter(p => {
+    if (activeFilter !== 'all' && p.type !== activeFilter) return false;
+    if (!q) return true;
+    return [p.title, (p.authors||[]).join(' '), p.journal, p.conference, String(p.year)]
+      .filter(Boolean).join(' ').toLowerCase().includes(q);
+  });
+
+  if (!filtered.length) {
+    main.innerHTML = '<div class="pub-empty">No results found.</div>';
+    return;
+  }
+
+  const sections = activeFilter === 'all' ? SECTION_ORDER : [activeFilter];
+  let html = '';
+
+  sections.forEach(type => {
+    const items = filtered.filter(p => p.type === type);
+    if (!items.length) return;
+
+    const byYear = {};
+    items.forEach(p => {
+      const y = p.year || 'n.d.';
+      if (!byYear[y]) byYear[y] = [];
+      byYear[y].push(p);
+    });
+    const years = Object.keys(byYear).sort((a,b) => b - a);
+
+    html += `<section class="pub-section">
+      <h2 class="pub-section-heading">${SECTION_LABELS[type]} <span class="count">${items.length}</span></h2>
+      <div class="pub-card-list">`;
+
+    years.forEach(year => {
+      html += `<div class="year-label">${year}</div>`;
+      byYear[year].forEach(p => { html += makeCard(p); });
+    });
+
+    html += '</div></section>';
+  });
+
+  const hasTrainees = filtered.some(p => p.trainees && p.trainees.length);
+  if (hasTrainees) {
+    html += '<div class="trainee-note">* Trainee in the Duckling Lab at time of publication or presentation.</div>';
+  }
+
+  main.innerHTML = html;
+}
+
+function formatAuthors(authors, trainees) {
+  if (!authors || !authors.length) return '';
+  return authors.map(a => {
+    if (trainees && trainees.includes(a)) return `<span class="trainee">*${a}</span>`;
+    return a;
+  }).join(', ');
+}
+
+function makeCard(p) {
+  const bar = BAR_CLASS[p.type] || '';
+  const isInvited = p.invited;
+
+  // Meta badges
+  const typeBadge = `<span class="pub-type-badge${isInvited ? ' invited-badge' : ''}">${isInvited ? 'Invited ' : ''}${TYPE_LABEL[p.type]}</span>`;
+  const virtual = p.virtual ? '<span class="pub-virtual">~ Virtual</span>' : '';
+  const mo = p.month ? p.month + ' ' : '';
+  const yearStr = `<span class="pub-year">${mo}${p.year}</span>`;
+
+  // Title
+  const title = `<div class="pub-card-title">${p.title}</div>`;
+
+  // Authors
+  const authors = `<div class="pub-card-authors">${formatAuthors(p.authors, p.trainees)}</div>`;
+
+  // Venue
+  let venue = '';
+  if (p.type === 'Publication' || p.type === 'Invited Piece') {
+    if (p.journal) {
+      let v = `<em>${p.journal}</em>`;
+      if (p.volume) v += `, ${p.volume}`;
+      if (p.issue) v += `(${p.issue})`;
+      if (p.pages) v += `, ${p.pages}`;
+      venue = `<div class="pub-card-venue">${v}.</div>`;
+    }
+  } else if (p.type === 'Talk' || p.type === 'Poster') {
+    if (p.conference) {
+      const loc = p.location ? `, ${p.location}` : '';
+      venue = `<div class="pub-card-venue">${p.conference}${loc}.</div>`;
+    }
+  }
+
+  // Status for In Progress
+  let status = '';
+  if (p.type === 'In Progress') {
+    status = `<div class="pub-card-status">${p.status}</div>`;
+  }
+
+  // Links
+  const links = [];
+  if (p.doi) links.push(`<a href="${p.doi}" target="_blank" class="pub-link doi">DOI</a>`);
+  if (p.osf) links.push(`<a href="${p.osf}" target="_blank" class="pub-link osf">OSF</a>`);
+  if (p.pdf) links.push(`<a href="${p.pdf}" target="_blank" class="pub-link pdf">PDF</a>`);
+  if (p.preprint_url) links.push(`<a href="${p.preprint_url}" target="_blank" class="pub-link preprint">Preprint</a>`);
+  if (p.video) links.push(`<a href="${p.video}" target="_blank" class="pub-link video">Video</a>`);
+  if (p.poster_file) links.push(`<a href="${p.poster_file}" target="_blank" class="pub-link poster">Poster PDF</a>`);
+  const linksHtml = links.length ? `<div class="pub-links">${links.join('')}</div>` : '';
+
+  return `<div class="pub-card">
+    <div class="pub-card-bar ${bar}"></div>
+    <div class="pub-card-body">
+      <div class="pub-card-meta">${typeBadge}${yearStr}${virtual}</div>
+      ${title}${authors}${venue}${status}${linksHtml}
+    </div>
+  </div>`;
+}
+</script>
+</body>
+</html>
