@@ -677,7 +677,7 @@
     "name": "Brian Dillon",
     "role": "Collaborator",
     "title": "Professor of Linguistics",
-    "institution": "UMass",
+    "institution": "UMass Amherst",
     "bu_member": false,
     "tier": "collaborator",
     "photo_adult": null,
@@ -693,6 +693,7 @@
     "dept": null,
     "status": "current",
     "alumni": false,
+    "where_now": null,
     "object_position": "center top",
     "object_zoom": 1
   }
