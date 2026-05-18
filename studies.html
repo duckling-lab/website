@@ -273,7 +273,7 @@ Promise.all([
               ${canSignUp
                 ? `<a href="${s.signup_url}" class="btn-signup" target="_blank">Sign Up →</a>`
                 : `<span class="btn-signup disabled">${status.label}</span>`}
-              ${s.what_happens ? `<p class="study-compensation">${s.what_happens}</p>` : ''}
+              ${comp ? `<p class="study-compensation">${comp}</p>` : ''}
             </div>
 
           </div>
