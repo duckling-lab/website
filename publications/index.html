@@ -298,7 +298,7 @@ function renderPubs() {
     });
     const years = Object.keys(byYear).sort((a,b) => b - a);
 
-    html += `<section class="pub-section">
+    html += `<section class="pub-section reveal">
       <h2 class="pub-section-heading">${SECTION_LABELS[type]} <span class="count">${items.length}</span></h2>
       <div class="pub-card-list">`;
 
@@ -376,7 +376,7 @@ function makeCard(p) {
   if (p.poster_file) links.push(`<a href="${p.poster_file}" target="_blank" class="pub-link poster">Poster PDF</a>`);
   const linksHtml = links.length ? `<div class="pub-links">${links.join('')}</div>` : '';
 
-  return `<div class="pub-card">
+  return `<div class="pub-card reveal">
     <div class="pub-card-bar ${bar}"></div>
     <div class="pub-card-body">
       <div class="pub-card-meta">${typeBadge}${yearStr}${virtual}</div>
