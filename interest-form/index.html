@@ -186,22 +186,22 @@ textarea { resize: vertical; min-height: 88px; }
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/research.html">Research</a></li>
-    <li><a href="/studies.html">Studies</a></li>
-    <li><a href="/team.html">Team</a></li>
-    <li><a href="/publications.html">Publications</a></li>
-    <li><a href="/news.html">News</a></li>
+    <li><a href="/research/">Research</a></li>
+    <li><a href="/studies/">Studies</a></li>
+    <li><a href="/team/">Team</a></li>
+    <li><a href="/publications/">Publications</a></li>
+    <li><a href="/news/">News</a></li>
     <li><a href="/interest-form/" class="nav-cta active">Get Involved</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="/">Home</a>
-  <a href="/research.html">Research</a>
-  <a href="/studies.html">Studies</a>
-  <a href="/team.html">Team</a>
-  <a href="/publications.html">Publications</a>
-  <a href="/news.html">News</a>
+  <a href="/research/">Research</a>
+  <a href="/studies/">Studies</a>
+  <a href="/team/">Team</a>
+  <a href="/publications/">Publications</a>
+  <a href="/news/">News</a>
   <a href="/interest-form/" class="mobile-cta active">Get Involved</a>
 </div>
 
@@ -355,7 +355,7 @@ textarea { resize: vertical; min-height: 88px; }
           <p style="font-size:0.82rem;color:var(--muted);">Loading available studies&hellip;</p>
         </div>
         <p style="font-size:0.75rem;color:var(--muted);margin-top:0.5rem;">
-          Not sure? <a href="/studies.html" style="color:var(--sage-dark);font-weight:600;">Learn more about our studies &rarr;</a>
+          Not sure? <a href="/studies/" style="color:var(--sage-dark);font-weight:600;">Learn more about our studies &rarr;</a>
         </p>
       </div>
 
@@ -447,8 +447,8 @@ fetch(STUDIES_URL)
       const text = document.createTextNode(' ' + s.title + (meta.length ? ' — ' + meta.join(', ') : ''));
 
       const link = document.createElement('a');
-      link.href      = '/studies.html?study=' + s.id;
-      link.textContent = 'Learn more';
+      link.href      = '/studies/';
+      link.textContent = 'Learn more →';
       link.style.cssText = 'font-size:0.72rem;color:var(--sage-dark);margin-left:0.5rem;font-weight:600;white-space:nowrap;';
 
       label.appendChild(cb);
