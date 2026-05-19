@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js-loaded");
+
 // Duckling Lab — Shared JS
 
 // ── Load nav ──────────────────────────────────────────────────────────────────
