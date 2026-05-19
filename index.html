@@ -75,6 +75,17 @@ nav {
   opacity: 0; transition: opacity 0.2s;
 }
 .nav-links a:hover::after { opacity: 1; }
+.nav-links a.active { color: var(--red); font-weight: 600; }
+.nav-links a.active::after { opacity: 1; }
+.nav-cta {
+  background: var(--red) !important; color: white !important;
+  padding: 0.75rem 1.4rem; border-radius: 99px; line-height: 1;
+  box-shadow: 0 2px 8px rgba(204,0,0,0.22);
+  transition: background 0.15s !important;
+}
+.nav-cta:hover { background: var(--red-dark) !important; }
+.nav-cta::after { display: none !important; }
+
 
 /* ── Hero ── */
 .hero {
