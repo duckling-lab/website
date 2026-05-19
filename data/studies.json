@@ -34,20 +34,20 @@
     "signup_url": "/interest-form/?study=eye_tracking_reading"
   },
   {
-    "id": "visual_world",
+    "id": "visual_world_study",
     "title": "Visual World Study",
     "subtitle": "Look at pictures while listening to sentences",
     "type": "Visual World",
     "status": "awaiting_approval",
+    "visible": true,
     "who": "Children",
     "age_range": "Ages 3–10",
     "duration": "About 1 hour",
     "compensation_adults": null,
     "compensation_kids": "Small toy + $10 travel",
-    "location": "In-person or Online",
-    "description": "Your child will look at fun pictures on a screen while listening to short sentences. A gentle camera tracks where their eyes go — no touching, no discomfort! This helps us learn how children understand language as it unfolds.",
+    "location": "In-person",
+    "description": "<p>Your child will look at fun pictures on a screen while listening to short sentences. A gentle camera tracks where their eyes go — no touching, no discomfort! This helps us learn how children understand language as it unfolds.</p>",
     "photo": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
-    "signup_url": "/interest-form/?study=visual_world",
-    "visible": true
+    "signup_url": "/interest-form/?study=visual_world"
   }
 ]
