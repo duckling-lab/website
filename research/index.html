@@ -7,418 +7,79 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <style>
-
-/* ── Page header ── */
-.research-header {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 3rem 2rem 2.5rem;
-}
-.research-header-inner { max-width: 1040px; margin: 0 auto; }
-
-/* ── Method nav (sticky pill bar) ── */
-.method-nav {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 0.75rem 2rem;
-  position: sticky;
-  top: 66px;
-  z-index: 90;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-.method-nav-inner {
-  max-width: 1040px;
-  margin: 0 auto;
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.method-pill {
-  padding: 0.4rem 1rem;
-  border-radius: 99px;
-  border: 1.5px solid var(--border);
-  background: var(--white);
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--muted);
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.15s;
-  white-space: nowrap;
-  font-family: "DM Sans", sans-serif;
-}
-.method-pill:hover { border-color: var(--sage-dark); color: var(--ink); }
-.method-pill.active { background: var(--ink); color: white; border-color: var(--ink); }
-
-/* ── Main ── */
-.research-main {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 4rem 2rem 6rem;
-}
-
-/* ── Method section ── */
-.method-section {
-  margin-bottom: 6rem;
-  scroll-margin-top: 120px;
-}
-.method-section:last-child { margin-bottom: 0; }
-
-/* ── Section header ── */
-.method-header {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: flex-start;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid var(--border);
-}
-.method-number {
-  font-family: "DM Serif Display", serif;
-  font-size: 4rem;
-  color: var(--sage-mid);
-  line-height: 1;
-  font-style: italic;
-  margin-bottom: -0.5rem;
-}
-.method-title {
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  color: var(--ink);
-  line-height: 1.2;
-  margin-bottom: 0.4rem;
-}
-.method-title em { color: var(--sage-dark); font-style: italic; }
-.method-tagline {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.6;
-  max-width: 520px;
-}
-.method-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.4rem;
-  flex-shrink: 0;
-}
-.badge-pill {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.8rem;
-  border-radius: 99px;
-  white-space: nowrap;
-}
-.badge-who   { background: var(--sage-light); color: var(--sage-dark); }
-.badge-time  { background: #EFF6FF; color: #1D4ED8; }
-.badge-mode  { background: #FEF3C7; color: #92400E; }
-
-/* ── Two-column body ── */
-.method-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
-}
-.method-body.full { grid-template-columns: 1fr; }
-
-/* ── Text content ── */
-.method-description {
-  font-size: 0.95rem;
-  line-height: 1.85;
-  color: var(--ink);
-  margin-bottom: 1.5rem;
-}
-.method-description p + p { margin-top: 0.85rem; }
-
-/* ── Steps list ── */
-.method-steps {
-  list-style: none;
-  counter-reset: step-counter;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-.method-steps li {
-  counter-increment: step-counter;
-  display: flex;
-  gap: 0.85rem;
-  align-items: flex-start;
-  font-size: 0.875rem;
-  line-height: 1.65;
-  color: var(--ink);
-}
-.method-steps li::before {
-  content: counter(step-counter);
-  min-width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--sage-mid);
-  color: var(--sage-dark);
-  font-size: 0.7rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-}
-
-/* ── FAQ accordion ── */
-.method-faq { margin-top: 1.25rem; }
-.faq-item {
-  border-top: 1px solid var(--border);
-}
-.faq-item:last-child { border-bottom: 1px solid var(--border); }
-.faq-question {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 0.85rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--ink);
-  font-family: "DM Sans", sans-serif;
-  line-height: 1.4;
-}
-.faq-question:hover { color: var(--sage-dark); }
-.faq-icon {
-  font-size: 1.1rem;
-  color: var(--muted);
-  flex-shrink: 0;
-  transition: transform 0.2s;
-}
-.faq-answer {
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.75;
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease, padding 0.2s;
-  padding-bottom: 0;
-}
-.faq-item.open .faq-icon { transform: rotate(45deg); }
-.faq-item.open .faq-answer { max-height: 400px; padding-bottom: 1rem; }
-
-/* ── Media column ── */
-.method-media { display: flex; flex-direction: column; gap: 1.5rem; }
-
-/* ── Photo carousel ── */
-.photo-carousel {
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--sage-light);
-  position: relative;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
-.carousel-slides {
-  display: flex;
-  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.carousel-slide {
-  min-width: 100%;
-  aspect-ratio: 4/3;
-  background: var(--sage-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.75rem;
-  position: relative;
-}
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-/* Placeholder state when no real photo yet */
-.carousel-slide.placeholder {
-  border: 2px dashed var(--sage-mid);
-}
-.placeholder-icon {
-  font-size: 2.5rem;
-  opacity: 0.4;
-}
-.placeholder-label {
-  font-size: 0.75rem;
-  color: var(--muted);
-  text-align: center;
-  padding: 0 1rem;
-  line-height: 1.5;
-}
-.carousel-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
-  color: white;
-  font-size: 0.75rem;
-  padding: 1.5rem 1rem 0.75rem;
-  line-height: 1.4;
-  pointer-events: none;
-}
-.carousel-btn {
-  position: absolute;
-  top: 50%; transform: translateY(-50%);
-  background: rgba(255,255,255,0.88);
-  border: none;
-  border-radius: 50%;
-  width: 34px; height: 34px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.9rem;
-  cursor: pointer;
-  color: var(--ink);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-  transition: background 0.15s, transform 0.15s;
-  z-index: 5;
-}
-.carousel-btn:hover { background: white; }
-.carousel-btn.prev { left: 0.6rem; }
-.carousel-btn.next { right: 0.6rem; }
-.carousel-btn:disabled { opacity: 0.3; cursor: default; }
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.6rem;
-  background: var(--white);
-}
-.carousel-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--sage-mid);
-  border: none; cursor: pointer; padding: 0;
-  transition: background 0.15s, transform 0.15s;
-}
-.carousel-dot.active { background: var(--ink); transform: scale(1.3); }
-
-/* ── Video embed ── */
-.video-block {
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--ink);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-}
-.video-block-header {
-  padding: 0.85rem 1rem 0.6rem;
-  background: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.video-block-icon { font-size: 1rem; }
-.video-block-title {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: 0.04em;
-}
-.video-placeholder {
-  aspect-ratio: 16/9;
-  background: #1a1a1a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.video-placeholder-bg {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, #1a2a1a 0%, #0d1a0d 100%);
-}
-.video-play-btn {
-  position: relative;
-  z-index: 1;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  border: 2px solid rgba(255,255,255,0.3);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
-  color: white;
-  transition: background 0.2s, transform 0.2s;
-}
-.video-placeholder:hover .video-play-btn {
-  background: rgba(255,255,255,0.25);
-  transform: scale(1.08);
-}
-.video-placeholder-label {
-  position: relative;
-  z-index: 1;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.5);
-  text-align: center;
-  padding: 0 1rem;
-  line-height: 1.5;
-}
-.video-embed {
-  aspect-ratio: 16/9;
-}
-.video-embed iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: none;
-}
-
-/* ── Section divider ── */
-.method-divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--border), transparent);
-  margin: 0 0 6rem;
-}
-
-/* ── Join banner ── */
-.join-banner {
-  background: var(--sage-mid);
-  border-radius: 20px;
-  padding: 2.5rem 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 4rem;
-}
-.join-banner-text h2 {
-  font-family: "DM Serif Display", serif;
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
-  line-height: 1.25;
-}
-.join-banner-text p {
-  font-size: 0.9rem;
-  color: var(--ink);
-  opacity: 0.7;
-  line-height: 1.6;
-  max-width: 420px;
-}
-
-@media (max-width: 768px) {
-  .research-header { padding: 2.5rem 1.25rem 1.75rem; }
-  .research-main { padding: 2.5rem 1.25rem 4rem; }
-  .method-nav { padding: 0.75rem 1rem; top: 66px; }
-  .method-body { grid-template-columns: 1fr; }
-  .method-header { grid-template-columns: 1fr; }
-  .method-badge { flex-direction: row; align-items: flex-start; flex-wrap: wrap; }
-  .method-number { font-size: 2.5rem; }
-  .join-banner { flex-direction: column; padding: 1.75rem; }
+.research-header { background:var(--white); border-bottom:1px solid var(--border); padding:3rem 2rem 2.5rem; }
+.research-header-inner { max-width:1040px; margin:0 auto; }
+.method-nav { background:var(--white); border-bottom:1px solid var(--border); padding:0.75rem 2rem; position:sticky; top:66px; z-index:90; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+.method-nav-inner { max-width:1040px; margin:0 auto; display:flex; gap:0.5rem; flex-wrap:wrap; }
+.method-pill { padding:0.4rem 1rem; border-radius:99px; border:1.5px solid var(--border); background:var(--white); font-size:0.78rem; font-weight:500; color:var(--muted); cursor:pointer; text-decoration:none; transition:all 0.15s; white-space:nowrap; font-family:"DM Sans",sans-serif; }
+.method-pill:hover { border-color:var(--sage-dark); color:var(--ink); }
+.method-pill.active { background:var(--ink); color:white; border-color:var(--ink); }
+.research-main { max-width:1040px; margin:0 auto; padding:4rem 2rem 6rem; }
+.method-section { margin-bottom:6rem; scroll-margin-top:120px; }
+.method-header { display:grid; grid-template-columns:1fr auto; align-items:flex-start; gap:2rem; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:2px solid var(--border); }
+.method-number { font-family:"DM Serif Display",serif; font-size:4rem; color:var(--sage-mid); line-height:1; font-style:italic; }
+.method-title { font-family:"DM Serif Display",serif; font-size:clamp(1.5rem,2.5vw,2rem); color:var(--ink); line-height:1.2; margin-bottom:0.4rem; }
+.method-title em { color:var(--sage-dark); font-style:italic; }
+.method-tagline { font-size:0.9rem; color:var(--muted); line-height:1.6; max-width:520px; }
+.method-badges { display:flex; flex-direction:column; align-items:flex-end; gap:0.4rem; flex-shrink:0; }
+.badge-pill { font-size:0.68rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:99px; white-space:nowrap; }
+.badge-who  { background:var(--sage-light); color:var(--sage-dark); }
+.badge-time { background:#EFF6FF; color:#1D4ED8; }
+.badge-mode { background:#FEF3C7; color:#92400E; }
+.method-body { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; margin-bottom:2rem; }
+.method-description { font-size:0.93rem; line-height:1.85; color:var(--ink); margin-bottom:1.5rem; }
+.method-description p+p { margin-top:0.85rem; }
+.steps-heading { font-family:"DM Serif Display",serif; font-size:1rem; color:var(--ink); margin-bottom:0.75rem; }
+.method-steps { list-style:none; counter-reset:step-counter; display:flex; flex-direction:column; gap:0.65rem; }
+.method-steps li { counter-increment:step-counter; display:flex; gap:0.85rem; align-items:flex-start; font-size:0.875rem; line-height:1.65; color:var(--ink); }
+.method-steps li::before { content:counter(step-counter); min-width:24px; height:24px; border-radius:50%; background:var(--sage-mid); color:var(--sage-dark); font-size:0.7rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:0.15rem; }
+.method-media { display:flex; flex-direction:column; gap:1.25rem; }
+.photo-carousel { border-radius:16px; overflow:hidden; background:var(--sage-light); position:relative; box-shadow:0 4px 20px rgba(0,0,0,0.08); }
+.carousel-slides { display:flex; transition:transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+.carousel-slide { min-width:100%; aspect-ratio:4/3; background:var(--sage-light); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.75rem; }
+.carousel-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.carousel-slide.placeholder { border:2px dashed var(--sage-mid); }
+.placeholder-icon { font-size:2.5rem; opacity:0.4; }
+.placeholder-label { font-size:0.75rem; color:var(--muted); text-align:center; padding:0 1rem; line-height:1.5; }
+.carousel-nav-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.88); border:none; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-size:0.85rem; cursor:pointer; color:var(--ink); box-shadow:0 2px 10px rgba(0,0,0,0.12); transition:background 0.15s; z-index:5; }
+.carousel-nav-btn:hover { background:white; }
+.carousel-nav-btn.prev { left:0.5rem; }
+.carousel-nav-btn.next { right:0.5rem; }
+.carousel-dots { display:flex; justify-content:center; gap:0.4rem; padding:0.5rem; background:var(--white); }
+.carousel-dot { width:6px; height:6px; border-radius:50%; background:var(--sage-mid); border:none; cursor:pointer; padding:0; transition:background 0.15s,transform 0.15s; }
+.carousel-dot.active { background:var(--ink); transform:scale(1.3); }
+.video-block { border-radius:14px; overflow:hidden; background:var(--ink); box-shadow:0 4px 20px rgba(0,0,0,0.12); }
+.video-block-header { padding:0.75rem 1rem 0.6rem; display:flex; align-items:center; gap:0.6rem; }
+.video-block-icon { font-size:0.9rem; }
+.video-block-title { font-size:0.75rem; font-weight:600; color:rgba(255,255,255,0.65); letter-spacing:0.04em; }
+.video-placeholder { aspect-ratio:16/9; background:#111; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.75rem; position:relative; }
+.video-placeholder-bg { position:absolute; inset:0; background:linear-gradient(135deg,#1a2a1a,#0d1a0d); }
+.video-play-btn { position:relative; z-index:1; width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.15); border:2px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:white; }
+.video-placeholder-label { position:relative; z-index:1; font-size:0.75rem; color:rgba(255,255,255,0.45); text-align:center; padding:0 1rem; line-height:1.5; }
+.video-embed { aspect-ratio:16/9; }
+.video-embed iframe { width:100%; height:100%; display:block; border:none; }
+.method-faqs { border-top:1px solid var(--border); padding-top:1.5rem; }
+.faqs-heading { font-family:"DM Serif Display",serif; font-size:1.05rem; color:var(--ink); margin-bottom:0.75rem; }
+.faq-item { border-bottom:1px solid var(--border); }
+.faq-question { width:100%; text-align:left; background:none; border:none; padding:0.85rem 0; display:flex; justify-content:space-between; align-items:center; gap:1rem; cursor:pointer; font-size:0.875rem; font-weight:600; color:var(--ink); font-family:"DM Sans",sans-serif; line-height:1.4; transition:color 0.15s; }
+.faq-question:hover { color:var(--sage-dark); }
+.faq-icon { font-size:1.1rem; color:var(--muted); flex-shrink:0; transition:transform 0.2s; }
+.faq-answer { font-size:0.855rem; color:var(--muted); line-height:1.75; overflow:hidden; max-height:0; transition:max-height 0.3s ease,padding 0.2s; padding-bottom:0; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-item.open .faq-answer { max-height:500px; padding-bottom:1rem; }
+.method-divider { height:1px; background:linear-gradient(to right,transparent,var(--border),transparent); margin:0 0 6rem; }
+.join-banner { background:var(--sage-mid); border-radius:20px; padding:2.5rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; margin-top:2rem; }
+.join-banner h2 { font-family:"DM Serif Display",serif; font-size:1.6rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem; }
+.join-banner p { font-size:0.9rem; color:var(--ink); opacity:0.7; line-height:1.6; max-width:420px; }
+@media(max-width:768px){
+  .research-header{padding:2.5rem 1.25rem 1.75rem;}
+  .research-main{padding:2.5rem 1.25rem 4rem;}
+  .method-nav{padding:0.75rem 1rem;}
+  .method-header{grid-template-columns:1fr;}
+  .method-badges{flex-direction:row;flex-wrap:wrap;align-items:flex-start;}
+  .method-number{font-size:2.5rem;}
+  .method-body{grid-template-columns:1fr;}
+  .join-banner{flex-direction:column;padding:1.75rem;}
 }
 </style>
 </head>
@@ -454,7 +115,6 @@
   <a href="/interest-form/" class="mobile-cta">Get Involved</a>
 </div>
 
-<!-- Header -->
 <div class="research-header">
   <div class="research-header-inner">
     <p class="section-eyebrow">Duckling Lab</p>
@@ -463,115 +123,8 @@
   </div>
 </div>
 
-<!-- Method nav -->
-<div class="method-nav">
-  <div class="method-nav-inner">
-    <a class="method-pill" href="#eeg">EEG</a>
-    <a class="method-pill" href="#eyetracking-reading">Eye-Tracking While Reading</a>
-    <a class="method-pill" href="#visual-world">Visual World</a>
-    <a class="method-pill" href="#actout">Language Tasks</a>
-  </div>
-</div>
-
-<main class="research-main">
-
-  <!-- ── 1. EEG ─────────────────────────────────────────────────────────── -->
-  <section class="method-section reveal" id="eeg">
-    <div class="method-header">
-      <div>
-        <div class="method-number">01</div>
-        <h2 class="method-title">Electroencephalography <em>(EEG)</em></h2>
-        <p class="method-tagline">We record the brain's electrical activity millisecond by millisecond as participants listen to stories or sentences — no needles, no discomfort.</p>
-      </div>
-      <div class="method-badge">
-        <span class="badge-pill badge-who">Adults &amp; Children (ages 5+)</span>
-        <span class="badge-pill badge-time">~1 hour</span>
-        <span class="badge-pill badge-mode">In-person</span>
-      </div>
-    </div>
-
-    <div class="method-body">
-      <!-- Left: text -->
-      <div>
-        <div class="method-description">
-          <p>Your brain is constantly producing tiny electrical signals — even when you're just sitting still. When you hear a word, a whole cascade of signals fires across your scalp in the first fraction of a second. EEG lets us capture that cascade in real time, giving us a window into language processing that no other technique can match.</p>
-          <p>We use a soft, stretchy cap fitted with small sensors (electrodes). The sensors sit against the scalp and pick up electrical activity through a small amount of saline gel — the same kind of gel used in a hospital for a routine ECG. Nothing is injected, nothing touches the brain, and nothing hurts.</p>
-        </div>
-
-        <h3 style="font-family:'DM Serif Display',serif;font-size:1.05rem;margin-bottom:0.75rem;color:var(--ink);">What a visit looks like</h3>
-        <ol class="method-steps">
-          <li>We greet you and your family in the lobby and show you around the lab.</li>
-          <li>A researcher explains the cap using a teddy bear — kids can touch the gel pen and cap before anything goes on their head.</li>
-          <li>We measure your child's head and select the right cap size (we have many!).</li>
-          <li>Your child sits in our testing room and watches a show or movie while we place the cap and fill the electrodes with gel using a blunt gel pen — no needles, ever. Setup takes 15–25 minutes.</li>
-          <li>We show a short "super scientist" video where your child can see their own brainwaves on screen.</li>
-          <li>The study begins — your child listens to stories or sentences while we record. The task feels like watching TV.</li>
-          <li>When we're done, the cap comes off. We give you a wipe for any gel in the hair (it rinses out easily with shampoo). Your child picks a prize from our toy box!</li>
-        </ol>
-
-        <div class="method-faq">
-          <div class="faq-item">
-            <button class="faq-question">Does the gel wash out? <span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes — completely. The saline gel washes out with regular shampoo and water. We recommend bringing a hat if you'd prefer not to walk home with gel in your hair, and we can also provide a disposable shower cap.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">What if my child gets fussy or wants to stop? <span class="faq-icon">+</span></button>
-            <div class="faq-answer">We stop immediately, no questions asked. Participation is completely voluntary. Your child can take a break, remove the cap, or end the session at any point. A caregiver is always welcome to sit in the room during the study.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Is EEG safe? <span class="faq-icon">+</span></button>
-            <div class="faq-answer">Absolutely. EEG only records electrical activity — it does not send any signals into the brain. The cap and gel are the same type used in routine medical procedures. EEG has been used safely with infants and children for decades.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Can I stay with my child during the study? <span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes. You're welcome to sit in the testing room or just outside the door. For younger children, sitting in a caregiver's lap during setup is completely fine. We'll let you know what works best.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: media -->
-      <div class="method-media">
-        <div class="photo-carousel" id="carousel-actout"></div>
-        <div class="video-block" id="video-actout">
-          <div class="video-block-header">
-            <span class="video-block-icon">&#9654;</span>
-            <span class="video-block-title">Walkthrough video for families</span>
-          </div>
-        </div>
-      </div>
-          <button class="carousel-btn prev" onclick="moveCarousel('actout',-1)">&#8592;</button>
-          <button class="carousel-btn next" onclick="moveCarousel('actout',1)">&#8594;</button>
-          <div class="carousel-dots" id="dots-actout">
-            <button class="carousel-dot active" onclick="goToSlide('actout',0)"></button>
-            <button class="carousel-dot" onclick="goToSlide('actout',1)"></button>
-          </div>
-        </div>
-
-        <div class="video-block">
-          <div class="video-block-header">
-            <span class="video-block-icon">▶</span>
-            <span class="video-block-title">Walkthrough video for families</span>
-          </div>
-          <div class="video-placeholder">
-            <div class="video-placeholder-bg"></div>
-            <div class="video-play-btn">▶</div>
-            <div class="video-placeholder-label">Language Task procedure walkthrough<br>Upload video and replace embed URL</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Join banner ── -->
-  <div class="join-banner reveal">
-    <div class="join-banner-text">
-      <h2>Want to participate in our research?</h2>
-      <p>We're always looking for adults and families with children to join our studies. Every visit helps us understand how language works.</p>
-    </div>
-    <a href="/interest-form/" class="btn-ink">Get Involved →</a>
-  </div>
-
-</main>
+<div class="method-nav"><div class="method-nav-inner" id="methodNavPills"></div></div>
+<main class="research-main" id="researchMain"></main>
 
 <footer>
   <div class="footer-left">
@@ -596,153 +149,130 @@
 
 <script src="/js/main.js"></script>
 <script>
-// ── Research media: fetch from data/research.json ─────────────────────────────
-const RESEARCH_JSON = '/data/research.json';
-const carouselState = {};
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('open'));
 
-const PLACEHOLDER_ICONS = { eeg: '🧢', 'eyetracking-reading': '👁️', 'visual-world': '🎨', actout: '🐸' };
-const PLACEHOLDER_LABELS = {
-  eeg:                  'Add lab photos via Admin → Research',
-  'eyetracking-reading':'Add lab photos via Admin → Research',
-  'visual-world':       'Add lab photos via Admin → Research',
-  actout:               'Add lab photos via Admin → Research'
-};
+const carouselState={};
 
-function buildCarousel(id, photos) {
-  const wrap = document.getElementById(`carousel-${id}`);
-  if (!wrap) return;
-
-  const slides = photos.length
-    ? photos.map(url => `
-        <div class="carousel-slide">
-          <img src="${url}" alt="Lab photo">
-        </div>`).join('')
-    : `<div class="carousel-slide placeholder">
-         <div class="placeholder-icon">${PLACEHOLDER_ICONS[id] || '📷'}</div>
-         <div class="placeholder-label">${PLACEHOLDER_LABELS[id] || 'Add photos via Admin → Research'}</div>
-       </div>`;
-
-  const dots = photos.length > 1
-    ? photos.map((_, i) => `<button class="carousel-dot ${i===0?'active':''}" onclick="goToSlide('${id}',${i})"></button>`).join('')
-    : (photos.length === 0 ? '' : '<button class="carousel-dot active"></button>');
-
-  const arrows = photos.length > 1
-    ? `<button class="carousel-btn prev" onclick="moveCarousel('${id}',-1)">&#8592;</button>
-       <button class="carousel-btn next" onclick="moveCarousel('${id}',1)">&#8594;</button>`
-    : '';
-
-  wrap.innerHTML = `
-    <div class="carousel-slides" id="slides-${id}">${slides}</div>
-    ${arrows}
-    ${dots ? `<div class="carousel-dots" id="dots-${id}">${dots}</div>` : ''}
-  `;
-
-  carouselState[id] = { idx: 0, total: Math.max(photos.length, 1) };
-  addSwipe(id);
+function buildCarousel(id,photos){
+  const wrap=document.getElementById('carousel-'+id);
+  if(!wrap)return;
+  if(!photos||!photos.length){
+    wrap.innerHTML='<div class="carousel-slide placeholder"><div class="placeholder-icon">📷</div><div class="placeholder-label">Add photos via Admin → Research</div></div>';
+    carouselState[id]={idx:0,total:1};return;
+  }
+  const slides=photos.map(u=>'<div class="carousel-slide"><img src="'+u+'" alt="Lab photo" loading="lazy"></div>').join('');
+  const arrows=photos.length>1
+    ?'<button class="carousel-nav-btn prev" data-id="'+id+'" data-dir="-1">&#8592;</button><button class="carousel-nav-btn next" data-id="'+id+'" data-dir="1">&#8594;</button>'
+    :'';
+  const dots=photos.length>1
+    ?'<div class="carousel-dots">'+photos.map((_,i)=>'<button class="carousel-dot'+(i===0?' active':'')+'" data-id="'+id+'" data-i="'+i+'"></button>').join('')+'</div>'
+    :'';
+  wrap.innerHTML='<div class="carousel-slides" id="cs-'+id+'">'+slides+'</div>'+arrows+dots;
+  carouselState[id]={idx:0,total:photos.length};
+  let sx=0;
+  wrap.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
+  wrap.addEventListener('touchend',e=>{const d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>40)slide(id,d>0?1:-1);},{passive:true});
 }
 
-function buildVideo(id, videoUrl) {
-  const wrap = document.getElementById(`video-${id}`);
-  if (!wrap) return;
-  const inner = videoUrl
-    ? `<div class="video-embed"><iframe src="${videoUrl}" allowfullscreen></iframe></div>`
-    : `<div class="video-placeholder">
-         <div class="video-placeholder-bg"></div>
-         <div class="video-play-btn">▶</div>
-         <div class="video-placeholder-label">Walkthrough video<br>Add via Admin → Research</div>
-       </div>`;
-  wrap.querySelector('.video-block-header').insertAdjacentHTML('afterend', inner);
+function slide(id,dir){
+  const s=carouselState[id];if(!s||s.total<=1)return;
+  s.idx=(s.idx+dir+s.total)%s.total;
+  const t=document.getElementById('cs-'+id);
+  if(t)t.style.transform='translateX('+(-s.idx*100)+'%)';
+  document.querySelectorAll('[data-id="'+id+'"].carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===s.idx));
 }
 
-fetch(RESEARCH_JSON)
-  .then(r => r.json())
-  .then(data => {
-    data.forEach(method => {
-      buildCarousel(method.id, method.photos || []);
-      buildVideo(method.id, method.video_url || '');
-    });
-  })
-  .catch(() => {
-    // JSON not yet pushed — show placeholders
-    ['eeg','eyetracking-reading','visual-world','actout'].forEach(id => {
-      buildCarousel(id, []);
-      buildVideo(id, '');
-    });
-  });
-
-function moveCarousel(id, dir) {
-  const state = carouselState[id];
-  if (!state || state.total <= 1) return;
-  state.idx = (state.idx + dir + state.total) % state.total;
-  applyCarousel(id);
-}
-
-function goToSlide(id, idx) {
-  carouselState[id].idx = idx;
-  applyCarousel(id);
-}
-
-function applyCarousel(id) {
-  const state = carouselState[id];
-  const track = document.getElementById(`slides-${id}`);
-  const dots  = document.querySelectorAll(`#dots-${id} .carousel-dot`);
-  if (track) track.style.transform = `translateX(${-state.idx * 100}%)`;
-  dots.forEach((d, i) => d.classList.toggle('active', i === state.idx));
-}
-
-function addSwipe(id) {
-  const el = document.getElementById(`carousel-${id}`);
-  if (!el) return;
-  let startX = 0;
-  el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  el.addEventListener('touchend',   e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) moveCarousel(id, diff > 0 ? 1 : -1);
-  }, { passive: true });
-}
-
-// ── FAQ accordion ─────────────────────────────────────────────────────────────
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    // Close all in same section
-    btn.closest('.method-faq').querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  });
+document.addEventListener('click',e=>{
+  const nb=e.target.closest('.carousel-nav-btn');
+  if(nb)slide(nb.dataset.id,parseInt(nb.dataset.dir));
+  const db=e.target.closest('.carousel-dot');
+  if(db){carouselState[db.dataset.id].idx=parseInt(db.dataset.i);slide(db.dataset.id,0);}
+  const fq=e.target.closest('.faq-question');
+  if(fq){
+    const item=fq.closest('.faq-item');
+    fq.closest('.method-faqs').querySelectorAll('.faq-item').forEach(i=>{if(i!==item)i.classList.remove('open');});
+    item.classList.toggle('open');
+  }
 });
 
-// ── Method nav active state on scroll ─────────────────────────────────────────
-const sections = document.querySelectorAll('.method-section');
-const pills    = document.querySelectorAll('.method-pill');
-
-const sectionObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      pills.forEach(p => p.classList.remove('active'));
-      const active = document.querySelector(`.method-pill[href="#${e.target.id}"]`);
-      if (active) active.classList.add('active');
+const scrollObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.method-pill').forEach(p=>p.classList.remove('active'));
+      const pill=document.querySelector('.method-pill[href="#'+e.target.id+'"]');
+      if(pill)pill.classList.add('active');
     }
   });
-}, { rootMargin: '-30% 0px -60% 0px' });
+},{rootMargin:'-30% 0px -60% 0px'});
 
-sections.forEach(s => sectionObs.observe(s));
+fetch('/data/research.json')
+  .then(r=>r.json())
+  .then(methods=>{
+    const nav=document.getElementById('methodNavPills');
+    const main=document.getElementById('researchMain');
+    let navH='',mainH='';
 
-// ── Hamburger ─────────────────────────────────────────────────────────────────
-document.getElementById('hamburger').addEventListener('click', () => {
-  document.getElementById('mobileMenu').classList.toggle('open');
-});
+    methods.forEach((m,idx)=>{
+      navH+='<a class="method-pill" href="#'+m.id+'">'+m.title+'</a>';
 
-// ── Touch swipe for carousels ─────────────────────────────────────────────────
-['eeg','etr','vw','ao'].forEach(id => {
-  const el = document.getElementById(`carousel-${id}`);
-  let startX = 0;
-  el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  el.addEventListener('touchend',   e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) moveCarousel(id, diff > 0 ? 1 : -1);
-  }, { passive: true });
-});
+      const desc=(m.description||'').split('\n\n').map(p=>'<p>'+p.trim()+'</p>').join('');
+      const steps=(m.steps||[]).map(s=>'<li>'+s+'</li>').join('');
+      const faqs=(m.faqs||[]).map(f=>
+        '<div class="faq-item">'
+        +'<button class="faq-question">'+f.q+' <span class="faq-icon">+</span></button>'
+        +'<div class="faq-answer">'+f.a+'</div>'
+        +'</div>'
+      ).join('');
+      const video=m.video_url
+        ?'<div class="video-embed"><iframe src="'+m.video_url+'" allowfullscreen></iframe></div>'
+        :'<div class="video-placeholder"><div class="video-placeholder-bg"></div><div class="video-play-btn">&#9654;</div><div class="video-placeholder-label">Walkthrough video<br>Add via Admin \u2192 Research</div></div>';
+
+      mainH+=(idx>0?'<div class="method-divider"></div>':'')
+        +'<section class="method-section reveal" id="'+m.id+'">'
+          +'<div class="method-header">'
+            +'<div>'
+              +'<div class="method-number">0'+(idx+1)+'</div>'
+              +'<h2 class="method-title">'+m.title+'</h2>'
+              +'<p class="method-tagline">'+(m.tagline||'')+'</p>'
+            +'</div>'
+            +'<div class="method-badges">'
+              +(m.who?'<span class="badge-pill badge-who">'+m.who+'</span>':'')
+              +(m.duration?'<span class="badge-pill badge-time">'+m.duration+'</span>':'')
+              +(m.mode?'<span class="badge-pill badge-mode">'+m.mode+'</span>':'')
+            +'</div>'
+          +'</div>'
+          +'<div class="method-body">'
+            +'<div>'
+              +'<div class="method-description">'+desc+'</div>'
+              +(steps?'<p class="steps-heading">What a visit looks like</p><ol class="method-steps">'+steps+'</ol>':'')
+            +'</div>'
+            +'<div class="method-media">'
+              +'<div class="photo-carousel" id="carousel-'+m.id+'"></div>'
+              +'<div class="video-block">'
+                +'<div class="video-block-header"><span class="video-block-icon">&#9654;</span><span class="video-block-title">Walkthrough video for families</span></div>'
+                +video
+              +'</div>'
+            +'</div>'
+          +'</div>'
+          +(faqs?'<div class="method-faqs"><p class="faqs-heading">Frequently asked questions</p>'+faqs+'</div>':'')
+        +'</section>';
+    });
+
+    mainH+='<div class="join-banner reveal">'
+      +'<div><h2>Want to participate in our research?</h2>'
+      +'<p>We\'re always looking for adults and families with children to join our studies. Every visit helps us understand how language works.</p></div>'
+      +'<a href="/interest-form/" class="btn-ink">Get Involved &rarr;</a>'
+      +'</div>';
+
+    nav.innerHTML=navH;
+    main.innerHTML=mainH;
+    methods.forEach(m=>buildCarousel(m.id,m.photos||[]));
+    document.querySelectorAll('.method-section').forEach(s=>{scrollObs.observe(s);obs.observe(s);});
+    const fp=nav.querySelector('.method-pill');if(fp)fp.classList.add('active');
+  })
+  .catch(()=>{
+    document.getElementById('researchMain').innerHTML='<p style="text-align:center;color:var(--muted);padding:4rem;">Could not load research data.</p>';
+  });
 </script>
 </body>
 </html>
