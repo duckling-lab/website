@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>#researchMain { min-height: 100vh; }</style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-64NVWMLECF"></script>
 <script>
@@ -135,6 +136,18 @@
   color: var(--muted);
   font-style: italic;
 }
+
+.skeleton-wrap { max-width:1040px; margin:0 auto; padding:2rem 2rem 4rem; }
+.skeleton-nav { height:44px; background:var(--white); border-bottom:1px solid var(--border); padding:0.75rem 2rem; margin-bottom:0; display:flex; gap:0.5rem; align-items:center; }
+.sk { background:linear-gradient(90deg,#e8ede8 25%,#d5e3d3 50%,#e8ede8 75%); background-size:200% 100%; animation:shimmer 1.4s infinite; border-radius:99px; }
+.sk-pill { height:28px; width:90px; }
+.sk-pill-wide { height:28px; width:140px; }
+.sk-heading { height:32px; width:300px; border-radius:8px; margin-bottom:1rem; }
+.sk-line { height:16px; border-radius:4px; margin-bottom:0.6rem; }
+.sk-line-short { width:60%; }
+.sk-block { height:220px; border-radius:16px; margin-bottom:1.5rem; }
+.sk-section { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:3rem; }
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 </style>
 </head>
 <body>
@@ -184,7 +197,35 @@
     <div id="enrollingPills"></div>
   </div>
 </div>
-<div class="method-nav"><div class="method-nav-inner" id="methodNavPills"></div></div>
+
+<div id="skeletonNav" class="skeleton-nav">
+  <div class="sk sk-pill-wide"></div>
+  <div class="sk sk-pill"></div>
+  <div class="sk sk-pill-wide"></div>
+  <div class="sk sk-pill"></div>
+</div>
+<div class="method-nav" id="realMethodNav" style="display:none;"><div class="method-nav-inner" id="methodNavPills"></div></div>
+
+<div id="skeletonMain" class="skeleton-wrap">
+  <div class="sk-section">
+    <div>
+      <div class="sk sk-heading"></div>
+      <div class="sk sk-line" style="width:90%"></div>
+      <div class="sk sk-line" style="width:80%"></div>
+      <div class="sk sk-line sk-line-short"></div>
+    </div>
+    <div class="sk sk-block"></div>
+  </div>
+  <div class="sk-section">
+    <div>
+      <div class="sk sk-heading"></div>
+      <div class="sk sk-line" style="width:85%"></div>
+      <div class="sk sk-line" style="width:75%"></div>
+      <div class="sk sk-line sk-line-short"></div>
+    </div>
+    <div class="sk sk-block"></div>
+  </div>
+</div>
 <main class="research-main" id="researchMain"></main>
 
 <footer>
