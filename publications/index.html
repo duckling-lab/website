@@ -316,6 +316,7 @@ function renderPubs() {
   }
 
   main.innerHTML = html;
+  document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
 }
 
 function formatAuthors(authors, trainees) {
