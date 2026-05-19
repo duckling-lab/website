@@ -348,6 +348,7 @@ textarea { resize: vertical; min-height: 88px; }
       </div>
 
       <!-- STUDY SELECTION — loaded dynamically -->
+      <div id="section-studies">
       <p class="section-label">Studies of interest</p>
       <div class="field">
         <label class="field-label">Which studies are you interested in? <span class="opt">(select all that apply)</span></label>
@@ -358,6 +359,8 @@ textarea { resize: vertical; min-height: 88px; }
           Not sure? <a href="/studies/" style="color:var(--sage-dark);font-weight:600;">Learn more about our studies &rarr;</a>
         </p>
       </div>
+
+      </div><!-- end section-studies -->
 
       <!-- EVERYONE -->
       <p class="section-label">More details</p>
@@ -406,7 +409,7 @@ textarea { resize: vertical; min-height: 88px; }
 <script>document.addEventListener("DOMContentLoaded", () => loadNav("interest-form"));</script>
 <script>
 // ── Load studies from same-origin JSON ─────────────────────────────────────
-// Relative path works because this file lives at ducklinglab.org/interest-form/index.html
+// Relative path works because this file lives at ducklinglab.org/interest-form/
 const STUDIES_URL = '/data/studies.json';
 const urlParams   = new URLSearchParams(window.location.search);
 const preselect   = urlParams.get('study');
@@ -494,8 +497,10 @@ document.querySelectorAll(".choice-item input").forEach(input => {
 
 document.querySelectorAll("input[name='participant_type']").forEach(r => {
   r.addEventListener("change", () => {
+    const isOther = r.value === "Other / more information";
     document.getElementById("section-parent").classList.toggle("visible", r.value === "Parent or caregiver");
     document.getElementById("section-adult").classList.toggle("visible",  r.value === "Adult participant");
+    document.getElementById("section-studies").style.display = isOther ? "none" : "";
   });
 });
 

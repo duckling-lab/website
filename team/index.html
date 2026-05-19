@@ -476,7 +476,8 @@
 <script src="/js/main.js"></script>
 <script>
 const DEFAULT = 'https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/DucklingLab_Logo_AnimalsOnly.png';
-const INST_COLORS = { BU: '#CC0000', JHU: '#002D72', Tufts: '#3E8EDE', Harvard: '#A51C30', UPenn: '#011F5B', UMaryland: '#E03A3E', UToronto: '#002A5C', 'UT-Austin': '#BF5700', UMass: '#881c1c' };
+// INST_COLORS loaded from institutions.json — see Promise.all below
+let INST_COLORS = { BU: '#CC0000', JHU: '#002D72', Tufts: '#3E8EDE', Harvard: '#A51C30', UPenn: '#011F5B', UMaryland: '#E03A3E', UToronto: '#002A5C', 'UT-Austin': '#BF5700', UMass: '#881c1c' };
 
 const TIER_ORDER = ['pi','lab_manager','postdoc','phd','ma','ra','collaborator'];
 const TIER_LABELS = {
@@ -623,7 +624,7 @@ fetch('/data/team.json')
         members.forEach(m => {
           const adult_src = m.photo_adult || DEFAULT;
           const kid_src = m.photo_kid;
-          const badge = `<span class="ext-badge" style="background:${INST_COLORS[m.institution]||'#444'}">${m.institution}</span>`;
+          const badge = `<span class="ext-badge" style="background:${m.institution_color || m.institution_color || INST_COLORS[m.institution] || '#444'}">${m.institution}</span>`;
           const memberJSON = JSON.stringify(m).replace(/"/g,'&quot;');
           const pos = m.object_position || 'center top';
           const zoom = m.object_zoom || 1.0;
@@ -650,7 +651,7 @@ fetch('/data/team.json')
         const all = [...bu, ...ext].sort((a,b) => a.name.localeCompare(b.name));
         let listHtml = '<div class="collab-list">';
         all.forEach(m => {
-          const color = INST_COLORS[m.institution] || '#444';
+          const color = m.institution_color || INST_COLORS[m.institution] || '#444';
           listHtml += `
             <a href="${m.website || '#'}" target="_blank" class="collab-item">
               <div>
@@ -679,7 +680,7 @@ fetch('/data/team.json')
       const alumniList = document.createElement('div');
       alumniList.className = 'collab-list';
       alumni.sort((a,b) => a.name.localeCompare(b.name)).forEach(m => {
-        const color = INST_COLORS[m.institution] || '#444';
+        const color = m.institution_color || INST_COLORS[m.institution] || '#444';
         const whereNow = m.where_now ? ` &middot; ${m.where_now}` : '';
         alumniList.innerHTML += `
           <div class="collab-item" style="opacity:0.7;">
