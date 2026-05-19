@@ -23,6 +23,17 @@ function loadNav(activePage) {
     });
 }
 
+// ── Scroll reveal ─────────────────────────────────────────────────────────────
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+
+function observeReveals() {
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+document.addEventListener('DOMContentLoaded', observeReveals);
 
 // ── Back to top ───────────────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
