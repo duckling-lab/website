@@ -2,25 +2,37 @@
   {
     "id": "eeg",
     "title": "Electroencephalography (EEG)",
-    "tagline": "We record the brain's electrical activity millisecond by millisecond as participants listen to stories or sentences — no needles, no discomfort.",
+    "tagline": "We record the brain's electrical activity millisecond by millisecond as participants listen to stories or sentences â no needles, no discomfort.",
     "who": "Adults & Children (ages 5+)",
     "duration": "~1 hour",
     "mode": "In-person",
-    "description": "Your brain is constantly producing tiny electrical signals — even when you're just sitting still. When you hear a word, a whole cascade of signals fires across your scalp in the first fraction of a second. EEG lets us capture that cascade in real time, giving us a window into language processing that no other technique can match.\n\nWe use a soft, stretchy cap fitted with small sensors (electrodes). The sensors sit against the scalp and pick up electrical activity through a small amount of saline gel — the same kind of gel used in a hospital for a routine ECG. Nothing is injected, nothing touches the brain, and nothing hurts.",
+    "description": "Your brain is constantly producing tiny electrical signals (even when you're just sitting still). When you hear a word, a whole cascade of signals fires across your scalp in the first fraction of a second. EEG lets us capture that cascade in real time, giving us a window into language processing that no other technique can match.\n\nWe use a soft, stretchy cap fitted with small sensors (electrodes). The sensors sit against the scalp and pick up electrical activity through a small amount of saline gel â the same kind of gel used in a hospital for a routine ECG. Nothing is injected, nothing touches the brain, and nothing hurts.",
     "steps": [
       "We greet you and your family in the lobby and show you around the lab.",
-      "A researcher explains the cap using a teddy bear — kids can touch the gel pen and cap before anything goes on their head.",
+      "A researcher explains the cap and kids can touch the gel pen and cap before anything goes on their head.",
       "We measure your child's head and select the right cap size (we have many!).",
-      "Your child sits in our testing room and watches a show or movie while we place the cap and fill the electrodes with gel using a blunt gel pen — no needles, ever. Setup takes 15–25 minutes.",
+      "Your child sits in our testing room and watches a show or movie while we place the cap and fill the electrodes with gel using a blunt gel pen â no needles, ever. Setup takes 15-25 minutes.",
       "We show a short \"super scientist\" video where your child can see their own brainwaves on screen.",
-      "The study begins — your child listens to stories or sentences while we record. The task feels like watching TV.",
+      "The study begins â your child listens to stories or sentences while we record. The task feels like watching TV.",
       "When we're done, the cap comes off. We give you a wipe for any gel in the hair (it rinses out easily with shampoo). Your child picks a prize from our toy box!"
     ],
     "faqs": [
-      { "q": "Does the gel wash out?", "a": "Yes — completely. The saline gel washes out with regular shampoo and water. We recommend bringing a hat if you'd prefer not to walk home with gel in your hair, and we can also provide a disposable shower cap." },
-      { "q": "What if my child gets fussy or wants to stop?", "a": "We stop immediately, no questions asked. Participation is completely voluntary. Your child can take a break, remove the cap, or end the session at any point. A caregiver is always welcome to sit in the room during the study." },
-      { "q": "Is EEG safe?", "a": "Absolutely. EEG only records electrical activity — it does not send any signals into the brain. The cap and gel are the same type used in routine medical procedures. EEG has been used safely with infants and children for decades." },
-      { "q": "Can I stay with my child during the study?", "a": "Yes. You're welcome to sit in the testing room or just outside the door. For younger children, sitting in a caregiver's lap during setup is completely fine. We'll let you know what works best." }
+      {
+        "q": "Does the gel wash out?",
+        "a": "Yes â completely. The saline gel washes out with regular shampoo and water. We recommend bringing a hat if you'd prefer not to walk home with gel in your hair, and we can also provide a disposable shower cap."
+      },
+      {
+        "q": "What if my child gets fussy or wants to stop?",
+        "a": "We stop immediately, no questions asked. Participation is completely voluntary. Your child can take a break, remove the cap, or end the session at any point. A caregiver is always welcome to sit in the room during the study."
+      },
+      {
+        "q": "Is EEG safe?",
+        "a": "Absolutely. EEG only records electrical activity â it does not send any signals into the brain. The cap and gel are the same type used in routine medical procedures. EEG has been used safely with infants and children for decades."
+      },
+      {
+        "q": "Can I stay with my child during the study?",
+        "a": "Yes. You're welcome to sit in the testing room or just outside the door. For younger children, sitting in a caregiver's lap during setup is completely fine. We'll let you know what works best."
+      }
     ],
     "photos": [],
     "video_url": ""
@@ -28,22 +40,31 @@
   {
     "id": "eyetracking-reading",
     "title": "Eye-Tracking While Reading",
-    "tagline": "A camera watches where your eyes go as you read — revealing how the mind makes sense of sentences in real time. Nothing touches you.",
+    "tagline": "A camera watches where your eyes go as you read â revealing how the mind makes sense of sentences in real time. Nothing touches you.",
     "who": "Adults (ages 18+)",
     "duration": "~1 hour",
     "mode": "In-person or Online",
-    "description": "When you read, your eyes don't glide smoothly across the page — they jump from word to word in rapid bursts called saccades, pausing briefly on each landing spot. The length of each pause tells us a great deal about how hard your brain is working to make sense of what it just read.\n\nWe use a small camera mounted below the monitor to track exactly where your eyes land and for how long. The camera never touches you — it simply follows your gaze using infrared light (the same used in TV remotes). After a quick calibration, reading feels completely natural.\n\nThis technique is particularly powerful for studying how people process ambiguous sentences, unexpected words, or complex grammatical structures — things that trip up even fluent readers for just a fraction of a second.",
+    "description": "When you read, your eyes don't glide smoothly across the page â they jump from word to word in rapid bursts called saccades, pausing briefly on each landing spot. The length of each pause tells us a great deal about how hard your brain is working to make sense of what it just read.\n\nWe use a small camera mounted below the monitor to track exactly where your eyes land and for how long. The camera never touches you â it simply follows your gaze using infrared light (the same used in TV remotes). After a quick calibration, reading feels completely natural.\n\nThis technique is particularly powerful for studying how people process ambiguous sentences, unexpected words, or complex grammatical structures â things that trip up even fluent readers for just a fraction of a second.",
     "steps": [
       "You sit in front of a monitor with the eye-tracker camera positioned below it.",
-      "We calibrate the tracker by asking you to look at a few dots on screen — takes about one minute.",
+      "We calibrate the tracker by asking you to look at a few dots on screen â takes about one minute.",
       "Sentences or short passages appear on screen one at a time, and you read at your own pace.",
       "Occasionally a simple comprehension question appears to make sure you're engaged.",
       "That's it. No gel, no cap, nothing touching your face."
     ],
     "faqs": [
-      { "q": "Do I need to wear contacts or glasses?", "a": "Glasses are fine, though in some cases they can affect calibration. Contact lenses work well. If tracking is difficult, we'll let you know and can try adjustments. The study is always comfortable." },
-      { "q": "Do I need to keep my head still?", "a": "Modern eye-trackers have a generous head-movement tolerance, so you don't need to be rigid. A chin rest is sometimes used for maximum precision, but we'll discuss that with you beforehand." },
-      { "q": "Is the infrared light safe?", "a": "Yes. The eye-tracker uses near-infrared light at very low intensity — far below safety limits and well below what you'd get from sunlight or a TV screen. It has been used safely in research for decades." }
+      {
+        "q": "Do I need to wear contacts or glasses?",
+        "a": "Glasses are fine, though in some cases they can affect calibration. Contact lenses work well. If tracking is difficult, we'll let you know and can try adjustments. The study is always comfortable."
+      },
+      {
+        "q": "Do I need to keep my head still?",
+        "a": "Modern eye-trackers have a generous head-movement tolerance, so you don't need to be rigid. A chin rest is sometimes used for maximum precision, but we'll discuss that with you beforehand."
+      },
+      {
+        "q": "Is the infrared light safe?",
+        "a": "Yes. The eye-tracker uses near-infrared light at very low intensity â far below safety limits and well below what you'd get from sunlight or a TV screen. It has been used safely in research for decades."
+      }
     ],
     "photos": [],
     "video_url": ""
@@ -51,22 +72,31 @@
   {
     "id": "visual-world",
     "title": "Visual World Eye-Tracking",
-    "tagline": "Children look at colorful pictures while listening to sentences. Where they look — and when — tells us how they're building meaning word by word.",
-    "who": "Children (ages 3–10)",
+    "tagline": "Children look at colorful pictures while listening to sentences. Where they look â and when â tells us how they're building meaning word by word.",
+    "who": "Children (ages 3â10)",
     "duration": "~1 hour",
     "mode": "In-person or Online",
-    "description": "When a child hears \"Find the dog that is…\" their eyes often dart to the dog on screen before the sentence is even finished. This tiny moment of anticipation is one of the most powerful windows into how children understand language as it unfolds — word by word, in real time.\n\nIn a Visual World study, your child sits comfortably in front of a screen showing colorful pictures while listening to short sentences or instructions through speakers. A camera tracks where their eyes go. No gel, no cap, nothing touching them — just looking at pictures, which is something children do naturally.\n\nFor younger children, the camera is positioned in the screen itself, so they just see a fun display. Toddlers can sit on a caregiver's lap, and we always follow the child's lead.",
+    "description": "When a child hears \"Find the dog that isâ¦\" their eyes often dart to the dog on screen before the sentence is even finished. This tiny moment of anticipation is one of the most powerful windows into how children understand language as it unfolds â word by word, in real time.\n\nIn a Visual World study, your child sits comfortably in front of a screen showing colorful pictures while listening to short sentences or instructions through speakers. A camera tracks where their eyes go. No gel, no cap, nothing touching them â just looking at pictures, which is something children do naturally.\n\nFor younger children, the camera is positioned in the screen itself, so they just see a fun display. Toddlers can sit on a caregiver's lap, and we always follow the child's lead.",
     "steps": [
-      "Your child sits in front of a screen — on your lap if they prefer.",
+      "Your child sits in front of a screen â on your lap if they prefer.",
       "An attention-getter (a fun animation or sound) draws their eyes to the center of the screen.",
       "Pictures appear and a voice says a sentence or asks a question.",
-      "Your child looks naturally — no button pressing, no pointing needed in most versions.",
+      "Your child looks naturally â no button pressing, no pointing needed in most versions.",
       "The whole session feels like watching a short, interactive cartoon."
     ],
     "faqs": [
-      { "q": "What if my child looks away or gets distracted?", "a": "That's completely normal — especially with younger kids! We build in many trials so that the data from the moments they are engaged is still meaningful. The researcher watches via monitor and can pause or take a break whenever needed." },
-      { "q": "How young can children be?", "a": "We typically work with children ages 3–10 for visual world studies, though we design the task to match the child's age and attention span. We have experience with a wide range of ages and temperaments." },
-      { "q": "Can I bring siblings?", "a": "Yes! Siblings can wait in our lab's play area. If you have a sibling who might also be eligible for a study, let us know and we may be able to schedule them on the same visit." }
+      {
+        "q": "What if my child looks away or gets distracted?",
+        "a": "That's completely normal â especially with younger kids! We build in many trials so that the data from the moments they are engaged is still meaningful. The researcher watches via monitor and can pause or take a break whenever needed."
+      },
+      {
+        "q": "How young can children be?",
+        "a": "We typically work with children ages 3â10 for visual world studies, though we design the task to match the child's age and attention span. We have experience with a wide range of ages and temperaments."
+      },
+      {
+        "q": "Can I bring siblings?",
+        "a": "Yes! Siblings can wait in our lab's play area. If you have a sibling who might also be eligible for a study, let us know and we may be able to schedule them on the same visit."
+      }
     ],
     "photos": [],
     "video_url": ""
@@ -75,21 +105,30 @@
     "id": "actout",
     "title": "Language Tasks",
     "tagline": "We hand a child some toys and ask them to act out a sentence. It's one of the oldest and most intuitive ways to study how children understand language.",
-    "who": "Children (ages 3–12)",
-    "duration": "30–60 min",
+    "who": "Children (ages 3â12)",
+    "duration": "30â60 min",
     "mode": "In-person or Online",
-    "description": "Understanding a sentence like \"The dog chased the cat\" is easy — but what about \"The dog was chased by the cat\"? Or \"Make the duck kiss the bunny\"? These sentences can be tricky for young children in revealing ways, and language tasks give us a direct, playful window into how children interpret them.\n\nWe place a small set of toys or objects in front of your child and ask them to act out what they hear. There's no right or wrong answer — we're just curious what they think the sentence means. The whole thing feels like pretend play.\n\nWe also sometimes use these tasks alongside eye-tracking, which lets us see not just what the child does at the end of the sentence, but how their understanding built up word by word as they listened.",
+    "description": "Understanding a sentence like \"The dog chased the cat\" is easy â but what about \"The dog was chased by the cat\"? Or \"Make the duck kiss the bunny\"? These sentences can be tricky for young children in revealing ways, and language tasks give us a direct, playful window into how children interpret them.\n\nWe place a small set of toys or objects in front of your child and ask them to act out what they hear. There's no right or wrong answer â we're just curious what they think the sentence means. The whole thing feels like pretend play.\n\nWe also sometimes use these tasks alongside eye-tracking, which lets us see not just what the child does at the end of the sentence, but how their understanding built up word by word as they listened.",
     "steps": [
       "Your child sits at a small table with a set of fun toys or figurines.",
       "A researcher (or recorded voice) says a sentence like \"Make the frog jump over the cow.\"",
       "Your child acts it out with the toys.",
       "We repeat with different sentences and different toys.",
-      "The whole session is low-pressure and playful — kids often ask to keep going!"
+      "The whole session is low-pressure and playful â kids often ask to keep going!"
     ],
     "faqs": [
-      { "q": "What if my child doesn't want to play along?", "a": "No problem — we follow the child's lead entirely. If they want to use the toys differently, take a break, or stop altogether, that's always fine. We have lots of experience keeping things fun and low-stakes." },
-      { "q": "Can this be done online?", "a": "Yes — we have an online version where we mail a set of props to your home and run the session over Zoom. We'll walk you through everything beforehand and the session runs just like an in-person visit, minus the commute." },
-      { "q": "What are you actually measuring?", "a": "We're looking at which interpretation of a sentence your child picks — which animal does the chasing, which toy gets moved. By carefully designing the sentences, we can figure out which grammatical cues children rely on and at what age different strategies emerge." }
+      {
+        "q": "What if my child doesn't want to play along?",
+        "a": "No problem â we follow the child's lead entirely. If they want to use the toys differently, take a break, or stop altogether, that's always fine. We have lots of experience keeping things fun and low-stakes."
+      },
+      {
+        "q": "Can this be done online?",
+        "a": "Yes â we have an online version where we mail a set of props to your home and run the session over Zoom. We'll walk you through everything beforehand and the session runs just like an in-person visit, minus the commute."
+      },
+      {
+        "q": "What are you actually measuring?",
+        "a": "We're looking at which interpretation of a sentence your child picks â which animal does the chasing, which toy gets moved. By carefully designing the sentences, we can figure out which grammatical cues children rely on and at what age different strategies emerge."
+      }
     ],
     "photos": [],
     "video_url": ""
