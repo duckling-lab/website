@@ -204,6 +204,7 @@
     <p class="section-eyebrow">Duckling Lab</p>
     <h1 class="section-title">Our <em>Publications</em></h1>
     <p class="section-sub">Research on language development, sentence processing, and prediction.</p>
+    <p class="trainee-note" style="margin-top:0.75rem;text-align:left;">*Trainee of Dr. Yacovone at time of publication or presentation.</p>
   </div>
 </div>
 
@@ -312,11 +313,14 @@ function renderPubs() {
 
   const hasTrainees = filtered.some(p => p.trainees && p.trainees.length);
   if (hasTrainees) {
-    html += '<div class="trainee-note">* Trainee in the Duckling Lab at time of publication or presentation.</div>';
   }
 
   main.innerHTML = html;
-  document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => {
+    obs.observe(el);
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight) el.classList.add('visible');
+  });
 }
 
 function formatAuthors(authors, trainees) {
