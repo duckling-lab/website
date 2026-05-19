@@ -555,7 +555,8 @@
     "name": "Samer Nour Eddine, MD, PhD",
     "role": "Postdoctoral Researcher",
     "title": "Language Science Center",
-    "institution": "JHU",
+    "institution": "UMD",
+    "institution_color": "#69e119",
     "bu_member": false,
     "tier": "postdoc",
     "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/noureddine_samer_adult.png",
@@ -573,8 +574,7 @@
     "alumni": false,
     "where_now": null,
     "object_position": "center top",
-    "object_zoom": 1,
-    "institution_color": "#002D72"
+    "object_zoom": 1
   },
   {
     "id": "snedeker_jesse",
