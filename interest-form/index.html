@@ -387,7 +387,7 @@ textarea { resize: vertical; min-height: 88px; }
 
       <div class="field">
         <label class="field-label" for="notes">Anything else? <span class="opt">(optional)</span></label>
-        <textarea id="notes" name="notes" placeholder="Questions, scheduling needs, additional children, etc."></textarea>
+        <textarea id="notes" name="notes" placeholder=""></textarea>
       </div>
 
       <input type="hidden" name="_subject" value="New Duckling Lab Interest Form Submission">
@@ -438,7 +438,41 @@ fetch(STUDIES_URL)
       return;
     }
 
-    // Enrolling — checkboxes
+    // ── "Any study" option — always shown ──────────────────────────────────
+    {
+      const anyLabel = document.createElement('label');
+      anyLabel.className = 'choice-item';
+      anyLabel.style.cssText = 'font-weight:600;border-color:var(--sage-mid);background:var(--sage-light);';
+
+      const anyCb = document.createElement('input');
+      anyCb.type  = 'checkbox';
+      anyCb.name  = 'studies';
+      anyCb.id    = 'studies_any';
+      anyCb.value = 'Any study — interested in participating generally';
+      anyCb.style.cssText = 'accent-color:var(--red);width:15px;height:15px;flex-shrink:0;';
+
+      anyCb.addEventListener('change', () => {
+        anyLabel.classList.toggle('selected', anyCb.checked);
+        // Checking "any" unchecks individual selections (mutually exclusive)
+        if (anyCb.checked) {
+          container.querySelectorAll('input[name="studies"]:not(#studies_any)').forEach(cb => {
+            cb.checked = false;
+            cb.closest('label').classList.remove('selected');
+          });
+        }
+      });
+
+      anyLabel.appendChild(anyCb);
+      anyLabel.appendChild(document.createTextNode(' I'm interested in any study'));
+      container.appendChild(anyLabel);
+
+      // Divider
+      const div = document.createElement('div');
+      div.style.cssText = 'height:1px;background:var(--border);margin:0.35rem 0 0.1rem;';
+      container.appendChild(div);
+    }
+
+    // Enrolling — individual checkboxes
     enrolling.forEach(s => {
       const isPreselected = preselect === s.id;
       const label = document.createElement('label');
@@ -449,7 +483,17 @@ fetch(STUDIES_URL)
       cb.name    = 'studies';
       cb.value   = s.title;
       cb.checked = isPreselected;
-      cb.addEventListener('change', () => label.classList.toggle('selected', cb.checked));
+      cb.addEventListener('change', () => {
+        label.classList.toggle('selected', cb.checked);
+        // Selecting a specific study unchecks "any study"
+        if (cb.checked) {
+          const anyCb = document.getElementById('studies_any');
+          if (anyCb) {
+            anyCb.checked = false;
+            anyCb.closest('label').classList.remove('selected');
+          }
+        }
+      });
 
       const meta = [];
       if (s.age_range) meta.push(s.age_range);
@@ -458,7 +502,7 @@ fetch(STUDIES_URL)
       const text = document.createTextNode(' ' + s.title + (meta.length ? ' — ' + meta.join(', ') : ''));
 
       const link = document.createElement('a');
-      link.href      = '/studies/';
+      link.href        = '/studies/';
       link.textContent = 'Learn more →';
       link.style.cssText = 'font-size:0.72rem;color:var(--sage-dark);margin-left:0.5rem;font-weight:600;white-space:nowrap;';
 
