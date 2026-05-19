@@ -1,10 +1,10 @@
 {
-  "intro": "Hello! We\u2019re the <strong>Developmental Underpinnings of Cognition and Kid Linguistics (Duckling) Lab</strong> at <a href=\"https://www.bu.edu/linguistics/\" target=\"_blank\">Boston University\u2019s Department of Linguistics</a>. We study how children and adults learn, use, and make sense of the languages around them.",
+  "intro": "<p>Hello! We’re the <strong>Developmental Underpinnings of Cognition and Kid Linguistics (Duckling) Lab</strong> at <a href=\"https://www.bu.edu/linguistics/\" rel=\"noopener noreferrer\" target=\"_blank\">Boston University’s Department of Linguistics</a>. We study how children and adults learn, use, and make sense of the languages around them.</p>",
   "cards": [
     {
       "tag": "Acquisition",
       "title": "How Children Learn Language",
-      "description": "From first words to complex sentences, we study the remarkable process of language development in children ages 3\u201317.",
+      "description": "From first words to complex sentences, we study the remarkable process of language development in children ages 3–17.",
       "image": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80"
     },
     {
@@ -20,6 +20,6 @@
       "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80"
     }
   ],
-  "join_heading": "We\u2019d love to have you be part of our research.",
-  "join_sub": "We\u2019re always looking for children, families, and adults to participate in our studies. It\u2019s fun, easy, and makes a real difference."
+  "join_heading": "We’d love to have you be part of our research.",
+  "join_sub": "<p>We’re always looking for children, families, and adults to participate in our <strong>studies</strong>. It’s fun, easy, and makes a real difference.</p>"
 }
