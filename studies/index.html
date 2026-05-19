@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-64NVWMLECF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-64NVWMLECF');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Studies — Duckling Lab</title>
@@ -375,5 +383,6 @@ fetch('/data/studies.json')
       '<div class="studies-empty"><p>Could not load studies. Please try again.</p></div>';
   });
 </script>
+
 </body>
 </html>
