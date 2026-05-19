@@ -23,7 +23,7 @@
     "where_now": null,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "hamssa_ahmad",
@@ -48,7 +48,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "hill_romi",
@@ -73,7 +73,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "ray_jupitara",
@@ -98,7 +98,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "jiang_xinhan",
@@ -123,7 +123,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "carter_jess",
@@ -273,7 +273,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "ross_baylee",
@@ -298,7 +298,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "lin_imeng",
@@ -323,7 +323,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "mcilroyevans_dioan",
@@ -348,7 +348,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "darby_noah",
@@ -373,7 +373,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "wang_yujing",
@@ -398,7 +398,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "rolnick_sayge",
@@ -423,7 +423,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "nunes_rafaella",
@@ -448,7 +448,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "miyai_christopher",
@@ -473,7 +473,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "akinyanmi_oluwatofe",
@@ -498,7 +498,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "lin_monique",
@@ -556,7 +556,7 @@
     "role": "Postdoctoral Researcher",
     "title": "Language Science Center",
     "institution": "UMD",
-    "institution_color": "#69e119",
+    "institution_color": "#e31933",
     "bu_member": false,
     "tier": "postdoc",
     "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/noureddine_samer_adult.png",
@@ -674,7 +674,7 @@
     "alumni": false,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#004ecc"
+    "institution_color": "#cc0000"
   },
   {
     "id": "misra_kanishka",
