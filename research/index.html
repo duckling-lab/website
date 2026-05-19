@@ -81,6 +81,51 @@
   .method-body{grid-template-columns:1fr;}
   .join-banner{flex-direction:column;padding:1.75rem;}
 }
+
+/* ── Enrolling strip ── */
+.enrolling-strip {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 2rem;
+}
+.enrolling-strip-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.enrolling-strip-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.enrolling-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 99px;
+  background: #D1FAE5;
+  color: #065F46;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+  white-space: nowrap;
+}
+.enrolling-pill:hover { background: #A7F3D0; transform: translateY(-1px); }
+.enrolling-pill::before { content: '●'; font-size: 0.5rem; }
+.enrolling-strip-none {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -123,6 +168,13 @@
   </div>
 </div>
 
+
+<div class="enrolling-strip" id="enrollingStrip" style="display:none;">
+  <div class="enrolling-strip-inner">
+    <span class="enrolling-strip-label">Now Enrolling</span>
+    <div id="enrollingPills"></div>
+  </div>
+</div>
 <div class="method-nav"><div class="method-nav-inner" id="methodNavPills"></div></div>
 <main class="research-main" id="researchMain"></main>
 
@@ -204,6 +256,22 @@ const scrollObs=new IntersectionObserver(entries=>{
     }
   });
 },{rootMargin:'-30% 0px -60% 0px'});
+
+
+// ── Enrolling strip: fetch studies and show active ones ───────────────────────
+fetch('/data/studies.json')
+  .then(r => r.json())
+  .then(studies => {
+    const active = studies.filter(s => s.visible && s.status === 'enrolling');
+    if (!active.length) return;
+    const strip = document.getElementById('enrollingStrip');
+    const pills = document.getElementById('enrollingPills');
+    pills.innerHTML = active.map(s =>
+      '<a class="enrolling-pill" href="/studies/?study=' + s.id + '">' + s.title + '</a>'
+    ).join('');
+    strip.style.display = '';
+  })
+  .catch(() => {});
 
 fetch('/data/research.json')
   .then(r=>r.json())
