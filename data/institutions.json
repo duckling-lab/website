@@ -1,5 +1,5 @@
 {
-  "BU": "#004ecc",
+  "BU": "#cc0000",
   "Harvard": "#A51C30",
   "Tufts": "#3E8EDE",
   "JHU": "#002D72",
@@ -7,5 +7,5 @@
   "UToronto": "#002A5C",
   "UT-Austin": "#BF5700",
   "UMass Amherst": "#881c1c",
-  "UMD": "#69e119"
+  "UMD": "#ffd200"
 }
