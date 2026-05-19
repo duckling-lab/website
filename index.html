@@ -600,7 +600,7 @@ footer a:hover { color: white; }
   <div class="hero-intro reveal">
     <div class="intro-with-brain">
       <img class="inline-brain flipped" src="https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_lightbulb.png" alt="">
-      <p>Hello! We&rsquo;re the <strong>Developmental Underpinnings of Cognition and Kid Linguistics (Duckling) Lab</strong> at <a href="https://www.bu.edu/linguistics/" target="_blank">Boston University&rsquo;s Department of Linguistics</a>. We study how children and adults learn, use, and make sense of the languages around them.</p>
+      <p id="homeIntroText">Hello! We&rsquo;re the <strong>Developmental Underpinnings of Cognition and Kid Linguistics (Duckling) Lab</strong> at <a href="https://www.bu.edu/linguistics/" target="_blank">Boston University&rsquo;s Department of Linguistics</a>. We study how children and adults learn, use, and make sense of the languages around them.</p>
     </div>
   </div>
 </section>
@@ -616,46 +616,15 @@ footer a:hover { color: white; }
       </div>
       <img class="section-brain reveal" src="https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_magnifyingglass.png" alt="">
     </div>
-    <div class="cards">
-      <div class="card reveal">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80')">
-          <div class="card-img-overlay"></div>
-          <span class="card-tag">Acquisition</span>
-        </div>
-        <div class="card-body">
-          <h3>How Children Learn Language</h3>
-          <p>From first words to complex sentences, we study the remarkable process of language development in children ages 3&ndash;17.</p>
-        </div>
-      </div>
-      <div class="card reveal reveal-delay-1">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80')">
-          <div class="card-img-overlay"></div>
-          <span class="card-tag sage">Comprehension</span>
-        </div>
-        <div class="card-body">
-          <h3>Language in Real Time</h3>
-          <p>Using behavioral experiments and eye-tracking, we study how adults and children process language as it unfolds, word by word.</p>
-        </div>
-      </div>
-      <div class="card reveal reveal-delay-2">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80')">
-          <div class="card-img-overlay"></div>
-          <span class="card-tag warm">Brain &amp; Language</span>
-        </div>
-        <div class="card-body">
-          <h3>The Brain &amp; Language</h3>
-          <p>Using EEG, we measure neural responses to words and sentences, revealing how the brain encodes language in real time.</p>
-        </div>
-      </div>
-    </div>
+    <div class="cards" id="homeCards"></div>
   </div>
 </div>
 
 <!-- Join -->
 <section class="join-section">
   <div class="join-inner">
-    <h2 class="reveal">We&rsquo;d love to have you<br>be part of our research.</h2>
-    <p class="reveal">We&rsquo;re always looking for children, families, and adults to participate in our studies. It&rsquo;s fun, easy, and makes a real difference.</p>
+    <h2 class="reveal" id="homeJoinHeading">We&rsquo;d love to have you<br>be part of our research.</h2>
+    <p class="reveal" id="homeJoinSub">We&rsquo;re always looking for children, families, and adults to participate in our studies. It&rsquo;s fun, easy, and makes a real difference.</p>
     <div class="join-btn-row reveal">
     <a href="/interest-form" class="btn-ink">Get Involved</a>
     <img class="join-brain-inline flipped" src="https://raw.githubusercontent.com/duckling-lab/website/main/media/characters/brain_survey.png" alt="">
@@ -687,8 +656,6 @@ footer a:hover { color: white; }
 </div>
 
 <!-- Footer -->
-
-<!-- Footer -->
 <footer>
   <div class="footer-left">
     <span class="footer-lab-name">Duckling Lab</span>
@@ -698,6 +665,8 @@ footer a:hover { color: white; }
     <span>Dept. of Linguistics, Boston University</span>
   </div>
   <div class="footer-right">
+    <span id="footer-last-updated" style="color:rgba(255,255,255,0.35);font-style:italic;"></span>
+    <span class="footer-divider">&middot;</span>
     <span id="footer-last-updated" style="color:rgba(255,255,255,0.35);font-style:italic;"></span>
     <span class="footer-divider">&middot;</span>
     <a href="https://www.anthonyyacovone.com" target="_blank">PI: Anthony Yacovone, PhD</a>
@@ -712,6 +681,41 @@ footer a:hover { color: white; }
 
 
 <script>
+
+// Load home page content from JSON
+fetch('/data/home.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    // Intro
+    var introEl = document.getElementById('homeIntroText');
+    if (introEl && data.intro) introEl.innerHTML = data.intro;
+
+    // Research cards
+    var cardsEl = document.getElementById('homeCards');
+    if (cardsEl && data.cards) {
+      var tagClasses = ['', 'sage', 'warm'];
+      cardsEl.innerHTML = data.cards.map(function(card, i) {
+        return '<div class="card reveal' + (i===1?' reveal-delay-1':i===2?' reveal-delay-2':'') + '">'
+          + '<div class="card-img" style="background-image:url(\'' + card.image + '\')">'
+            + '<div class="card-img-overlay"></div>'
+            + '<span class="card-tag' + (tagClasses[i]?' '+tagClasses[i]:'') + '">' + card.tag + '</span>'
+          + '</div>'
+          + '<div class="card-body"><h3>' + card.title + '</h3><p>' + card.description + '</p></div>'
+          + '</div>';
+      }).join('');
+      // Re-observe new cards for reveal
+      cardsEl.querySelectorAll('.reveal').forEach(function(el) {
+        if (typeof obs !== 'undefined') obs.observe(el);
+      });
+    }
+
+    // Join section
+    var jh = document.getElementById('homeJoinHeading');
+    var js = document.getElementById('homeJoinSub');
+    if (jh && data.join_heading) jh.innerHTML = data.join_heading;
+    if (js && data.join_sub)     js.innerHTML = data.join_sub;
+  })
+  .catch(function() {}); // silently fall back to hardcoded defaults
 
 // Carousel
 function initCarousel() {
@@ -774,7 +778,7 @@ const CAT_CLASS = {
   'Conference':'conference','Lab News':'lab-news','Hiring':'recruiting'
 };
 
-fetch('data/news.json')
+fetch('/data/news.json')
   .then(r => r.json())
   .then(data => {
     const sorted = data.sort((a,b) => new Date(b.date)-new Date(a.date)).slice(0,5);
