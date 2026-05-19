@@ -17,21 +17,21 @@
     "visible": true
   },
   {
-    "id": "eye_tracking_reading",
+    "id": "eye_tracking_while_reading",
     "title": "Eye-Tracking While Reading",
     "subtitle": "Read sentences while a camera tracks your eye movements",
     "type": "Eye-Tracking While Reading",
     "status": "awaiting_approval",
+    "visible": true,
     "who": "Adults",
     "age_range": "Ages 18+",
     "duration": "About 1 hour",
     "compensation_adults": "$15/hour",
     "compensation_kids": null,
-    "location": "In-person or Online",
-    "description": "A small camera watches where your eyes move as you read sentences on a screen. Nothing touches you — the camera just follows your gaze. This helps us understand how people make sense of language as they read.",
+    "location": "In-person",
+    "description": "<p>A small camera watches where your eyes move as you read sentences on a screen. Nothing touches you — the camera just follows your gaze. This helps us understand how people make sense of language as they read.</p>",
     "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
-    "signup_url": "/interest-form/?study=eye_tracking_reading",
-    "visible": true
+    "signup_url": "/interest-form/?study=eye_tracking_reading"
   },
   {
     "id": "visual_world",
