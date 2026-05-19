@@ -22,7 +22,8 @@
     "alumni": false,
     "where_now": null,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "hamssa_ahmad",
@@ -46,7 +47,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "hill_romi",
@@ -70,7 +72,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "ray_jupitara",
@@ -94,7 +97,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "jiang_xinhan",
@@ -118,7 +122,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "carter_jess",
@@ -142,7 +147,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#002D72"
   },
   {
     "id": "vallampati_apoorva",
@@ -166,7 +172,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#3E8EDE"
   },
   {
     "id": "hansen_tom",
@@ -190,7 +197,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#3E8EDE"
   },
   {
     "id": "waite_briony",
@@ -214,7 +222,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#A51C30"
   },
   {
     "id": "huang_yuhui",
@@ -238,7 +247,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#A51C30"
   },
   {
     "id": "guttmann_chloe",
@@ -262,7 +272,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "ross_baylee",
@@ -286,7 +297,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "lin_imeng",
@@ -310,7 +322,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "mcilroyevans_dioan",
@@ -334,7 +347,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "darby_noah",
@@ -358,7 +372,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "wang_yujing",
@@ -382,7 +397,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "rolnick_sayge",
@@ -406,7 +422,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "nunes_rafaella",
@@ -430,7 +447,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "miyai_christopher",
@@ -454,7 +472,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "akinyanmi_oluwatofe",
@@ -478,7 +497,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "lin_monique",
@@ -502,7 +522,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#3E8EDE"
   },
   {
     "id": "kandel_margaret",
@@ -526,7 +547,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#011F5B"
   },
   {
     "id": "phd_md_eddine_nour_samer",
@@ -551,7 +573,8 @@
     "alumni": false,
     "where_now": null,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#002D72"
   },
   {
     "id": "snedeker_jesse",
@@ -575,7 +598,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#A51C30"
   },
   {
     "id": "kuperberg_gina",
@@ -599,7 +623,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#3E8EDE"
   },
   {
     "id": "atkinson_emily",
@@ -623,7 +648,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#002A5C"
   },
   {
     "id": "kim_najoung",
@@ -647,7 +673,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#004ecc"
   },
   {
     "id": "misra_kanishka",
@@ -671,7 +698,8 @@
     "status": "current",
     "alumni": false,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#BF5700"
   },
   {
     "id": "dillon_brian",
@@ -696,6 +724,7 @@
     "alumni": false,
     "where_now": null,
     "object_position": "center top",
-    "object_zoom": 1
+    "object_zoom": 1,
+    "institution_color": "#881c1c"
   }
 ]
