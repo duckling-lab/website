@@ -44,7 +44,7 @@ nav {
 .nav-links a {
   font-size: 0.87rem; font-weight: 500;
   color: var(--ink); text-decoration: none;
-  position: relative; padding-bottom: 3px;
+  position: relative;
 }
 .nav-links a::after {
   content: "";
