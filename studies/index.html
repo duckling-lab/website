@@ -35,6 +35,7 @@
 .studies-section-label { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:0.75rem; padding-bottom:0.5rem; border-bottom:2px solid var(--border); }
 
 /* ── Study row ── */
+.study-row { scroll-margin-top: 140px; }
 .study-row {
   background:var(--white);
   border-radius:14px;
@@ -384,12 +385,14 @@ document.querySelectorAll('.filter-pill').forEach(pill => {
 });
 
 function scrollToStudiesControls() {
-  const ctrl = document.querySelector('.studies-filters');
-  if (!ctrl) return;
-  const navHeight = 66;
-  window.scrollTo({
-    top: ctrl.offsetTop - navHeight,
-    behavior: 'smooth'
+  requestAnimationFrame(() => {
+    const first = document.querySelector('#studiesMain .study-row');
+    if (first) {
+      first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      const ctrl = document.querySelector('.studies-filters');
+      if (ctrl) window.scrollTo({ top: ctrl.offsetTop - 66, behavior: 'smooth' });
+    }
   });
 }
 

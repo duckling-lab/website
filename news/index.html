@@ -98,7 +98,7 @@
   margin: 0 auto;
   padding: 2rem;
 }
-.year-group { margin-bottom: 3rem; }
+.year-group { margin-bottom: 3rem; scroll-margin-top: 140px; }
 .year-heading {
   font-family: "DM Serif Display", serif;
   font-size: 1.75rem;
@@ -511,12 +511,14 @@ document.querySelectorAll('.filter-pill').forEach(pill => {
 });
 
 function scrollToNewsControls() {
-  const ctrl = document.querySelector('.news-controls');
-  if (!ctrl) return;
-  const navHeight = 66;
-  window.scrollTo({
-    top: ctrl.offsetTop - navHeight,
-    behavior: 'smooth'
+  requestAnimationFrame(() => {
+    const first = document.querySelector('#newsContent .year-group');
+    if (first) {
+      first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      const ctrl = document.querySelector('.news-controls');
+      if (ctrl) window.scrollTo({ top: ctrl.offsetTop - 66, behavior: 'smooth' });
+    }
   });
 }
   // Hamburger
