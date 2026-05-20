@@ -32,6 +32,7 @@
 .studies-main { max-width:1040px; margin:0 auto; padding:2rem 2rem 5rem; }
 
 /* ── Section heading ── */
+.studies-section { margin-bottom: 2rem; }
 .studies-section-label { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:0.75rem; padding-bottom:0.5rem; border-bottom:2px solid var(--border); }
 
 /* ── Study row ── */
@@ -285,7 +286,7 @@ function render(studies) {
 }
 
 function section(label, studies) {
-  return '<div style="margin-bottom:2rem;">'
+  return '<div class="studies-section">'
     + '<div class="studies-section-label">' + label + '</div>'
     + studies.map(s => row(s)).join('')
     + '</div>';
@@ -379,7 +380,7 @@ document.querySelectorAll('.filter-pill').forEach(pill => {
     activeFilter = pill.dataset.filter;
     render(allStudies);
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    scrollToFirstResult('#studiesMain', '.study-row', '.studies-filters');
+    scrollToFirstResult('#studiesMain', '.studies-section', '.studies-filters');
   });
 });
 
