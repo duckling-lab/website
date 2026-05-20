@@ -28,56 +28,69 @@
 
 /* ── Controls ── */
 .pub-controls {
-  position: sticky; top: 60px; z-index: 90;
+  position: sticky; top: 66px; z-index: 90;
   background: var(--white); border-bottom: 1px solid var(--border);
   padding: 0.75rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 .pub-controls-inner {
-  max-width: 900px; margin: 0 auto;
+  max-width: 1040px; margin: 0 auto;
   display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
 }
-.pub-search {
-  flex: 1; min-width: 200px;
-  padding: 0.55rem 1rem; border-radius: 99px;
-  border: 1.5px solid var(--border);
-  font-size: 0.88rem; font-family: "DM Sans", sans-serif; outline: none;
+.pub-search-wrap {
+  flex: 1; min-width: 220px;
+  position: relative;
+  display: flex; align-items: center;
 }
-.pub-search:focus { border-color: var(--red); }
+.pub-search-wrap input {
+  width: 100%;
+  padding: 0.55rem 1rem 0.55rem 2.5rem;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  font-size: 0.88rem; font-family: "DM Sans", sans-serif;
+  color: var(--ink); outline: none; background: var(--white);
+  transition: border-color 0.15s, opacity 0.15s;
+}
+.pub-search-wrap input:focus { border-color: var(--ink); }
+.pub-search-icon {
+  position: absolute; left: 0.9rem; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none; padding: 0;
+  color: var(--muted); font-size: 0.9rem;
+  cursor: default; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+}
 .filter-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; }
 .filter-pill {
   padding: 0.35rem 0.9rem; border-radius: 99px;
   border: 1.5px solid var(--border); background: var(--white);
   font-size: 0.78rem; font-weight: 600; cursor: pointer; color: var(--muted);
   transition: all 0.15s; font-family: "DM Sans", sans-serif;
+  white-space: nowrap;
 }
 .filter-pill:hover { border-color: var(--sage-dark); color: var(--ink); }
 .filter-pill.active { background: var(--ink); color: white; border-color: var(--ink); }
 
 /* ── Main ── */
-.pub-main { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+.pub-main { max-width: 1040px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 
-/* ── Section ── */
-.pub-section { margin-bottom: 3rem; }
+/* ── Sections (In Progress + year groups) ── */
+.pub-section { margin-bottom: 3rem; scroll-margin-top: 140px; }
+.pub-section.hidden { display: none; }
 .pub-section-heading {
   font-family: "DM Serif Display", serif; font-size: 1.4rem;
   color: var(--ink); padding-bottom: 0.6rem;
   border-bottom: 2px solid var(--border);
   display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
 }
+.pub-section-heading.in-progress-heading {
+  font-style: italic; color: var(--muted);
+}
 .pub-section-heading .count {
   font-family: "DM Sans", sans-serif; font-size: 0.72rem; font-weight: 600;
   color: var(--muted); background: var(--sage-light);
   padding: 0.2rem 0.6rem; border-radius: 99px;
 }
-
-/* ── Year label ── */
-.year-label {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--muted);
-  margin-bottom: 0.75rem; margin-top: 1.25rem;
-  display: flex; align-items: center; gap: 0.5rem;
-}
-.year-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
 /* ── Cards ── */
 .pub-card-list { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -90,13 +103,13 @@
 .pub-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
 .pub-card.hidden { display: none; }
 
-/* Left accent bar per type */
+/* Accent bar + badge: same color per type (no red — reserved for CTAs) */
 .pub-card-bar { width: 5px; flex-shrink: 0; }
-.bar-in-progress { background: var(--muted); }
-.bar-publication { background: var(--red); }
-.bar-invited { background: #3A7D9E; }
-.bar-talk { background: #7A6B9A; }
-.bar-poster { background: #C07840; }
+.bar-progress    { background: var(--muted); }
+.bar-paper       { background: #4A6E46; }
+.bar-invited     { background: #3A7D9E; }
+.bar-talk        { background: #7A6B9A; }
+.bar-poster      { background: #C07840; }
 
 .pub-card-body { padding: 1rem 1.25rem; flex: 1; }
 .pub-card-meta {
@@ -106,9 +119,14 @@
 .pub-type-badge {
   font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em;
   text-transform: uppercase; padding: 0.2rem 0.6rem;
-  border-radius: 99px; background: var(--sage-light); color: var(--sage-dark);
+  border-radius: 99px;
 }
-.pub-type-badge.invited-badge { background: #EAF3FA; color: #3A7D9E; }
+.badge-progress  { background: var(--sage-light); color: var(--muted); }
+.badge-paper     { background: #EBF1EA; color: #4A6E46; }
+.badge-invited   { background: #EAF3FA; color: #3A7D9E; }
+.badge-talk      { background: #F0EBF7; color: #7A6B9A; }
+.badge-poster    { background: #FAEFE5; color: #C07840; }
+
 .pub-year { font-size: 0.75rem; color: var(--muted); }
 .pub-virtual { font-size: 0.75rem; color: var(--muted); font-style: italic; }
 
@@ -164,7 +182,48 @@
   .pub-hero { padding: 3rem 1.25rem 2rem; }
   .pub-main { padding: 1.5rem 1rem 4rem; }
   .pub-controls { padding: 0.75rem 1rem; }
-  .pub-controls-inner { flex-direction: column; align-items: stretch; }
+  .pub-controls-inner { gap: 0.6rem; align-items: center; flex-wrap: nowrap; }
+  /* Collapsible search: icon-only by default */
+  .pub-search-wrap {
+    flex: 0 0 38px; min-width: 38px;
+    width: 38px; height: 38px;
+    transition: flex 0.2s, min-width 0.2s;
+  }
+  .pub-search-wrap input {
+    opacity: 0; pointer-events: none;
+    height: 38px; padding-left: 2.5rem;
+  }
+  .pub-search-icon {
+    cursor: pointer; pointer-events: auto;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    left: 0; top: 0; transform: none;
+  }
+  .pub-search-wrap.expanded {
+    flex: 1 1 100%; min-width: 0; width: 100%;
+  }
+  .pub-search-wrap.expanded input {
+    opacity: 1; pointer-events: auto;
+  }
+  .pub-search-wrap.expanded .pub-search-icon {
+    pointer-events: none;
+    width: auto; height: auto;
+    border: none; background: none;
+    left: 0.9rem; top: 50%; transform: translateY(-50%);
+  }
+  /* Horizontal-scroll pills */
+  .filter-pills {
+    flex: 1 1 auto; min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .filter-pills::-webkit-scrollbar { display: none; }
+  .filter-pill { flex-shrink: 0; }
 }
 </style>
 </head>
@@ -211,14 +270,14 @@
 
 <div class="pub-controls">
   <div class="pub-controls-inner">
-    <input type="text" class="pub-search" id="pubSearch" placeholder="Search by title, author, keyword..." oninput="renderPubs()">
-    <div class="filter-pills">
+    <div class="pub-search-wrap" id="pubSearchWrap">
+      <button class="pub-search-icon" aria-label="Search" onclick="togglePubSearch()">&#x1F50D;</button>
+      <input type="text" id="pubSearch" placeholder="Search by title, author, keyword..." oninput="renderPubs()">
+    </div>
+    <div class="filter-pills" id="filterPills">
       <button class="filter-pill active" onclick="setFilter('all',this)">All</button>
-      <button class="filter-pill" onclick="setFilter('In Progress',this)">In Progress</button>
-      <button class="filter-pill" onclick="setFilter('Publication',this)">Publications</button>
-      <button class="filter-pill" onclick="setFilter('Invited Piece',this)">Invited Pieces</button>
-      <button class="filter-pill" onclick="setFilter('Talk',this)">Talks</button>
-      <button class="filter-pill" onclick="setFilter('Poster',this)">Posters</button>
+      <button class="filter-pill" onclick="setFilter('publications',this)">Publications</button>
+      <button class="filter-pill" onclick="setFilter('presentations',this)">Presentations</button>
     </div>
   </div>
 </div>
@@ -232,27 +291,30 @@
 <script>document.addEventListener("DOMContentLoaded", () => loadNav("publications"));</script>
 <script>
 const PUB_PATH = '/data/publications.json';
-const SECTION_ORDER = ['In Progress','Publication','Invited Piece','Talk','Poster'];
-const SECTION_LABELS = {
-  'In Progress': 'In Progress',
-  'Publication': 'Publications',
-  'Invited Piece': 'Invited Pieces',
-  'Talk': 'Talks',
-  'Poster': 'Posters'
+
+// Filter pill → set of publication types it includes
+const FILTER_GROUPS = {
+  'all':           ['In Progress','Publication','Invited Piece','Talk','Poster'],
+  'publications':  ['In Progress','Publication','Invited Piece'],
+  'presentations': ['Talk','Poster']
 };
-const BAR_CLASS = {
-  'In Progress': 'bar-in-progress',
-  'Publication': 'bar-publication',
-  'Invited Piece': 'bar-invited',
-  'Talk': 'bar-talk',
-  'Poster': 'bar-poster'
+
+// Map publication type → CSS class suffix (for bar + badge)
+const TYPE_CLASS = {
+  'In Progress':   'progress',
+  'Publication':   'paper',
+  'Invited Piece': 'invited',
+  'Talk':          'talk',
+  'Poster':        'poster'
 };
+
+// Map publication type → human label for the badge
 const TYPE_LABEL = {
-  'In Progress': 'In Progress',
-  'Publication': 'Publication',
-  'Invited Piece': 'Invited Piece',
-  'Talk': 'Talk',
-  'Poster': 'Poster'
+  'In Progress':   'In Progress',
+  'Publication':   'Paper',
+  'Invited Piece': 'Invited',
+  'Talk':          'Talk',
+  'Poster':        'Poster'
 };
 
 let allPubs = [];
@@ -267,16 +329,50 @@ function setFilter(f, el) {
   document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
   renderPubs();
+  scrollToControls();
+}
+
+// After filter change, scroll the first result section into view so it's
+// flush below the sticky nav + controls bar. Uses scrollIntoView with the
+// section's existing scroll-margin-top, so it lands consistently regardless
+// of where the user was scrolled from. Deferred to next frame so layout
+// (page may have shrunk after filter) settles first.
+function scrollToControls() {
+  requestAnimationFrame(() => {
+    const first = document.querySelector('#pubMain .pub-section');
+    if (first) {
+      first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // No results: just put the controls bar at top under the nav
+      const ctrl = document.querySelector('.pub-controls');
+      if (ctrl) window.scrollTo({ top: ctrl.offsetTop - 66, behavior: 'smooth' });
+    }
+  });
+}
+
+function togglePubSearch() {
+  if (window.innerWidth > 768) return;
+  const wrap = document.getElementById('pubSearchWrap');
+  const input = document.getElementById('pubSearch');
+  wrap.classList.toggle('expanded');
+  if (wrap.classList.contains('expanded')) {
+    setTimeout(() => input.focus(), 200);
+  } else if (input.value) {
+    input.value = '';
+    renderPubs();
+  }
 }
 
 function renderPubs() {
-  const q = document.getElementById('pubSearch').value.toLowerCase();
+  const q = (document.getElementById('pubSearch').value || '').toLowerCase();
   const main = document.getElementById('pubMain');
+  const allowedTypes = FILTER_GROUPS[activeFilter] || FILTER_GROUPS['all'];
 
+  // Apply both filters
   const filtered = allPubs.filter(p => {
-    if (activeFilter !== 'all' && p.type !== activeFilter) return false;
+    if (!allowedTypes.includes(p.type)) return false;
     if (!q) return true;
-    return [p.title, (p.authors||[]).join(' '), p.journal, p.conference, String(p.year)]
+    return [p.title, (p.authors||[]).join(' '), p.journal, p.conference, String(p.year), TYPE_LABEL[p.type]]
       .filter(Boolean).join(' ').toLowerCase().includes(q);
   });
 
@@ -285,36 +381,45 @@ function renderPubs() {
     return;
   }
 
-  const sections = activeFilter === 'all' ? SECTION_ORDER : [activeFilter];
   let html = '';
 
-  sections.forEach(type => {
-    const items = filtered.filter(p => p.type === type);
-    if (!items.length) return;
-
-    const byYear = {};
-    items.forEach(p => {
-      const y = p.year || 'n.d.';
-      if (!byYear[y]) byYear[y] = [];
-      byYear[y].push(p);
-    });
-    const years = Object.keys(byYear).sort((a,b) => b - a);
-
+  // 1. In Progress section pinned at top (only when filter allows it)
+  const inProgress = filtered.filter(p => p.type === 'In Progress');
+  if (inProgress.length) {
     html += `<section class="pub-section reveal">
-      <h2 class="pub-section-heading">${SECTION_LABELS[type]} <span class="count">${items.length}</span></h2>
+      <h2 class="pub-section-heading in-progress-heading">In Progress <span class="count">${inProgress.length}</span></h2>
       <div class="pub-card-list">`;
-
-    years.forEach(year => {
-      html += `<div class="year-label">${year}</div>`;
-      byYear[year].forEach(p => { html += makeCard(p); });
-    });
-
+    inProgress.forEach(p => { html += makeCard(p); });
     html += '</div></section>';
+  }
+
+  // 2. Everything else, grouped by year (reverse chronological)
+  const others = filtered.filter(p => p.type !== 'In Progress');
+  const byYear = {};
+  others.forEach(p => {
+    const y = p.year || 'n.d.';
+    if (!byYear[y]) byYear[y] = [];
+    byYear[y].push(p);
+  });
+  const years = Object.keys(byYear).sort((a,b) => {
+    if (a === 'n.d.') return 1;
+    if (b === 'n.d.') return -1;
+    return Number(b) - Number(a);
   });
 
-  const hasTrainees = filtered.some(p => p.trainees && p.trainees.length);
-  if (hasTrainees) {
-  }
+  // Within each year, order by type for visual consistency: Papers → Invited → Talks → Posters
+  const TYPE_ORDER = ['Publication','Invited Piece','Talk','Poster'];
+
+  years.forEach(year => {
+    const items = byYear[year].slice().sort((a,b) => {
+      return TYPE_ORDER.indexOf(a.type) - TYPE_ORDER.indexOf(b.type);
+    });
+    html += `<section class="pub-section reveal">
+      <h2 class="pub-section-heading">${year} <span class="count">${items.length}</span></h2>
+      <div class="pub-card-list">`;
+    items.forEach(p => { html += makeCard(p); });
+    html += '</div></section>';
+  });
 
   main.innerHTML = html;
   document.querySelectorAll('.reveal').forEach(el => {
@@ -333,14 +438,18 @@ function formatAuthors(authors, trainees) {
 }
 
 function makeCard(p) {
-  const bar = BAR_CLASS[p.type] || '';
-  const isInvited = p.invited;
+  // Talks/Posters with invited=true are treated as invited subtypes (blue color)
+  const isInvitedSubtype = (p.type === 'Talk' || p.type === 'Poster') && p.invited === true;
+  const clsKey = isInvitedSubtype ? 'invited' : (TYPE_CLASS[p.type] || 'paper');
+  const badgeLabel = isInvitedSubtype
+    ? 'Invited ' + TYPE_LABEL[p.type]
+    : (TYPE_LABEL[p.type] || p.type);
 
-  // Meta badges
-  const typeBadge = `<span class="pub-type-badge${isInvited ? ' invited-badge' : ''}">${isInvited ? 'Invited ' : ''}${TYPE_LABEL[p.type]}</span>`;
+  // Meta row
+  const typeBadge = `<span class="pub-type-badge badge-${clsKey}">${badgeLabel}</span>`;
   const virtual = p.virtual ? '<span class="pub-virtual">~ Virtual</span>' : '';
   const mo = p.month ? p.month + ' ' : '';
-  const yearStr = `<span class="pub-year">${mo}${p.year}</span>`;
+  const yearStr = `<span class="pub-year">${mo}${p.year || ''}</span>`;
 
   // Title
   const title = `<div class="pub-card-title">${p.title}</div>`;
@@ -348,7 +457,7 @@ function makeCard(p) {
   // Authors
   const authors = `<div class="pub-card-authors">${formatAuthors(p.authors, p.trainees)}</div>`;
 
-  // Venue
+  // Venue (journal for papers, conference for talks/posters)
   let venue = '';
   if (p.type === 'Publication' || p.type === 'Invited Piece') {
     if (p.journal) {
@@ -367,7 +476,7 @@ function makeCard(p) {
 
   // Status for In Progress
   let status = '';
-  if (p.type === 'In Progress') {
+  if (p.type === 'In Progress' && p.status) {
     status = `<div class="pub-card-status">${p.status}</div>`;
   }
 
@@ -382,7 +491,7 @@ function makeCard(p) {
   const linksHtml = links.length ? `<div class="pub-links">${links.join('')}</div>` : '';
 
   return `<div class="pub-card reveal">
-    <div class="pub-card-bar ${bar}"></div>
+    <div class="pub-card-bar bar-${clsKey}"></div>
     <div class="pub-card-body">
       <div class="pub-card-meta">${typeBadge}${yearStr}${virtual}</div>
       ${title}${authors}${venue}${status}${linksHtml}

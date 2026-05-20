@@ -22,7 +22,7 @@
 .studies-header-inner { max-width:1040px; margin:0 auto; }
 
 /* ── Filter bar ── */
-.studies-filters { background:var(--white); border-bottom:1px solid var(--border); padding:0.75rem 2rem; position:sticky; top:66px; z-index:90; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+.studies-filters { background:var(--white); border-bottom:1px solid var(--border); padding:0.75rem 2rem; position:sticky; top:var(--nav-height); z-index:90; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
 .studies-filters-inner { max-width:1040px; margin:0 auto; display:flex; gap:0.4rem; flex-wrap:wrap; align-items:center; }
 .filter-pill { padding:0.35rem 0.9rem; border-radius:99px; border:1.5px solid var(--border); background:var(--white); font-size:0.78rem; font-weight:500; color:var(--muted); cursor:pointer; transition:all 0.15s; font-family:"DM Sans",sans-serif; }
 .filter-pill:hover { border-color:var(--sage-dark); color:var(--ink); }
@@ -35,7 +35,6 @@
 .studies-section-label { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:0.75rem; padding-bottom:0.5rem; border-bottom:2px solid var(--border); }
 
 /* ── Study row ── */
-.study-row { scroll-margin-top: 140px; }
 .study-row {
   background:var(--white);
   border-radius:14px;
@@ -380,21 +379,9 @@ document.querySelectorAll('.filter-pill').forEach(pill => {
     activeFilter = pill.dataset.filter;
     render(allStudies);
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    scrollToStudiesControls();
+    scrollToFirstResult('#studiesMain', '.study-row', '.studies-filters');
   });
 });
-
-function scrollToStudiesControls() {
-  requestAnimationFrame(() => {
-    const first = document.querySelector('#studiesMain .study-row');
-    if (first) {
-      first.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      const ctrl = document.querySelector('.studies-filters');
-      if (ctrl) window.scrollTo({ top: ctrl.offsetTop - 66, behavior: 'smooth' });
-    }
-  });
-}
 
 // ── Load ──────────────────────────────────────────────────────────────────────
 fetch('/data/studies.json')

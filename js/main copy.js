@@ -35,38 +35,6 @@ function observeReveals() {
 }
 document.addEventListener('DOMContentLoaded', observeReveals);
 
-// ── Scroll to first filtered result ───────────────────────────────────────────
-// Called by filter pill handlers across publications/news/studies after they
-// re-render their results. Scrolls the page so the first matching item sits
-// flush below the sticky nav + controls bar, with a small visual buffer.
-// Reads --nav-height from CSS so layout changes in one place propagate here.
-// Deferred to next animation frame so any DOM rebuild has settled before
-// we measure positions.
-function scrollToFirstResult(containerSelector, itemSelector, controlsSelector) {
-  requestAnimationFrame(() => {
-    const ctrl = document.querySelector(controlsSelector);
-    const first = document.querySelector(containerSelector + ' ' + itemSelector);
-    const navHeight = parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--nav-height'),
-      10
-    ) || 66;
-    if (!first) {
-      if (ctrl) {
-        window.scrollTo({ top: ctrl.offsetTop - navHeight, behavior: 'smooth' });
-      }
-      return;
-    }
-    const ctrlHeight = ctrl ? ctrl.offsetHeight : 60;
-    const buffer = 20;
-    const rect = first.getBoundingClientRect();
-    const targetY = Math.max(
-      0,
-      window.scrollY + rect.top - navHeight - ctrlHeight - buffer
-    );
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
-  });
-}
-
 // ── Back to top ───────────────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
   const btt = document.getElementById('backToTop');
