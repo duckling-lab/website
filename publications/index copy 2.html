@@ -28,7 +28,7 @@
 
 /* ── Controls ── */
 .pub-controls {
-  position: sticky; top: 66px; z-index: 90;
+  position: sticky; top: var(--nav-height); z-index: 90;
   background: var(--white); border-bottom: 1px solid var(--border);
   padding: 0.75rem 2rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
@@ -75,7 +75,7 @@
 .pub-main { max-width: 1040px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 
 /* ── Sections (In Progress + year groups) ── */
-.pub-section { margin-bottom: 3rem; scroll-margin-top: 140px; }
+.pub-section { margin-bottom: 3rem; }
 .pub-section.hidden { display: none; }
 .pub-section-heading {
   font-family: "DM Serif Display", serif; font-size: 1.4rem;
@@ -329,25 +329,7 @@ function setFilter(f, el) {
   document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
   renderPubs();
-  scrollToControls();
-}
-
-// After filter change, scroll the first result section into view so it's
-// flush below the sticky nav + controls bar. Uses scrollIntoView with the
-// section's existing scroll-margin-top, so it lands consistently regardless
-// of where the user was scrolled from. Deferred to next frame so layout
-// (page may have shrunk after filter) settles first.
-function scrollToControls() {
-  requestAnimationFrame(() => {
-    const first = document.querySelector('#pubMain .pub-section');
-    if (first) {
-      first.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      // No results: just put the controls bar at top under the nav
-      const ctrl = document.querySelector('.pub-controls');
-      if (ctrl) window.scrollTo({ top: ctrl.offsetTop - 66, behavior: 'smooth' });
-    }
-  });
+  scrollToFirstResult('#pubMain', '.pub-section', '.pub-controls');
 }
 
 function togglePubSearch() {
