@@ -331,16 +331,16 @@ function setFilter(f, el) {
   scrollToControls();
 }
 
-// Scroll page so the sticky controls bar is at its sticky-position (just under nav).
-// Only scrolls if the user is currently below that point — never scrolls down from the hero.
+// Scroll page so the sticky controls bar sits flush below the nav.
+// Always scrolls (matches research page behavior).
 function scrollToControls() {
   const ctrl = document.querySelector('.pub-controls');
   if (!ctrl) return;
   const navHeight = 66;
-  const target = ctrl.offsetTop - navHeight;
-  if (window.scrollY > target) {
-    window.scrollTo({ top: target, behavior: 'smooth' });
-  }
+  window.scrollTo({
+    top: ctrl.offsetTop - navHeight,
+    behavior: 'smooth'
+  });
 }
 
 function togglePubSearch() {

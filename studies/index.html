@@ -387,10 +387,10 @@ function scrollToStudiesControls() {
   const ctrl = document.querySelector('.studies-filters');
   if (!ctrl) return;
   const navHeight = 66;
-  const target = ctrl.offsetTop - navHeight;
-  if (window.scrollY > target) {
-    window.scrollTo({ top: target, behavior: 'smooth' });
-  }
+  window.scrollTo({
+    top: ctrl.offsetTop - navHeight,
+    behavior: 'smooth'
+  });
 }
 
 // ── Load ──────────────────────────────────────────────────────────────────────
