@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/png" href="/media/logos/DucklingLab_Favicon.png">
-<style>#studiesMain { min-height: 100vh; }</style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-64NVWMLECF"></script>
 <script>
@@ -19,17 +17,17 @@
 <link rel="stylesheet" href="/css/style.css">
 <style>
 .studies-header { background:var(--white); border-bottom:1px solid var(--border); padding:3rem 2rem 2rem; }
-.studies-header-inner { max-width:1040px; margin:0 auto; }
+.studies-header-inner { max-width:860px; margin:0 auto; }
 
 /* ── Filter bar ── */
 .studies-filters { background:var(--white); border-bottom:1px solid var(--border); padding:0.75rem 2rem; position:sticky; top:66px; z-index:90; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
-.studies-filters-inner { max-width:1040px; margin:0 auto; display:flex; gap:0.4rem; flex-wrap:wrap; align-items:center; }
+.studies-filters-inner { max-width:860px; margin:0 auto; display:flex; gap:0.4rem; flex-wrap:wrap; align-items:center; }
 .filter-pill { padding:0.35rem 0.9rem; border-radius:99px; border:1.5px solid var(--border); background:var(--white); font-size:0.78rem; font-weight:500; color:var(--muted); cursor:pointer; transition:all 0.15s; font-family:"DM Sans",sans-serif; }
 .filter-pill:hover { border-color:var(--sage-dark); color:var(--ink); }
 .filter-pill.active { background:var(--ink); color:white; border-color:var(--ink); }
 
 /* ── Main ── */
-.studies-main { max-width:1040px; margin:0 auto; padding:2rem 2rem 5rem; }
+.studies-main { max-width:860px; margin:0 auto; padding:2rem 2rem 5rem; }
 
 /* ── Section heading ── */
 .studies-section-label { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:0.75rem; padding-bottom:0.5rem; border-bottom:2px solid var(--border); }
@@ -100,7 +98,7 @@
 .btn-signup:hover { background:var(--red-dark); }
 .btn-signup.disabled { background:#D1D5DB; color:#6B7280; pointer-events:none; cursor:default; }
 .modal-comp { font-size:0.78rem; color:var(--muted); }
-.modal-close { position:sticky; top:0; z-index:10; float:right; margin:1rem 1rem 0 0; width:44px; height:44px; border-radius:50%; border:none; background:rgba(0,0,0,0.07); color:var(--ink); font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s; }
+.modal-close { position:sticky; top:0; z-index:10; float:right; margin:1rem 1rem 0 0; width:32px; height:32px; border-radius:50%; border:none; background:rgba(0,0,0,0.07); color:var(--ink); font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s; }
 .modal-close:hover { background:rgba(0,0,0,0.14); }
 
 /* ── Empty state ── */
@@ -115,18 +113,9 @@
   .studies-header{padding:2.5rem 1.25rem 1.5rem;}
   .studies-main{padding:1.5rem 1rem 4rem;}
   .studies-filters{padding:0.75rem 1rem;}
-  .study-row{flex-direction:column;align-items:flex-start;gap:0.5rem;padding:0.85rem 1rem;}
-  .study-row-status{order:1;}
-  .study-row-body{order:2;width:100%;}
-  .study-row-title{font-size:0.95rem;}
-  .study-row-meta{order:3;flex-direction:row;align-items:center;justify-content:flex-start;width:100%;}
-  .study-row-badges{justify-content:flex-start;}
-  .study-row-chevron{position:absolute;right:1rem;top:50%;transform:translateY(-50%);}
-  .study-row{position:relative;}
+  .study-row{flex-wrap:wrap;}
+  .study-row-meta{flex-direction:row;align-items:center;}
   .modal-body{padding:1.25rem 1.25rem 1.5rem;}
-  .modal{max-height:80vh;}
-  .modal-overlay{align-items:flex-end;padding:0;}
-  .modal{border-radius:20px 20px 0 0;width:100%;max-width:100%;}
   .join-banner{flex-direction:column;padding:1.5rem;}
 }
 </style>

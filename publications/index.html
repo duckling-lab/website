@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/png" href="/media/logos/DucklingLab_Favicon.png">
-<style>#pubMain { min-height: 100vh; }</style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-64NVWMLECF"></script>
 <script>
@@ -205,7 +203,6 @@
     <p class="section-eyebrow">Duckling Lab</p>
     <h1 class="section-title">Our <em>Publications</em></h1>
     <p class="section-sub">Research on language development, sentence processing, and prediction.</p>
-    <p class="trainee-note" style="margin-top:0.75rem;text-align:left;">*Trainee of Dr. Yacovone at time of publication or presentation.</p>
   </div>
 </div>
 
@@ -300,7 +297,7 @@ function renderPubs() {
     });
     const years = Object.keys(byYear).sort((a,b) => b - a);
 
-    html += `<section class="pub-section reveal">
+    html += `<section class="pub-section">
       <h2 class="pub-section-heading">${SECTION_LABELS[type]} <span class="count">${items.length}</span></h2>
       <div class="pub-card-list">`;
 
@@ -314,14 +311,10 @@ function renderPubs() {
 
   const hasTrainees = filtered.some(p => p.trainees && p.trainees.length);
   if (hasTrainees) {
+    html += '<div class="trainee-note">* Trainee in the Duckling Lab at time of publication or presentation.</div>';
   }
 
   main.innerHTML = html;
-  document.querySelectorAll('.reveal').forEach(el => {
-    obs.observe(el);
-    const r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight) el.classList.add('visible');
-  });
 }
 
 function formatAuthors(authors, trainees) {
@@ -381,7 +374,7 @@ function makeCard(p) {
   if (p.poster_file) links.push(`<a href="${p.poster_file}" target="_blank" class="pub-link poster">Poster PDF</a>`);
   const linksHtml = links.length ? `<div class="pub-links">${links.join('')}</div>` : '';
 
-  return `<div class="pub-card reveal">
+  return `<div class="pub-card">
     <div class="pub-card-bar ${bar}"></div>
     <div class="pub-card-body">
       <div class="pub-card-meta">${typeBadge}${yearStr}${virtual}</div>
@@ -391,31 +384,5 @@ function makeCard(p) {
 }
 </script>
 
-
-<footer>
-  <div class="footer-left">
-    <span class="footer-lab-name">Duckling Lab</span>
-    <span class="footer-divider">&middot;</span>
-    <span>&copy; 2026</span>
-    <span class="footer-divider">&middot;</span>
-    <span>Dept. of Linguistics, Boston University</span>
-  </div>
-  <div class="footer-right">
-    <span id="footer-last-updated" style="color:rgba(255,255,255,0.35);font-style:italic;"></span>
-    <span class="footer-divider">&middot;</span>
-    <a href="https://www.anthonyyacovone.com" target="_blank">PI: Anthony Yacovone, PhD</a>
-    <span class="footer-divider">&middot;</span>
-    <a href="mailto:duckling@bu.edu">duckling@bu.edu</a>
-    <span class="footer-divider">&middot;</span>
-    <a href="tel:6173585464">(617) 358-5464</a>
-    <span class="footer-divider">&middot;</span>
-    <a href="https://www.bu.edu/linguistics/" target="_blank">BU Linguistics</a>
-  </div>
-</footer>
-<script>
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  });
-</script>
 </body>
 </html>
