@@ -83,11 +83,45 @@
 }
 .pi-link:hover { background: var(--red); color: white; }
 
+/* ── Controls (search + group pills) ── */
+.team-controls {
+  position: sticky; top: 60px; z-index: 90;
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
+}
+.team-controls-inner {
+  max-width: 1040px; margin: 0 auto;
+  display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+}
+.team-search {
+  flex: 1; min-width: 200px;
+  padding: 0.55rem 1rem; border-radius: 99px;
+  border: 1.5px solid var(--border);
+  font-size: 0.88rem; font-family: "DM Sans", sans-serif; outline: none;
+}
+.team-search:focus { border-color: var(--red); }
+.team-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.team-pill {
+  padding: 0.35rem 0.9rem; border-radius: 99px;
+  border: 1.5px solid var(--border); background: var(--white);
+  font-size: 0.78rem; font-weight: 600; cursor: pointer; color: var(--muted);
+  transition: all 0.15s; font-family: "DM Sans", sans-serif;
+  text-decoration: none; display: inline-block;
+}
+.team-pill:hover { border-color: var(--sage-dark); color: var(--ink); }
+.team-pill.active { background: var(--ink); color: white; border-color: var(--ink); }
+.team-empty {
+  max-width: 1040px; margin: 0 auto; padding: 3rem 2rem;
+  text-align: center; color: var(--muted); font-size: 0.95rem;
+}
+
 /* ── Section headings ── */
 .team-section {
   max-width: 1040px; margin: 0 auto;
   padding: 2rem 2rem 0;
+  scroll-margin-top: 140px;
 }
+.team-section.hidden { display: none; }
 .team-section-heading {
   font-family: "DM Serif Display", serif;
   font-size: 1.3rem; font-weight: 400;
@@ -333,6 +367,7 @@
   /* PI bio dropdown */
   .pi-bio {
     display: none;
+    text-align: left;
   }
   .pi-bio.expanded {
     display: block;
@@ -435,6 +470,14 @@
 <!-- PI Card -->
 <div style="padding: 0 2rem; background: var(--sage-light);">
   <div class="pi-card reveal" id="pi-card"></div>
+</div>
+
+<!-- Controls: search + group pills -->
+<div class="team-controls">
+  <div class="team-controls-inner">
+    <input type="text" class="team-search" id="teamSearch" placeholder="Search by name or role..." oninput="filterTeam()">
+    <div class="team-pills" id="teamPills"></div>
+  </div>
 </div>
 
 <!-- Team grid -->
@@ -626,6 +669,8 @@ fetch('/data/team.json')
 
       const section = document.createElement('div');
       section.className = 'team-section reveal';
+      section.id = 'tier-' + tier;
+      section.dataset.tier = tier;
       section.innerHTML = `<h2 class="team-section-heading">${TIER_LABELS[tier]}</h2>`;
 
       function renderGroup(members, label) {
@@ -641,7 +686,7 @@ fetch('/data/team.json')
           const zoom = m.object_zoom || 1.0;
           const imgStyle = `object-position:${pos};transform:scale(${zoom});transform-origin:${pos};`;
           html += `
-            <div class="member-card" onclick="openModal(${memberJSON})">
+            <div class="member-card" data-name="${(m.name||'').toLowerCase()}" data-role="${((m.role||'')+' '+(m.title||'')).toLowerCase()}" onclick="openModal(${memberJSON})">
               <div class="member-photo-wrap">
                 <img class="photo-adult" src="${adult_src}" alt="${m.name}" style="${imgStyle}" onerror="this.src='${DEFAULT}'">
                 ${kid_src ? `<img class="photo-kid" src="${kid_src}" alt="${m.name}" style="${imgStyle}" onerror="this.src='${DEFAULT}'">` : ''}
@@ -664,7 +709,7 @@ fetch('/data/team.json')
         all.forEach(m => {
           const color = m.institution_color || INST_COLORS[m.institution] || '#444';
           listHtml += `
-            <a href="${m.website || '#'}" target="_blank" class="collab-item">
+            <a href="${m.website || '#'}" target="_blank" class="collab-item" data-name="${(m.name||'').toLowerCase()}" data-role="${(m.title||'').toLowerCase()}">
               <div>
                 <div class="collab-name">${m.name}</div>
                 <div class="collab-title">${m.title}</div>
@@ -687,6 +732,8 @@ fetch('/data/team.json')
     if (alumni.length) {
       const alumniSection = document.createElement('div');
       alumniSection.className = 'team-section reveal';
+      alumniSection.id = 'tier-alumni';
+      alumniSection.dataset.tier = 'alumni';
       alumniSection.innerHTML = '<h2 class="team-section-heading">Alumni</h2>';
       const alumniList = document.createElement('div');
       alumniList.className = 'collab-list';
@@ -694,7 +741,7 @@ fetch('/data/team.json')
         const color = m.institution_color || INST_COLORS[m.institution] || '#444';
         const whereNow = m.where_now ? ` &middot; ${m.where_now}` : '';
         alumniList.innerHTML += `
-          <div class="collab-item" style="opacity:0.7;">
+          <div class="collab-item" data-name="${(m.name||'').toLowerCase()}" data-role="${((m.role||'')+' '+(m.title||'')).toLowerCase()}" style="opacity:0.7;">
             <div>
               <div class="collab-name">${m.name}</div>
               <div class="collab-title">${m.role} · ${m.title}${whereNow}</div>
@@ -706,9 +753,82 @@ fetch('/data/team.json')
       container.appendChild(alumniSection);
     }
 
+    // Build pills dynamically from sections that actually exist
+    buildTeamPills();
+
     // Re-observe reveals
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   });
+
+  // ── Pills: build, scroll, active-on-scroll ────────────────────────────────
+  function buildTeamPills() {
+    const pillsEl = document.getElementById('teamPills');
+    if (!pillsEl) return;
+    const sections = document.querySelectorAll('.team-section[data-tier]');
+    const labelFor = t => (t === 'alumni') ? 'Alumni' : (TIER_LABELS[t] || t);
+    let html = '';
+    sections.forEach((sec, i) => {
+      const t = sec.dataset.tier;
+      const label = labelFor(t);
+      if (!label) return;
+      html += `<button class="team-pill${i===0?' active':''}" data-target="tier-${t}" onclick="scrollToTier('tier-${t}', this)">${label}</button>`;
+    });
+    pillsEl.innerHTML = html;
+
+    // Highlight active pill based on which section is most visible
+    const pills = pillsEl.querySelectorAll('.team-pill');
+    const pillByTarget = {};
+    pills.forEach(p => pillByTarget[p.dataset.target] = p);
+    const scrollObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          pills.forEach(p => p.classList.remove('active'));
+          const match = pillByTarget[e.target.id];
+          if (match) match.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-150px 0px -60% 0px', threshold: 0 });
+    sections.forEach(s => scrollObs.observe(s));
+  }
+
+  function scrollToTier(id, btn) {
+    document.querySelectorAll('.team-pill').forEach(p => p.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ── Search: filter member cards by name/role ──────────────────────────────
+  function filterTeam() {
+    const q = (document.getElementById('teamSearch').value || '').trim().toLowerCase();
+    const cards = document.querySelectorAll('.team-section [data-name]');
+    cards.forEach(c => {
+      const name = c.dataset.name || '';
+      const role = c.dataset.role || '';
+      const match = !q || name.includes(q) || role.includes(q);
+      c.style.display = match ? '' : 'none';
+    });
+    // Hide sections that have no visible members; also hide "Boston University"/"Affiliated" subheadings if all under them are hidden
+    document.querySelectorAll('.team-section[data-tier]').forEach(sec => {
+      const visible = Array.from(sec.querySelectorAll('[data-name]')).some(c => c.style.display !== 'none');
+      sec.classList.toggle('hidden', !visible);
+    });
+    // Empty state
+    let empty = document.getElementById('teamEmpty');
+    const anyVisible = document.querySelectorAll('.team-section[data-tier]:not(.hidden)').length > 0;
+    if (!anyVisible && q) {
+      if (!empty) {
+        empty = document.createElement('div');
+        empty.id = 'teamEmpty';
+        empty.className = 'team-empty';
+        empty.textContent = 'No team members match your search.';
+        document.getElementById('team-container').appendChild(empty);
+      }
+      empty.style.display = '';
+    } else if (empty) {
+      empty.style.display = 'none';
+    }
+  }
   // Hamburger
   document.getElementById('hamburger').addEventListener('click', () => {
     document.getElementById('mobileMenu').classList.toggle('open');
