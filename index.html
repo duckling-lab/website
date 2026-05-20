@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="/media/logos/DucklingLab_Favicon.png">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-64NVWMLECF"></script>
 <script>
@@ -64,7 +65,7 @@ nav {
 .nav-links a {
   font-size: 0.87rem; font-weight: 500;
   color: var(--ink); text-decoration: none;
-  position: relative; padding-bottom: 3px;
+  position: relative;
 }
 .nav-links a::after {
   content: "";
@@ -75,6 +76,16 @@ nav {
   opacity: 0; transition: opacity 0.2s;
 }
 .nav-links a:hover::after { opacity: 1; }
+.nav-links a.active { color: var(--red); font-weight: 600; }
+.nav-links a.active::after { opacity: 1; }
+.nav-cta {
+  background: var(--red) !important; color: white !important;
+  padding: 0.75rem 1.4rem; border-radius: 99px; line-height: 1; white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(204,0,0,0.22);
+  transition: background 0.15s !important;
+}
+.nav-cta:hover { background: var(--red-dark) !important; }
+.nav-cta::after { display: none !important; }
 
 /* ── Hero ── */
 .hero {
@@ -334,7 +345,7 @@ footer a:hover { color: white; }
   color: rgba(255,255,255,0.2);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   body { font-size: 14px; }
   .hero-intro p { font-size: 0.9rem; line-height: 1.7; }
   .section-title { font-size: 1.4rem; }
@@ -351,6 +362,8 @@ footer a:hover { color: white; }
   .hamburger { display: block !important; }
   footer { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
   .hero-slideshow { width: 90% !important; border-radius: 12px; margin: 0 auto; }
+  .hero-logo-big { max-width: 80% !important; width: 80% !important; height: auto !important; }
+  .slide-dots { display: none !important; }
   .flipped { transform: scaleX(-1); }
 .flipped.bob-anim { animation: bob-flipped 3.5s ease-in-out infinite; }
 @keyframes bob-flipped {
@@ -579,7 +592,7 @@ footer a:hover { color: white; }
 
     <div class="hero-slide active" style="background:var(--sage-light);">
       <div class="hero-slide-inner logo-slide">
-        <img class="hero-logo-big" src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/DucklingLab_Logo_NoText_Wide.png" alt="Duckling Lab">
+        <picture><source media="(max-width: 640px)" srcset="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/DucklingLab_Logo_NoText.png"><img class="hero-logo-big" src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/DucklingLab_Logo_NoText_Wide.png" alt="Duckling Lab"></picture>
       </div>
     </div>
 
@@ -754,6 +767,13 @@ function initCarousel() {
   }
   const carouselEl = document.querySelector('.carousel-outer');
   if (carouselEl) addSwipe(carouselEl, () => nextBtn.click(), () => prevBtn.click());
+
+  // Swipe on hero slideshow
+  const heroEl = document.querySelector('.hero-slideshow');
+  if (heroEl) addSwipe(heroEl,
+    () => { goToSlide(slideIdx + 1); startTimer(); },
+    () => { goToSlide(slideIdx - 1); startTimer(); }
+  );
 }
 
 // Load news from JSON
@@ -862,7 +882,8 @@ addSwipe(carouselEl,
   () => prevBtn.click()
 );
 </script>
-<script src="js/main.js">  // Hamburger
+<script src="/js/main.js"></script>
+<script>
   document.getElementById('hamburger').addEventListener('click', () => {
     document.getElementById('mobileMenu').classList.toggle('open');
   });

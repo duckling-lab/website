@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="/media/logos/DucklingLab_Favicon.png">
+<style>#researchMain { min-height: 100vh; }</style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-64NVWMLECF"></script>
 <script>
@@ -18,8 +20,8 @@
 <style>
 .research-header { background:var(--white); border-bottom:1px solid var(--border); padding:3rem 2rem 2.5rem; }
 .research-header-inner { max-width:1040px; margin:0 auto; }
-.method-nav { background:var(--white); border-bottom:1px solid var(--border); padding:0.75rem 2rem; position:sticky; top:66px; z-index:90; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
-.method-nav-inner { max-width:1040px; margin:0 auto; display:flex; gap:0.5rem; flex-wrap:wrap; }
+.method-nav { background:var(--white); border-bottom:1px solid var(--border); padding:0.75rem 2rem; position:sticky; top:66px; z-index:90; overflow-x:auto; -webkit-overflow-scrolling:touch; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+.method-nav-inner { max-width:1040px; margin:0 auto; display:flex; gap:0.5rem; flex-wrap:nowrap; }
 .method-pill { padding:0.4rem 1rem; border-radius:99px; border:1.5px solid var(--border); background:var(--white); font-size:0.78rem; font-weight:500; color:var(--muted); cursor:pointer; text-decoration:none; transition:all 0.15s; white-space:nowrap; font-family:"DM Sans",sans-serif; }
 .method-pill:hover { border-color:var(--sage-dark); color:var(--ink); }
 .method-pill.active { background:var(--ink); color:white; border-color:var(--ink); }
@@ -172,7 +174,7 @@
 <div class="research-header">
   <div class="research-header-inner">
     <p class="section-eyebrow">Duckling Lab</p>
-    <h1 class="section-title">How We <em>Study</em> Language</h1>
+    <h1 class="section-title">Our <em>Methods</em></h1>
     <p class="section-sub">We use a handful of child-friendly techniques to peek inside the mind as language unfolds. Every method is safe, non-invasive, and designed to feel more like a game than an experiment.</p>
   </div>
 </div>
@@ -344,8 +346,38 @@ fetch('/data/research.json')
     nav.innerHTML=navH;
     main.innerHTML=mainH;
     methods.forEach(m=>buildCarousel(m.id,m.photos||[]));
-    document.querySelectorAll('.method-section').forEach(s=>{scrollObs.observe(s);obs.observe(s);});
-    const fp=nav.querySelector('.method-pill');if(fp)fp.classList.add('active');
+
+    // Tab mode: hide all sections, show only first
+    const sections=main.querySelectorAll('.method-section');
+    sections.forEach((s,i)=>{ s.style.display = i===0 ? 'block' : 'none'; });
+
+    // Remove dividers — not needed in tab mode
+    main.querySelectorAll('.method-divider').forEach(d=>d.remove());
+
+    // Wire nav pills to show/hide sections
+    const pills=nav.querySelectorAll('.method-pill');
+    pills.forEach((pill,i)=>{
+      if(i===0) pill.classList.add('active');
+      pill.addEventListener('click', function(e){
+        e.preventDefault();
+        pills.forEach(p=>p.classList.remove('active'));
+        pill.classList.add('active');
+        sections.forEach(s=>{ s.style.display='none'; s.classList.remove('visible'); });
+        sections[i].style.display='block';
+        // Trigger reveal on newly shown section
+        setTimeout(()=>{ sections[i].classList.add('visible'); }, 20);
+        // Re-init carousel for this section
+        buildCarousel(methods[i].id, methods[i].photos||[]);
+        // Scroll to top of content area
+        window.scrollTo({top: document.getElementById('researchMain').offsetTop - 120, behavior:'smooth'});
+      });
+    });
+
+    // Show first section
+    if(sections[0]) setTimeout(()=>{ sections[0].classList.add('visible'); }, 20);
+
+    // Observe reveals inside visible section
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   })
   .catch(()=>{
     document.getElementById('researchMain').innerHTML='<p style="text-align:center;color:var(--muted);padding:4rem;">Could not load research data.</p>';
