@@ -80,7 +80,7 @@ nav {
 .nav-links a.active::after { opacity: 1; }
 .nav-cta {
   background: var(--red) !important; color: white !important;
-  padding: 0.75rem 1.4rem; border-radius: 99px; line-height: 1;
+  padding: 0.75rem 1.4rem; border-radius: 99px; line-height: 1; white-space: nowrap;
   box-shadow: 0 2px 8px rgba(204,0,0,0.22);
   transition: background 0.15s !important;
 }
@@ -345,7 +345,7 @@ footer a:hover { color: white; }
   color: rgba(255,255,255,0.2);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   body { font-size: 14px; }
   .hero-intro p { font-size: 0.9rem; line-height: 1.7; }
   .section-title { font-size: 1.4rem; }
@@ -767,6 +767,13 @@ function initCarousel() {
   }
   const carouselEl = document.querySelector('.carousel-outer');
   if (carouselEl) addSwipe(carouselEl, () => nextBtn.click(), () => prevBtn.click());
+
+  // Swipe on hero slideshow
+  const heroEl = document.querySelector('.hero-slideshow');
+  if (heroEl) addSwipe(heroEl,
+    () => { goToSlide(slideIdx + 1); startTimer(); },
+    () => { goToSlide(slideIdx - 1); startTimer(); }
+  );
 }
 
 // Load news from JSON
