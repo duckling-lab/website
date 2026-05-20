@@ -416,11 +416,7 @@ textarea { resize: vertical; min-height: 88px; }
 </div>
 
 <script src="/js/main.js"></script>
-<script>
-document.getElementById('hamburger').addEventListener('click', () => {
-  document.getElementById('mobileMenu').classList.toggle('open');
-});
-</script>
+<script>document.addEventListener("DOMContentLoaded", () => loadNav("interest-form"));</script>
 <script>
 // ── Load studies from same-origin JSON ─────────────────────────────────────
 // Relative path works because this file lives at ducklinglab.org/interest-form/
