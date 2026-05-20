@@ -40,6 +40,7 @@
 .pub-search-wrap {
   flex: 1; min-width: 220px;
   position: relative;
+  display: flex; align-items: center;
 }
 .pub-search-wrap input {
   width: 100%;
@@ -48,14 +49,16 @@
   border: 1.5px solid var(--border);
   font-size: 0.88rem; font-family: "DM Sans", sans-serif;
   color: var(--ink); outline: none; background: var(--white);
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, opacity 0.15s;
 }
 .pub-search-wrap input:focus { border-color: var(--ink); }
 .pub-search-icon {
   position: absolute; left: 0.9rem; top: 50%;
   transform: translateY(-50%);
+  background: none; border: none; padding: 0;
   color: var(--muted); font-size: 0.9rem;
-  pointer-events: none;
+  cursor: default; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
 }
 .filter-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; }
 .filter-pill {
@@ -179,10 +182,40 @@
   .pub-hero { padding: 3rem 1.25rem 2rem; }
   .pub-main { padding: 1.5rem 1rem 4rem; }
   .pub-controls { padding: 0.75rem 1rem; }
-  .pub-controls-inner { gap: 0.6rem; flex-direction: column; align-items: stretch; }
-  /* Horizontal-scroll pills instead of stacking */
+  .pub-controls-inner { gap: 0.6rem; align-items: center; flex-wrap: nowrap; }
+  /* Collapsible search: icon-only by default */
+  .pub-search-wrap {
+    flex: 0 0 38px; min-width: 38px;
+    width: 38px; height: 38px;
+    transition: flex 0.2s, min-width 0.2s;
+  }
+  .pub-search-wrap input {
+    opacity: 0; pointer-events: none;
+    height: 38px; padding-left: 2.5rem;
+  }
+  .pub-search-icon {
+    cursor: pointer; pointer-events: auto;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    left: 0; top: 0; transform: none;
+  }
+  .pub-search-wrap.expanded {
+    flex: 1 1 100%; min-width: 0; width: 100%;
+  }
+  .pub-search-wrap.expanded input {
+    opacity: 1; pointer-events: auto;
+  }
+  .pub-search-wrap.expanded .pub-search-icon {
+    pointer-events: none;
+    width: auto; height: auto;
+    border: none; background: none;
+    left: 0.9rem; top: 50%; transform: translateY(-50%);
+  }
+  /* Horizontal-scroll pills */
   .filter-pills {
-    flex-wrap: nowrap;
+    flex: 1 1 auto; flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -236,8 +269,8 @@
 
 <div class="pub-controls">
   <div class="pub-controls-inner">
-    <div class="pub-search-wrap">
-      <span class="pub-search-icon">&#x1F50D;</span>
+    <div class="pub-search-wrap" id="pubSearchWrap">
+      <button class="pub-search-icon" aria-label="Search" onclick="togglePubSearch()">&#x1F50D;</button>
       <input type="text" id="pubSearch" placeholder="Search by title, author, keyword..." oninput="renderPubs()">
     </div>
     <div class="filter-pills" id="filterPills">
@@ -295,6 +328,32 @@ function setFilter(f, el) {
   document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
   renderPubs();
+  scrollToControls();
+}
+
+// Scroll page so the sticky controls bar is at its sticky-position (just under nav).
+// Only scrolls if the user is currently below that point — never scrolls down from the hero.
+function scrollToControls() {
+  const ctrl = document.querySelector('.pub-controls');
+  if (!ctrl) return;
+  const navHeight = 66;
+  const target = ctrl.offsetTop - navHeight;
+  if (window.scrollY > target) {
+    window.scrollTo({ top: target, behavior: 'smooth' });
+  }
+}
+
+function togglePubSearch() {
+  if (window.innerWidth > 768) return;
+  const wrap = document.getElementById('pubSearchWrap');
+  const input = document.getElementById('pubSearch');
+  wrap.classList.toggle('expanded');
+  if (wrap.classList.contains('expanded')) {
+    setTimeout(() => input.focus(), 200);
+  } else if (input.value) {
+    input.value = '';
+    renderPubs();
+  }
 }
 
 function renderPubs() {
@@ -372,8 +431,12 @@ function formatAuthors(authors, trainees) {
 }
 
 function makeCard(p) {
-  const clsKey = TYPE_CLASS[p.type] || 'paper';
-  const badgeLabel = TYPE_LABEL[p.type] || p.type;
+  // Talks/Posters with invited=true are treated as invited subtypes (blue color)
+  const isInvitedSubtype = (p.type === 'Talk' || p.type === 'Poster') && p.invited === true;
+  const clsKey = isInvitedSubtype ? 'invited' : (TYPE_CLASS[p.type] || 'paper');
+  const badgeLabel = isInvitedSubtype
+    ? 'Invited ' + TYPE_LABEL[p.type]
+    : (TYPE_LABEL[p.type] || p.type);
 
   // Meta row
   const typeBadge = `<span class="pub-type-badge badge-${clsKey}">${badgeLabel}</span>`;
