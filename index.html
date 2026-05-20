@@ -362,6 +362,8 @@ footer a:hover { color: white; }
   .hamburger { display: block !important; }
   footer { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
   .hero-slideshow { width: 90% !important; border-radius: 12px; margin: 0 auto; }
+  .hero-logo-big { max-width: 80% !important; width: 80% !important; height: auto !important; }
+  .slide-dots { display: none !important; }
   .flipped { transform: scaleX(-1); }
 .flipped.bob-anim { animation: bob-flipped 3.5s ease-in-out infinite; }
 @keyframes bob-flipped {
@@ -590,7 +592,7 @@ footer a:hover { color: white; }
 
     <div class="hero-slide active" style="background:var(--sage-light);">
       <div class="hero-slide-inner logo-slide">
-        <img class="hero-logo-big" src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/DucklingLab_Logo_NoText_Wide.png" alt="Duckling Lab">
+        <picture><source media="(max-width: 640px)" srcset="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/DucklingLab_Logo_NoText.png"><img class="hero-logo-big" src="https://raw.githubusercontent.com/duckling-lab/website/main/media/logos/DucklingLab_Logo_NoText_Wide.png" alt="Duckling Lab"></picture>
       </div>
     </div>
 
