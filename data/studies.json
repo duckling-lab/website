@@ -4,17 +4,17 @@
     "title": "EEG Storytime",
     "subtitle": "Listen to stories while we record brain activity",
     "type": "EEG",
-    "status": "enrolling",
+    "status": "awaiting_approval",
+    "visible": true,
     "who": "Adults & Children",
     "age_range": "Ages 5–12 and adults 18+",
     "duration": "About 1 hour",
     "compensation_adults": "$20/hour",
     "compensation_kids": "Small toy + $10 travel",
     "location": "In-person",
-    "description": "Sit back and enjoy a story while wearing a comfortable cap with small sensors that record your brain's electrical activity. There are no needles, no discomfort — just listening! We use this to understand how the brain processes language in real time.",
+    "description": "<p>Sit back and enjoy a story while wearing a comfortable cap with small sensors that record your brain's electrical activity. There are no needles, no discomfort — just listening! We use this to understand how the brain processes language in real time.</p>",
     "photo": "https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?w=800&q=80",
-    "signup_url": "/interest-form/?study=eeg_storytime",
-    "visible": true
+    "signup_url": "/interest-form/?study=eeg_storytime"
   },
   {
     "id": "eye_tracking_while_reading",
