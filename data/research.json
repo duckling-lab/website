@@ -6,20 +6,20 @@
     "who": "Adults & Children (ages 5+)",
     "duration": "~1 hour",
     "mode": "In-person",
-    "description": "<p>Your brain is constantly producing tiny electrical signals (even when you're just sitting still). When you hear a word, a whole cascade of signals fires across your scalp in the first fraction of a second. EEG lets us capture that cascade in real time, giving us a window into language processing that no other technique can match. We use a soft, stretchy cap fitted with small sensors (electrodes). The sensors sit against the scalp and pick up electrical activity through a small amount of saline gel â the same kind of gel used in a hospital for a routine ECG. Nothing is injected, nothing touches the brain, and nothing hurts.</p>",
+    "description": "<p>Your brain is constantly producing tiny electrical signals (even when you're just sitting still). When you hear a word, a whole cascade of signals fires across your scalp in the first fraction of a second. EEG lets us capture that cascade in real time, giving us a window into language processing that no other technique can match. We use a soft, stretchy cap fitted with small sensors (electrodes). The sensors sit against the scalp and pick up electrical activity through a small amount of saline gel, the same kind of gel used in a hospital for a routine ECG. Nothing is injected, nothing touches the brain, and nothing hurts.</p>",
     "steps": [
       "We greet you and your family in the lobby and show you around the lab.",
       "A researcher explains the cap and kids can touch the gel pen and cap before anything goes on their head.",
       "We measure your child's head and select the right cap size (we have many!).",
-      "Your child sits in our testing room and watches a show or movie while we place the cap and fill the electrodes with gel using a blunt gel pen â no needles, ever. Setup takes 15-25 minutes.",
+      "Your child sits in our testing room and watches a show or movie while we place the cap and fill the electrodes with gel using a blunt gel pen-- no needles, ever. Setup takes 15-25 minutes.",
       "We show a short \"super scientist\" video where your child can see their own brainwaves on screen.",
-      "The study begins â your child listens to stories or sentences while we record. The task feels like watching TV.",
+      "The study begins and your child listens to stories or sentences while we record. The task feels like watching TV.",
       "When we're done, the cap comes off. We give you a wipe for any gel in the hair (it rinses out easily with shampoo). Your child picks a prize from our toy box!"
     ],
     "faqs": [
       {
         "q": "Does the gel wash out?",
-        "a": "<p>Yes â completely. The saline gel washes out with regular shampoo and water. We recommend bringing a hat if you'd prefer not to walk home with gel in your hair, and we can also provide a disposable shower cap.</p>"
+        "a": "<p>Yes, completely. The saline gel washes out with regular shampoo and water. We recommend bringing a hat if you'd prefer not to walk home with gel in your hair, and we can also provide a disposable shower cap.</p>"
       },
       {
         "q": "What if my child gets fussy or wants to stop?",
@@ -27,7 +27,7 @@
       },
       {
         "q": "Is EEG safe?",
-        "a": "<p>Absolutely. EEG only records electrical activity â it does not send any signals into the brain. The cap and gel are the same type used in routine medical procedures. EEG has been used safely with infants and children for decades.</p>"
+        "a": "<p>Absolutely. EEG only records electrical activity-- it does not send any signals into the brain. The cap and gel are the same type used in routine medical procedures. EEG has been used safely with infants and children for decades.</p>"
       },
       {
         "q": "Can I stay with my child during the study?",
