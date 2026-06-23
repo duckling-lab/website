@@ -4,7 +4,7 @@
     "title": "EEG Storytime",
     "subtitle": "Listen to stories while we record brain activity",
     "type": "EEG",
-    "status": "awaiting_approval",
+    "status": "enrolling",
     "visible": true,
     "who": "Adults & Children",
     "age_range": "Ages 3–17 and adults 18–40",
