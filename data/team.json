@@ -356,10 +356,11 @@
     "role": "Undergraduate RA",
     "title": "Linguistics & French",
     "institution": "BU",
+    "institution_color": "#cc0000",
     "bu_member": true,
     "tier": "ra",
     "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/darby_noah_adult.jpg",
-    "photo_kid": null,
+    "photo_kid": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/darby_noah_kid.jpg",
     "bio": null,
     "interests": "Psycholinguistics and language acquisition in educational settings.",
     "website": null,
@@ -371,9 +372,9 @@
     "dept": null,
     "status": "current",
     "alumni": false,
+    "where_now": null,
     "object_position": "center top",
-    "object_zoom": 1,
-    "institution_color": "#cc0000"
+    "object_zoom": 1
   },
   {
     "id": "wang_yujing",
