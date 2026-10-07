@@ -208,13 +208,14 @@
     "role": "PhD Student",
     "title": "Psychology",
     "institution": "Harvard",
+    "institution_color": "#A51C30",
     "bu_member": false,
     "tier": "phd",
     "photo_adult": null,
     "photo_kid": null,
     "bio": null,
     "interests": null,
-    "website": null,
+    "website": "https://briwaite.github.io/",
     "email": null,
     "scholar": null,
     "osf": null,
@@ -223,9 +224,9 @@
     "dept": null,
     "status": "current",
     "alumni": false,
+    "where_now": null,
     "object_position": "center top",
-    "object_zoom": 1,
-    "institution_color": "#A51C30"
+    "object_zoom": 1
   },
   {
     "id": "huang_yuhui",
