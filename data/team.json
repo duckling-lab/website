@@ -95,11 +95,12 @@
     "cv": null,
     "dissertation": null,
     "dept": null,
-    "status": "current",
-    "alumni": false,
+    "status": "alumni",
+    "alumni": true,
     "object_position": "center top",
     "object_zoom": 1,
-    "institution_color": "#cc0000"
+    "institution_color": "#cc0000",
+    "where_now": "Lab Manager, Centre for Language Science (Penn State)"
   },
   {
     "id": "jiang_xinhan",
