@@ -304,17 +304,18 @@
     "institution_color": "#cc0000"
   },
   {
-    "id": "lin_imeng",
+    "id": "lin_meng_i",
     "name": "I Meng Lin",
     "role": "MA RA",
     "title": "Linguistics",
     "institution": "BU",
+    "institution_color": "#cc0000",
     "bu_member": true,
     "tier": "ma",
-    "photo_adult": null,
+    "photo_adult": "https://raw.githubusercontent.com/duckling-lab/website/main/media/people/lin_meng_i_adult.jpg",
     "photo_kid": null,
     "bio": null,
-    "interests": null,
+    "interests": "Prosody-pragmatics interface; prosody perception and processing; sociophonetics",
     "website": null,
     "email": null,
     "scholar": null,
@@ -324,9 +325,9 @@
     "dept": null,
     "status": "current",
     "alumni": false,
+    "where_now": null,
     "object_position": "center top",
-    "object_zoom": 1,
-    "institution_color": "#cc0000"
+    "object_zoom": 1
   },
   {
     "id": "mcilroyevans_dioan",
